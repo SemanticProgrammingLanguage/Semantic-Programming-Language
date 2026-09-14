@@ -14,6 +14,10 @@
 
 https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip
 
+## Pre Transpiled Modules
+
+https://github.com/SemanticProgrammingLanguage?tab=repositories
+
 ## Overview
 
 Semantic Programming Language represents programs independently of their original source language.
