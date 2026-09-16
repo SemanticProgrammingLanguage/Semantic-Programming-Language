@@ -1,0 +1,87 @@
+name: Register Semantic module
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  register-module:
+    if: startsWith(github.event.issue.title, '[Module]:')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website registry
+        uses: actions/checkout@v4
+        with:
+          ref: website
+          fetch-depth: 0
+
+      - name: Fetch registration script from main
+        run: |
+          git fetch origin main --depth=1
+          git show origin/main:scripts/register_module.py > /tmp/register_module.py
+
+      - name: Validate archive and update modules.json
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          REGISTRY_PATH: modules.json
+        run: python /tmp/register_module.py
+
+      - name: Commit registry update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add modules.json
+          if git diff --cached --quiet; then
+            echo "No registry change to commit."
+          else
+            git commit -m "Register Semantic module from issue #${{ github.event.issue.number }}"
+            git push origin HEAD:website
+          fi
+
+      - name: Confirm registration
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              "### Semantic Module Registry",
+              "",
+              "✓ Archive downloaded",
+              "✓ `.smod` manifest validated",
+              "✓ Registry updated",
+              "",
+              "Your module is now indexed.",
+              "",
+              "https://www.semantic-programming-language.com/modules.html"
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed"
+            });
+
+      - name: Explain validation failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "The module could not be registered. Open the failed Actions run to see the exact validation error."
+            });
