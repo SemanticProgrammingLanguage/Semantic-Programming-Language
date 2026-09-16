@@ -8,11 +8,15 @@
   A universal, matrix-driven programming language and compiler architecture based on canonical Semantic/UAST representations.
 </p>
 
-# Unfortuanetly self hosting is still not reached, but it is close
+# Unfortuanetly self hosting is still not reached, but it is close. The way to go to compile a project is the transpilation of .se into go or java and compiling it with their compiler.
 
 ## Download
 
 https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip
+
+## Pre Transpiled Modules
+
+https://github.com/SemanticProgrammingLanguage?tab=repositories
 
 ## Overview
 
