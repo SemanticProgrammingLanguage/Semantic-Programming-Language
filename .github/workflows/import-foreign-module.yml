@@ -1,31 +1,16 @@
 name: Import Foreign Package to Semantic Module Store
 
+run-name: "Transpile ${{ inputs.module_name }} · ${{ inputs.language }} → Semantic"
+
 on:
   workflow_dispatch:
     inputs:
       language:
         description: "Source language / registry"
         required: true
-        type: choice
-        options:
-          - go
-          - python
-          - rust
-          - r
-          - node
-          - javascript
-          - typescript
-          - java
-          - kotlin
-          - csharp
-          - dotnet
-          - c
-          - cpp
-          - julia
-          - nim
-          - swift
+        type: string
       package:
-        description: "Package name, module path, Maven coordinate, URL, ZIP, or other source accepted by sp module import"
+        description: "Package name, module path, coordinate, URL or source accepted by sp module import"
         required: true
         type: string
       module_name:
@@ -33,10 +18,28 @@ on:
         required: true
         type: string
       release_version:
-        description: "Optional version/tag suffix, e.g. 2.5.3. Leave blank for timestamped build."
+        description: "Optional release version"
         required: false
         default: ""
         type: string
+  workflow_call:
+    inputs:
+      language:
+        required: true
+        type: string
+      package:
+        required: true
+        type: string
+      module_name:
+        required: true
+        type: string
+      release_version:
+        required: false
+        default: ""
+        type: string
+    secrets:
+      MODULE_STORE_TOKEN:
+        required: true
 
 permissions:
   contents: write
@@ -90,42 +93,28 @@ jobs:
           "$GITHUB_WORKSPACE/sp" version || true
 
       - name: Prepare isolated Semantic module store
-        id: store
         shell: bash
         run: |
           set -euo pipefail
           export HOME="$RUNNER_TEMP/semantic-home"
           mkdir -p "$HOME" "$RUNNER_TEMP/semantic-store-parent"
-
           "$GITHUB_WORKSPACE/sp" module setpath "$RUNNER_TEMP/semantic-store-parent"
-
-          echo "Semantic module path:"
-          "$GITHUB_WORKSPACE/sp" module path
           STORE_PATH="$("$GITHUB_WORKSPACE/sp" module path | tail -n 1 | tr -d '\r')"
-
-          if [ -z "$STORE_PATH" ]; then
-            echo "::error::Could not determine Semantic module store path."
-            exit 1
-          fi
-
+          test -n "$STORE_PATH"
           mkdir -p "$STORE_PATH"
           echo "HOME=$HOME" >> "$GITHUB_ENV"
           echo "SEMANTIC_STORE_PATH=$STORE_PATH" >> "$GITHUB_ENV"
-          echo "store_path=$STORE_PATH" >> "$GITHUB_OUTPUT"
 
       - name: Import package into Semantic
         shell: bash
         run: |
           set -euo pipefail
-          echo "Importing language=${{ inputs.language }} package=${{ inputs.package }}"
           "$GITHUB_WORKSPACE/sp" module import \
             --language "${{ inputs.language }}" \
             "${{ inputs.package }}"
-          echo
           "$GITHUB_WORKSPACE/sp" module list || true
 
       - name: Build distributable Semantic module ZIP
-        id: pack
         env:
           MODULE_NAME: ${{ inputs.module_name }}
           RELEASE_VERSION: ${{ inputs.release_version }}
@@ -144,11 +133,7 @@ jobs:
           GH_TOKEN: ${{ secrets.MODULE_STORE_TOKEN }}
         run: |
           set -euo pipefail
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::Missing repository secret MODULE_STORE_TOKEN."
-            echo "::error::Create a fine-grained PAT with Contents: Read and write for $MODULE_STORE_REPO."
-            exit 1
-          fi
+          test -n "${GH_TOKEN:-}"
           gh api "repos/$MODULE_STORE_REPO" >/dev/null
 
       - name: Create GitHub Release in central Semantic Module Store
@@ -172,7 +157,6 @@ jobs:
             --file site/modules.json \
             --name "$MODULE_NAME" \
             --url "$DOWNLOAD_URL"
-          cat site/modules.json
 
       - name: Commit registry update to website branch
         working-directory: site
@@ -187,35 +171,3 @@ jobs:
             git commit -m "Register generated module: ${{ inputs.module_name }}"
             git push origin HEAD:website
           fi
-
-      - name: Upload workflow artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ inputs.module_name }}-semantic-module
-          path: |
-            ${{ env.RELEASE_ZIP }}
-            ${{ runner.temp }}/release/RELEASE_NOTES.md
-          if-no-files-found: error
-          retention-days: 14
-
-      - name: Summary
-        shell: bash
-        run: |
-          DOWNLOAD_URL="https://github.com/$MODULE_STORE_REPO/releases/download/$RELEASE_TAG/$RELEASE_ASSET_NAME"
-          {
-            echo "## Semantic Module published"
-            echo
-            echo "**Module:** \`${{ inputs.module_name }}\`"
-            echo
-            echo "**Source language:** \`${{ inputs.language }}\`"
-            echo
-            echo "**Source package:** \`${{ inputs.package }}\`"
-            echo
-            echo "**Download:** $DOWNLOAD_URL"
-            echo
-            echo "Install:"
-            echo
-            echo '```bash'
-            echo "sp module import $DOWNLOAD_URL"
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
