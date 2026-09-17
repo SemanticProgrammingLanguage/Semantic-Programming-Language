@@ -831,8 +831,30 @@ jobs:
             exit 1
           fi
 
+          RELEASE_ASSETS=(
+            "$RELEASE_ZIP#$RELEASE_ASSET_NAME"
+          )
+
+          # Publish README and LICENSE next to the ZIP as separate release assets.
+          # They were already copied into IMPORTED_MODULE_ROOT before packaging.
+          for FILE in \
+            "$IMPORTED_MODULE_ROOT/README.md" \
+            "$IMPORTED_MODULE_ROOT/README.txt" \
+            "$IMPORTED_MODULE_ROOT/README" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.md" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.txt" \
+            "$IMPORTED_MODULE_ROOT/LICENSE"
+          do
+            if [[ -f "$FILE" ]]; then
+              RELEASE_ASSETS+=("$FILE#$(basename "$FILE")")
+            fi
+          done
+
+          echo "Release assets:"
+          printf '  %s\n' "${RELEASE_ASSETS[@]}"
+
           gh release create "$RELEASE_TAG" \
-            "$RELEASE_ZIP#$RELEASE_ASSET_NAME" \
+            "${RELEASE_ASSETS[@]}" \
             --repo "$MODULE_STORE_REPO" \
             --title "$MODULE_NAME" \
             --notes-file "$RUNNER_TEMP/release/RELEASE_NOTES.md"
