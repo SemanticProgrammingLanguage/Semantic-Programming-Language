@@ -484,13 +484,94 @@ jobs:
           test -n "$LANGUAGE"
           test -n "$PACKAGE"
 
+          #
+          # Go handling
+          #
+          # The Code Transpiler currently asks proxy.golang.org itself for
+          # named Go modules. That path can fail for module names containing
+          # uppercase letters because the Go proxy uses escaped module paths.
+          #
+          # Avoid that entire class of failures here:
+          #
+          # - stdlib packages (math, fmt, net/http, ...) -> use GOROOT/src/...
+          # - external Go modules -> let the official Go tool download them,
+          #   then import the resulting local source directory into Semantic.
+          #
+          IMPORT_PACKAGE="$PACKAGE"
+
+          if [[ "$LANGUAGE" == "go" ]]; then
+            if go list std 2>/dev/null | grep -Fxq "$PACKAGE"; then
+              GOROOT="$(go env GOROOT)"
+              IMPORT_PACKAGE="$GOROOT/src/$PACKAGE"
+
+              if [[ ! -d "$IMPORT_PACKAGE" ]]; then
+                echo "::error::Go standard-library package '$PACKAGE' was detected but '$IMPORT_PACKAGE' does not exist."
+                exit 1
+              fi
+
+              echo
+              echo "Detected Go standard-library package."
+              echo "Registry identity: $PACKAGE"
+              echo "Local source:      $IMPORT_PACKAGE"
+
+            else
+              echo
+              echo "Resolving Go module with the official Go tool..."
+
+              ORIGINAL_GO_PACKAGE="$PACKAGE"
+              CANDIDATE="$PACKAGE"
+              GO_MODULE_DIR=""
+
+              #
+              # A pkg.go.dev URL can point at either a module root or a
+              # subpackage. Try the full path first; if it is not a module,
+              # walk upward until Go finds a published module root.
+              #
+              while [[ -n "$CANDIDATE" && "$CANDIDATE" == */* ]]; do
+                DOWNLOAD_JSON="$(
+                  go mod download -json "${CANDIDATE}@latest" 2>/dev/null || true
+                )"
+
+                if [[ -n "$DOWNLOAD_JSON" ]]; then
+                  GO_MODULE_DIR="$(
+                    printf '%s' "$DOWNLOAD_JSON" |
+                    python -c 'import json,sys; d=json.load(sys.stdin); print(d.get("Dir",""))'
+                  )"
+
+                  if [[ -n "$GO_MODULE_DIR" && -d "$GO_MODULE_DIR" ]]; then
+                    PACKAGE="$CANDIDATE"
+                    IMPORT_PACKAGE="$GO_MODULE_DIR"
+                    break
+                  fi
+                fi
+
+                NEXT="${CANDIDATE%/*}"
+                if [[ "$NEXT" == "$CANDIDATE" ]]; then
+                  break
+                fi
+                CANDIDATE="$NEXT"
+              done
+
+              if [[ ! -d "$IMPORT_PACKAGE" ]]; then
+                echo "::error::Could not resolve Go package/module '$ORIGINAL_GO_PACKAGE' with the official Go tool."
+                exit 1
+              fi
+
+              echo "Requested Go package: $ORIGINAL_GO_PACKAGE"
+              echo "Resolved module:      $PACKAGE"
+              echo "Local source:         $IMPORT_PACKAGE"
+            fi
+          fi
+
           echo
           echo "Normalized language: $LANGUAGE"
           echo "Normalized package:  $PACKAGE"
+          echo "Import source:       $IMPORT_PACKAGE"
 
           {
             echo "NORMALIZED_LANGUAGE=$LANGUAGE"
             echo "NORMALIZED_PACKAGE=$PACKAGE"
+            echo "IMPORT_PACKAGE=$IMPORT_PACKAGE"
           } >> "$GITHUB_ENV"
 
       - name: Import package into Semantic
@@ -501,10 +582,11 @@ jobs:
           echo "Importing package into Semantic:"
           echo "  language: $NORMALIZED_LANGUAGE"
           echo "  package:  $NORMALIZED_PACKAGE"
+          echo "  source:   $IMPORT_PACKAGE"
 
           "$GITHUB_WORKSPACE/sp" module import \
             --language "$NORMALIZED_LANGUAGE" \
-            "$NORMALIZED_PACKAGE"
+            "$IMPORT_PACKAGE"
 
           echo
           echo "Installed Semantic modules:"
