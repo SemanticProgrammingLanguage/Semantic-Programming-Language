@@ -63,7 +63,7 @@ env:
 jobs:
   import-package:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 360
 
     steps:
       - name: Checkout main branch
@@ -691,6 +691,7 @@ jobs:
                   "readme.md",
                   "readme.markdown",
                   "readme.txt",
+                  "readme.rst",
                   "readme",
               }
           ])
@@ -708,6 +709,9 @@ jobs:
                   "copying",
                   "copying.md",
                   "copying.txt",
+                  "license.rst",
+                  "licence.rst",
+                  "copying.rst",
               }
           ])
 
@@ -723,6 +727,8 @@ jobs:
                       dest = root / "README.md"
                   elif suffix == ".txt":
                       dest = root / "README.txt"
+                  elif suffix == ".rst":
+                      dest = root / "README.rst"
                   else:
                       dest = root / "README"
               else:
@@ -730,6 +736,8 @@ jobs:
                       dest = root / "LICENSE.md"
                   elif suffix == ".txt":
                       dest = root / "LICENSE.txt"
+                  elif suffix == ".rst":
+                      dest = root / "LICENSE.rst"
                   else:
                       dest = root / "LICENSE"
 
@@ -840,9 +848,11 @@ jobs:
           for FILE in \
             "$IMPORTED_MODULE_ROOT/README.md" \
             "$IMPORTED_MODULE_ROOT/README.txt" \
+            "$IMPORTED_MODULE_ROOT/README.rst" \
             "$IMPORTED_MODULE_ROOT/README" \
             "$IMPORTED_MODULE_ROOT/LICENSE.md" \
             "$IMPORTED_MODULE_ROOT/LICENSE.txt" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.rst" \
             "$IMPORTED_MODULE_ROOT/LICENSE"
           do
             if [[ -f "$FILE" ]]; then
