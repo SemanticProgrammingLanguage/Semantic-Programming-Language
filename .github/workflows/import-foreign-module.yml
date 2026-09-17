@@ -540,7 +540,20 @@ jobs:
 
                   if [[ -n "$GO_MODULE_DIR" && -d "$GO_MODULE_DIR" ]]; then
                     PACKAGE="$CANDIDATE"
-                    IMPORT_PACKAGE="$GO_MODULE_DIR"
+
+                    #
+                    # Go's module cache is intentionally read-only.
+                    # Semantic creates derived files beside source files while
+                    # importing, so copy the module to a writable temp folder.
+                    #
+                    WRITABLE_GO_SOURCE="$RUNNER_TEMP/go-module-source"
+                    rm -rf "$WRITABLE_GO_SOURCE"
+                    mkdir -p "$WRITABLE_GO_SOURCE"
+
+                    cp -a "$GO_MODULE_DIR"/. "$WRITABLE_GO_SOURCE"/
+                    chmod -R u+rwX "$WRITABLE_GO_SOURCE"
+
+                    IMPORT_PACKAGE="$WRITABLE_GO_SOURCE"
                     break
                   fi
                 fi
