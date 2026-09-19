@@ -2,6 +2,9 @@
   <img width="640" alt="Semantic Programming Language Logo" src="https://github.com/user-attachments/assets/ec1d4462-c5b0-4aa0-841a-435bf0868b1d">
 </p>
 
+<h1 align="center"><a href="https://snapcraft.io/semantic-programming-language">
+  <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
+</a></h1>
 <h1 align="center">Semantic Programming Language</h1>
 
 <p align="center">
