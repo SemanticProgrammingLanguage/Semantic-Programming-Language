@@ -375,4 +375,4 @@ The Go bootstrap compiler, GUI, CLI and importable package are maintained in:
 
 Semantic Programming Language is licensed under the terms provided in [LICENSE](LICENSE).
 
-Copyright (c) 2026 Tarek Wasfy
+Copyright (c) 2026 Tarek Wasfy and Contributors
