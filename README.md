@@ -1,6 +1,25 @@
 <p align="center">
   <img width="640" alt="Semantic Programming Language Logo" src="https://github.com/user-attachments/assets/ec1d4462-c5b0-4aa0-841a-435bf0868b1d">
 </p>
+<p>
+  <a href="https://snapcraft.io/semantic-programming-language">
+    <img alt="semantic-programming-language" src="https://snapcraft.io/semantic-programming-language/badge.svg" />
+  </a>
+
+  <img alt="VS Marketplace Version" src="https://vsmarketplacebadges.dev/version/semanticprogramminglanguage.semantic-programming-language.svg" />
+
+  <img alt="VS Marketplace Version" src="https://vsmarketplacebadges.dev/version/semanticprogramminglanguage.SemanticProgrammingLanguage.svg" />
+
+  <img alt="VS Marketplace Version" src="https://vsmarketplacebadges.dev/version/semanticprogramminglanguage.semantic-programminglanguage.svg" />
+
+  <a href="https://pkg.go.dev/github.com/tarekwasfy01/Code-Transpiler/v2">
+    <img src="https://pkg.go.dev/badge/github.com/tarekwasfy01/Code-Transpiler.svg/v2" alt="Go Reference" />
+  </a>
+
+  <a href="https://plugins.jetbrains.com/plugin/34329">
+    <img alt="JetBrains Marketplace" src="https://img.shields.io/badge/JetBrains-Marketplace-orange?logo=jetbrains" />
+  </a>
+</p>
 
 <h1 align="center"><a href="https://snapcraft.io/semantic-programming-language">
   <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
