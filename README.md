@@ -15,7 +15,12 @@
   <a href="https://pkg.go.dev/github.com/tarekwasfy01/Code-Transpiler/v2">
     <img src="https://pkg.go.dev/badge/github.com/tarekwasfy01/Code-Transpiler.svg/v2" alt="Go Reference" />
   </a>
-
+<a href="https://www.semantic-programming-language.com/">
+  <img
+    src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/tarekwasfy01/Semantic-Programming-Language/website/assets/badges/semantic-main-badge.json"
+    alt="Semantic Programming Language"
+  >
+</a>
   <a href="https://plugins.jetbrains.com/plugin/34329">
     <img alt="JetBrains Marketplace" src="https://img.shields.io/badge/JetBrains-Marketplace-orange?logo=jetbrains" />
   </a>
