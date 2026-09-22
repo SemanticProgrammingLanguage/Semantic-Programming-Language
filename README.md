@@ -104,57 +104,6 @@ GUI:        Semantic Programming Language.exe
 CLI:        sp / CodeTranspiler
 ```
 
-## Compiler source bundles
-
-The Semantic representation of the compiler is divided into three source bundles:
-
-| File | Purpose |
-|---|---|
-| `src/semantic_frontend.se` | Source parsing, language detection and SemanticProgram construction |
-| `src/semantic_uast.se` | Canonical UAST, types, relations, effects and semantic contracts |
-| `src/semantic_backend.se` | Native lowering, runtime integration and executable generation |
-
-Together, they describe the compiler pipeline:
-
-```text
-semantic_frontend.se
-        ↓
-semantic_uast.se
-        ↓
-semantic_backend.se
-        ↓
-Native executable
-```
-
-The files are stored through Git LFS because they contain the consolidated semantic representation of the compiler.
-
-Native ecxecutable https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip
-## Self-hosting
-
-Semantic uses a bootstrapped self-hosting architecture.
-
-The Go implementation provides the initial compiler. Its compiler components can be translated into Semantic `.se` modules and processed by the same universal Semantic/UAST pipeline:
-
-```text
-Go bootstrap compiler
-        ↓
-Semantic compiler sources
-        ↓
-Semantic frontend + UAST + backend
-        ↓
-Native compilation
-        ↓
-Next compiler generation
-```
-
-The canonical self-hosting condition is:
-
-```text
-CompileSemantic(CompilerSemantic) → CompilerNative
-```
-
-The checked-in `.se` bundles provide the Semantic compiler representation. The current Windows GUI distribution is bootstrapped by the Go implementation and embeds verified copies of all three bundles.
-
 ## GUI
 
 Start the application without arguments:
