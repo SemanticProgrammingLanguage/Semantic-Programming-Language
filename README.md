@@ -178,7 +178,7 @@ sp semantic-transpile -target cpp program.se -o output.cpp
 
 Experimental support for Semantic Modules. 
 The Goal is to make packages from all implemented languages accesible by transpiling and decompiling packages from other languages.
-
+Modules can be added to the public module store via the website and github actions: https://www.semantic-programming-language.com/modules.html
 
 ```powershell
 CodeTranspiler.exe module import <source|module.se|module.spz>
