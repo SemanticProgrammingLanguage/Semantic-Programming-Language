@@ -1,0 +1,926 @@
+name: Import Foreign Package to Semantic Module Store
+
+run-name: "Transpile ${{ inputs.module_name }} · ${{ inputs.language }} → Semantic"
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: "Source language / registry"
+        required: true
+        type: string
+
+      package:
+        description: "Package name, module path, coordinate, URL or source accepted by sp module import"
+        required: true
+        type: string
+
+      module_name:
+        description: "Name shown in the Semantic Module Store"
+        required: true
+        type: string
+
+      release_version:
+        description: "Optional release version"
+        required: false
+        default: ""
+        type: string
+
+  workflow_call:
+    inputs:
+      language:
+        required: true
+        type: string
+
+      package:
+        required: true
+        type: string
+
+      module_name:
+        required: true
+        type: string
+
+      release_version:
+        required: false
+        default: ""
+        type: string
+
+    secrets:
+      MODULE_STORE_TOKEN:
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: semantic-module-import-${{ inputs.module_name }}
+  cancel-in-progress: false
+
+env:
+  CODE_TRANSPILER_REPO: tarekwasfy01/Code-Transpiler
+  MODULE_STORE_REPO: SemanticProgrammingLanguage/Semantic-Module-Store
+
+jobs:
+  import-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: source
+
+      - name: Checkout website branch
+        uses: actions/checkout@v4
+        with:
+          ref: website
+          path: site
+          fetch-depth: 0
+
+      - name: Checkout latest Code Transpiler
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.CODE_TRANSPILER_REPO }}
+          ref: main
+          path: code-transpiler
+          fetch-depth: 1
+
+      - name: Set up Go from Code Transpiler go.mod
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: code-transpiler/go.mod
+          cache-dependency-path: code-transpiler/go.sum
+
+      - name: Build Semantic CLI
+        working-directory: code-transpiler
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          go build -trimpath \
+            -o "$GITHUB_WORKSPACE/sp" \
+            ./cmd/r2many
+
+          "$GITHUB_WORKSPACE/sp" version || true
+
+      - name: Prepare isolated Semantic module store
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          export HOME="$RUNNER_TEMP/semantic-home"
+
+          mkdir -p \
+            "$HOME" \
+            "$RUNNER_TEMP/semantic-store-parent"
+
+          "$GITHUB_WORKSPACE/sp" module setpath \
+            "$RUNNER_TEMP/semantic-store-parent"
+
+          STORE_PATH="$(
+            "$GITHUB_WORKSPACE/sp" module path \
+              | tail -n 1 \
+              | tr -d '\r'
+          )"
+
+          test -n "$STORE_PATH"
+          mkdir -p "$STORE_PATH"
+
+          echo "HOME=$HOME" >> "$GITHUB_ENV"
+          echo "SEMANTIC_STORE_PATH=$STORE_PATH" >> "$GITHUB_ENV"
+
+      - name: Normalize language and package input
+        shell: bash
+        env:
+          RAW_LANGUAGE: ${{ inputs.language }}
+          RAW_PACKAGE: ${{ inputs.package }}
+        run: |
+          set -euo pipefail
+
+          LANGUAGE="$(
+            printf '%s' "$RAW_LANGUAGE" \
+              | tr '[:upper:]' '[:lower:]' \
+              | xargs
+          )"
+
+          PACKAGE="$(
+            printf '%s' "$RAW_PACKAGE" \
+              | xargs
+          )"
+
+          test -n "$LANGUAGE"
+          test -n "$PACKAGE"
+
+          echo "Original language: $LANGUAGE"
+          echo "Original package:  $PACKAGE"
+
+          #
+          # Canonicalize language aliases first.
+          #
+          case "$LANGUAGE" in
+            golang)
+              LANGUAGE="go"
+              ;;
+            py|python3)
+              LANGUAGE="python"
+              ;;
+            rs|cargo|crates|crates.io)
+              LANGUAGE="rust"
+              ;;
+            npm)
+              LANGUAGE="javascript"
+              ;;
+            js)
+              LANGUAGE="javascript"
+              ;;
+            ts)
+              LANGUAGE="typescript"
+              ;;
+            cs|c#|nuget)
+              LANGUAGE="csharp"
+              ;;
+            dotnet)
+              LANGUAGE="dotnet"
+              ;;
+            cxx|cplusplus|vcpkg)
+              LANGUAGE="cpp"
+              ;;
+            maven)
+              LANGUAGE="java"
+              ;;
+            rlang|cran)
+              LANGUAGE="r"
+              ;;
+          esac
+
+          #
+          # Preserve direct archives/download URLs.
+          # Those are already valid input for `sp module import`.
+          #
+          LOWER_PACKAGE="$(printf '%s' "$PACKAGE" | tr '[:upper:]' '[:lower:]')"
+
+          IS_DIRECT_ARCHIVE=0
+
+          case "$LOWER_PACKAGE" in
+            *.zip|*.zip\?*|*.tar.gz|*.tar.gz\?*|*.tgz|*.tgz\?*|*.tar|*.tar\?*|*.nupkg|*.nupkg\?*|*.jar|*.jar\?*|*.crate|*.crate\?*)
+              IS_DIRECT_ARCHIVE=1
+              ;;
+          esac
+
+          if [[ "$IS_DIRECT_ARCHIVE" -eq 0 ]]; then
+            case "$LANGUAGE" in
+
+              #
+              # Go
+              #
+              # pkg.go.dev is documentation, not a Go module identity.
+              #
+              # https://pkg.go.dev/github.com/user/repo
+              # -> github.com/user/repo
+              #
+              # https://github.com/user/repo
+              # -> github.com/user/repo
+              #
+              go)
+                if [[ "$PACKAGE" == https://pkg.go.dev/* ]]; then
+                  PACKAGE="${PACKAGE#https://pkg.go.dev/}"
+                elif [[ "$PACKAGE" == http://pkg.go.dev/* ]]; then
+                  PACKAGE="${PACKAGE#http://pkg.go.dev/}"
+                fi
+
+                if [[ "$PACKAGE" == https://github.com/* ]]; then
+                  PACKAGE="${PACKAGE#https://}"
+                elif [[ "$PACKAGE" == http://github.com/* ]]; then
+                  PACKAGE="${PACKAGE#http://}"
+                fi
+
+                PACKAGE="${PACKAGE%%\?*}"
+                PACKAGE="${PACKAGE%%\#*}"
+
+                while [[ "$PACKAGE" == */ ]]; do
+                  PACKAGE="${PACKAGE%/}"
+                done
+
+                PACKAGE="${PACKAGE%.git}"
+                ;;
+
+              #
+              # Python / PyPI
+              #
+              # https://pypi.org/project/numpy/
+              # -> numpy
+              #
+              python)
+                if [[ "$PACKAGE" == https://pypi.org/project/* ]]; then
+                  PACKAGE="${PACKAGE#https://pypi.org/project/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                elif [[ "$PACKAGE" == http://pypi.org/project/* ]]; then
+                  PACKAGE="${PACKAGE#http://pypi.org/project/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                fi
+                ;;
+
+              #
+              # Rust / crates.io
+              #
+              # https://crates.io/crates/serde
+              # -> serde
+              #
+              rust)
+                if [[ "$PACKAGE" == https://crates.io/crates/* ]]; then
+                  PACKAGE="${PACKAGE#https://crates.io/crates/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                elif [[ "$PACKAGE" == http://crates.io/crates/* ]]; then
+                  PACKAGE="${PACKAGE#http://crates.io/crates/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                fi
+                ;;
+
+              #
+              # Node / JavaScript / TypeScript / npm
+              #
+              # https://www.npmjs.com/package/react
+              # -> react
+              #
+              # https://www.npmjs.com/package/@scope/pkg
+              # -> @scope/pkg
+              #
+              node|javascript|typescript)
+                if [[ "$PACKAGE" == https://www.npmjs.com/package/* ]]; then
+                  PACKAGE="${PACKAGE#https://www.npmjs.com/package/}"
+                elif [[ "$PACKAGE" == https://npmjs.com/package/* ]]; then
+                  PACKAGE="${PACKAGE#https://npmjs.com/package/}"
+                elif [[ "$PACKAGE" == http://www.npmjs.com/package/* ]]; then
+                  PACKAGE="${PACKAGE#http://www.npmjs.com/package/}"
+                elif [[ "$PACKAGE" == http://npmjs.com/package/* ]]; then
+                  PACKAGE="${PACKAGE#http://npmjs.com/package/}"
+                fi
+
+                PACKAGE="${PACKAGE%%\?*}"
+                PACKAGE="${PACKAGE%%\#*}"
+
+                while [[ "$PACKAGE" == */ ]]; do
+                  PACKAGE="${PACKAGE%/}"
+                done
+                ;;
+
+              #
+              # C# / .NET / NuGet
+              #
+              # https://www.nuget.org/packages/Newtonsoft.Json/
+              # -> Newtonsoft.Json
+              #
+              csharp|dotnet)
+                if [[ "$PACKAGE" == https://www.nuget.org/packages/* ]]; then
+                  PACKAGE="${PACKAGE#https://www.nuget.org/packages/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                elif [[ "$PACKAGE" == https://nuget.org/packages/* ]]; then
+                  PACKAGE="${PACKAGE#https://nuget.org/packages/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                fi
+                ;;
+
+              #
+              # C / C++ / vcpkg
+              #
+              # https://vcpkg.io/en/package/boost.html
+              # -> boost
+              #
+              # Plain package names such as boost, fmt, sqlite3 etc. are
+              # left unchanged and resolved by the Code Transpiler's
+              # vcpkg adapter.
+              #
+              c|cpp|c++)
+                if [[ "$PACKAGE" == https://vcpkg.io/en/package/* ]]; then
+                  PACKAGE="${PACKAGE#https://vcpkg.io/en/package/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%.html}"
+                elif [[ "$PACKAGE" == http://vcpkg.io/en/package/* ]]; then
+                  PACKAGE="${PACKAGE#http://vcpkg.io/en/package/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%.html}"
+                fi
+
+                while [[ "$PACKAGE" == */ ]]; do
+                  PACKAGE="${PACKAGE%/}"
+                done
+                ;;
+
+              #
+              # Java / Kotlin / Maven
+              #
+              # Native expected format:
+              #   groupId:artifactId
+              #   groupId:artifactId:version
+              #
+              # Also accept mvnrepository.com URLs:
+              #
+              # https://mvnrepository.com/artifact/com.google.guava/guava/33.4.0-jre
+              # -> com.google.guava:guava:33.4.0-jre
+              #
+              java|kotlin)
+                if [[ "$PACKAGE" == https://mvnrepository.com/artifact/* ]]; then
+                  TMP="${PACKAGE#https://mvnrepository.com/artifact/}"
+                  TMP="${TMP%%\?*}"
+                  TMP="${TMP%%\#*}"
+
+                  IFS='/' read -r GROUP ARTIFACT VERSION REST <<< "$TMP"
+
+                  if [[ -n "${GROUP:-}" && -n "${ARTIFACT:-}" ]]; then
+                    PACKAGE="${GROUP}:${ARTIFACT}"
+                    if [[ -n "${VERSION:-}" ]]; then
+                      PACKAGE="${PACKAGE}:${VERSION}"
+                    fi
+                  fi
+                elif [[ "$PACKAGE" == http://mvnrepository.com/artifact/* ]]; then
+                  TMP="${PACKAGE#http://mvnrepository.com/artifact/}"
+                  TMP="${TMP%%\?*}"
+                  TMP="${TMP%%\#*}"
+
+                  IFS='/' read -r GROUP ARTIFACT VERSION REST <<< "$TMP"
+
+                  if [[ -n "${GROUP:-}" && -n "${ARTIFACT:-}" ]]; then
+                    PACKAGE="${GROUP}:${ARTIFACT}"
+                    if [[ -n "${VERSION:-}" ]]; then
+                      PACKAGE="${PACKAGE}:${VERSION}"
+                    fi
+                  fi
+                fi
+                ;;
+
+              #
+              # R / CRAN
+              #
+              # https://cran.r-project.org/web/packages/ggplot2/index.html
+              # -> ggplot2
+              #
+              # https://cran.r-project.org/package=ggplot2
+              # -> ggplot2
+              #
+              r)
+                if [[ "$PACKAGE" == *"cran.r-project.org/package="* ]]; then
+                  PACKAGE="${PACKAGE#*=}"
+                  PACKAGE="${PACKAGE%%\&*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                elif [[ "$PACKAGE" == https://cran.r-project.org/web/packages/* ]]; then
+                  PACKAGE="${PACKAGE#https://cran.r-project.org/web/packages/}"
+                  PACKAGE="${PACKAGE%%/*}"
+                elif [[ "$PACKAGE" == http://cran.r-project.org/web/packages/* ]]; then
+                  PACKAGE="${PACKAGE#http://cran.r-project.org/web/packages/}"
+                  PACKAGE="${PACKAGE%%/*}"
+                fi
+                ;;
+
+              #
+              # Julia
+              #
+              # Plain Julia package names are already accepted by the resolver.
+              # Direct archive URLs are preserved above.
+              #
+              julia)
+                ;;
+
+              #
+              # Nim
+              #
+              # Accept common nimble.directory package pages.
+              #
+              nim)
+                if [[ "$PACKAGE" == https://nimble.directory/pkg/* ]]; then
+                  PACKAGE="${PACKAGE#https://nimble.directory/pkg/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                elif [[ "$PACKAGE" == http://nimble.directory/pkg/* ]]; then
+                  PACKAGE="${PACKAGE#http://nimble.directory/pkg/}"
+                  PACKAGE="${PACKAGE%%\?*}"
+                  PACKAGE="${PACKAGE%%\#*}"
+                  PACKAGE="${PACKAGE%%/*}"
+                fi
+                ;;
+
+              #
+              # Swift
+              #
+              # Plain Swift package identities are left untouched.
+              # Direct archives are preserved above.
+              #
+              swift)
+                ;;
+
+              *)
+                echo "::warning::No URL normalization rule for language '$LANGUAGE'. Input will be passed through unchanged."
+                ;;
+            esac
+          fi
+
+          #
+          # Common cleanup for registry identities only.
+          #
+          if [[ "$IS_DIRECT_ARCHIVE" -eq 0 ]]; then
+            PACKAGE="${PACKAGE%%\#*}"
+
+            while [[ "$PACKAGE" == */ ]]; do
+              PACKAGE="${PACKAGE%/}"
+            done
+          fi
+
+          test -n "$LANGUAGE"
+          test -n "$PACKAGE"
+
+          #
+          # Go handling
+          #
+          # The Code Transpiler currently asks proxy.golang.org itself for
+          # named Go modules. That path can fail for module names containing
+          # uppercase letters because the Go proxy uses escaped module paths.
+          #
+          # Avoid that entire class of failures here:
+          #
+          # - stdlib packages (math, fmt, net/http, ...) -> use GOROOT/src/...
+          # - external Go modules -> let the official Go tool download them,
+          #   then import the resulting local source directory into Semantic.
+          #
+          IMPORT_PACKAGE="$PACKAGE"
+
+          if [[ "$LANGUAGE" == "go" ]]; then
+            if go list std 2>/dev/null | grep -Fxq "$PACKAGE"; then
+              GOROOT="$(go env GOROOT)"
+              IMPORT_PACKAGE="$GOROOT/src/$PACKAGE"
+
+              if [[ ! -d "$IMPORT_PACKAGE" ]]; then
+                echo "::error::Go standard-library package '$PACKAGE' was detected but '$IMPORT_PACKAGE' does not exist."
+                exit 1
+              fi
+
+              echo
+              echo "Detected Go standard-library package."
+              echo "Registry identity: $PACKAGE"
+              echo "Local source:      $IMPORT_PACKAGE"
+
+            else
+              echo
+              echo "Resolving Go module with the official Go tool..."
+
+              ORIGINAL_GO_PACKAGE="$PACKAGE"
+              CANDIDATE="$PACKAGE"
+              GO_MODULE_DIR=""
+
+              #
+              # A pkg.go.dev URL can point at either a module root or a
+              # subpackage. Try the full path first; if it is not a module,
+              # walk upward until Go finds a published module root.
+              #
+              while [[ -n "$CANDIDATE" && "$CANDIDATE" == */* ]]; do
+                DOWNLOAD_JSON="$(
+                  go mod download -json "${CANDIDATE}@latest" 2>/dev/null || true
+                )"
+
+                if [[ -n "$DOWNLOAD_JSON" ]]; then
+                  GO_MODULE_DIR="$(
+                    printf '%s' "$DOWNLOAD_JSON" |
+                    python -c 'import json,sys; d=json.load(sys.stdin); print(d.get("Dir",""))'
+                  )"
+
+                  if [[ -n "$GO_MODULE_DIR" && -d "$GO_MODULE_DIR" ]]; then
+                    PACKAGE="$CANDIDATE"
+
+                    #
+                    # Go's module cache is intentionally read-only.
+                    # Semantic creates derived files beside source files while
+                    # importing, so copy the module to a writable temp folder.
+                    #
+                    WRITABLE_GO_SOURCE="$RUNNER_TEMP/go-module-source"
+                    rm -rf "$WRITABLE_GO_SOURCE"
+                    mkdir -p "$WRITABLE_GO_SOURCE"
+
+                    cp -a "$GO_MODULE_DIR"/. "$WRITABLE_GO_SOURCE"/
+                    chmod -R u+rwX "$WRITABLE_GO_SOURCE"
+
+                    IMPORT_PACKAGE="$WRITABLE_GO_SOURCE"
+                    break
+                  fi
+                fi
+
+                NEXT="${CANDIDATE%/*}"
+                if [[ "$NEXT" == "$CANDIDATE" ]]; then
+                  break
+                fi
+                CANDIDATE="$NEXT"
+              done
+
+              if [[ ! -d "$IMPORT_PACKAGE" ]]; then
+                echo "::error::Could not resolve Go package/module '$ORIGINAL_GO_PACKAGE' with the official Go tool."
+                exit 1
+              fi
+
+              echo "Requested Go package: $ORIGINAL_GO_PACKAGE"
+              echo "Resolved module:      $PACKAGE"
+              echo "Local source:         $IMPORT_PACKAGE"
+            fi
+          fi
+
+          echo
+          echo "Normalized language: $LANGUAGE"
+          echo "Normalized package:  $PACKAGE"
+          echo "Import source:       $IMPORT_PACKAGE"
+
+          {
+            echo "NORMALIZED_LANGUAGE=$LANGUAGE"
+            echo "NORMALIZED_PACKAGE=$PACKAGE"
+            echo "IMPORT_PACKAGE=$IMPORT_PACKAGE"
+          } >> "$GITHUB_ENV"
+
+      - name: Import package into Semantic
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Importing package into Semantic:"
+          echo "  language: $NORMALIZED_LANGUAGE"
+          echo "  package:  $NORMALIZED_PACKAGE"
+          echo "  source:   $IMPORT_PACKAGE"
+
+          "$GITHUB_WORKSPACE/sp" module import \
+            --language "$NORMALIZED_LANGUAGE" \
+            "$IMPORT_PACKAGE"
+
+          echo
+          echo "Installed Semantic modules:"
+          "$GITHUB_WORKSPACE/sp" module list || true
+
+      - name: Place README and LICENSE beside the Semantic manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          import os
+
+          store = Path(os.environ["SEMANTIC_STORE_PATH"]).expanduser().resolve()
+
+          smods = sorted(
+              (p for p in store.rglob("*.smod") if p.is_file()),
+              key=lambda p: p.stat().st_mtime_ns,
+              reverse=True,
+          )
+
+          if not smods:
+              raise SystemExit("No .smod found after package import.")
+
+          smod = smods[0]
+
+          # Keep this root-selection logic aligned with
+          # scripts/package_imported_module.py.
+          root = smod.parent
+          if root.name.lower() == "modules":
+              sibling = root / smod.stem
+              if sibling.is_dir():
+                  root = sibling
+
+          root.mkdir(parents=True, exist_ok=True)
+
+          def depth(path: Path) -> int:
+              try:
+                  return len(path.relative_to(root).parts)
+              except ValueError:
+                  return 9999
+
+          def pick(patterns):
+              matches = []
+              search_roots = [root]
+
+              # The imported package may keep metadata one level around the
+              # manifest/package tree, so search the manifest directory too.
+              if smod.parent != root:
+                  search_roots.append(smod.parent)
+
+              seen = set()
+
+              for base in search_roots:
+                  if not base.exists():
+                      continue
+
+                  for p in base.rglob("*"):
+                      if not p.is_file():
+                          continue
+
+                      key = str(p.resolve())
+                      if key in seen:
+                          continue
+                      seen.add(key)
+
+                      name = p.name.lower()
+
+                      if any(pattern(name) for pattern in patterns):
+                          matches.append(p)
+
+              if not matches:
+                  return None
+
+              # Prefer files closest to the package root, then smaller path.
+              matches.sort(
+                  key=lambda p: (
+                      depth(p),
+                      len(p.parts),
+                      p.as_posix().lower(),
+                  )
+              )
+              return matches[0]
+
+          readme = pick([
+              lambda n: n in {
+                  "readme.md",
+                  "readme.markdown",
+                  "readme.txt",
+                  "readme.rst",
+                  "readme",
+              }
+          ])
+
+          license_file = pick([
+              lambda n: n in {
+                  "license",
+                  "license.md",
+                  "license.markdown",
+                  "license.txt",
+                  "licence",
+                  "licence.md",
+                  "licence.markdown",
+                  "licence.txt",
+                  "copying",
+                  "copying.md",
+                  "copying.txt",
+                  "license.rst",
+                  "licence.rst",
+                  "copying.rst",
+              }
+          ])
+
+          def copy_canonical(src: Path | None, kind: str):
+              if src is None:
+                  print(f"No {kind} file found in imported package.")
+                  return
+
+              suffix = src.suffix.lower()
+
+              if kind == "README":
+                  if suffix in {".md", ".markdown"}:
+                      dest = root / "README.md"
+                  elif suffix == ".txt":
+                      dest = root / "README.txt"
+                  elif suffix == ".rst":
+                      dest = root / "README.rst"
+                  else:
+                      dest = root / "README"
+              else:
+                  if suffix in {".md", ".markdown"}:
+                      dest = root / "LICENSE.md"
+                  elif suffix == ".txt":
+                      dest = root / "LICENSE.txt"
+                  elif suffix == ".rst":
+                      dest = root / "LICENSE.rst"
+                  else:
+                      dest = root / "LICENSE"
+
+              if src.resolve() == dest.resolve():
+                  print(f"{kind} already beside manifest: {dest}")
+                  return
+
+              shutil.copy2(src, dest)
+              print(f"Copied {kind}: {src} -> {dest}")
+
+          copy_canonical(readme, "README")
+          copy_canonical(license_file, "LICENSE")
+
+          print(f"Semantic manifest: {smod}")
+          print(f"Packaging root:    {root}")
+          PY
+
+      - name: Build distributable Semantic module ZIP
+        shell: bash
+        env:
+          MODULE_NAME: ${{ inputs.module_name }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p "$RUNNER_TEMP/release"
+
+          export SOURCE_LANGUAGE="$NORMALIZED_LANGUAGE"
+          export SOURCE_PACKAGE="$NORMALIZED_PACKAGE"
+
+          python source/scripts/package_imported_module.py \
+            --store "$SEMANTIC_STORE_PATH" \
+            --module-name "$MODULE_NAME" \
+            --output-dir "$RUNNER_TEMP/release"
+
+          test -f "$RUNNER_TEMP/release/release.env"
+
+          cat "$RUNNER_TEMP/release/release.env" \
+            >> "$GITHUB_ENV"
+
+      - name: Verify generated release files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -n "${RELEASE_TAG:-}"
+          test -n "${RELEASE_ASSET_NAME:-}"
+          test -n "${RELEASE_ZIP:-}"
+          test -f "$RELEASE_ZIP"
+
+          echo "Release tag:   $RELEASE_TAG"
+          echo "Release asset: $RELEASE_ASSET_NAME"
+          echo "Release ZIP:   $RELEASE_ZIP"
+
+          echo
+          echo "ZIP contents:"
+          unzip -l "$RELEASE_ZIP"
+
+          #
+          # The Semantic Module Store expects exactly one .smod in the ZIP.
+          #
+          SMOD_COUNT="$(
+            unzip -Z1 "$RELEASE_ZIP" \
+              | grep -Eic '(^|/)[^/]+\.smod$' \
+              || true
+          )"
+
+          if [[ "$SMOD_COUNT" -ne 1 ]]; then
+            echo "::error::Expected exactly one .smod in the release ZIP, found $SMOD_COUNT."
+            exit 1
+          fi
+
+      - name: Verify central module-store repository access
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.MODULE_STORE_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          test -n "${GH_TOKEN:-}"
+
+          gh api \
+            "repos/$MODULE_STORE_REPO" \
+            >/dev/null
+
+      - name: Create GitHub Release in central Semantic Module Store
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.MODULE_STORE_TOKEN }}
+          MODULE_NAME: ${{ inputs.module_name }}
+        run: |
+          set -euo pipefail
+
+          if gh release view "$RELEASE_TAG" \
+            --repo "$MODULE_STORE_REPO" \
+            >/dev/null 2>&1
+          then
+            echo "::error::Release already exists: $RELEASE_TAG"
+            exit 1
+          fi
+
+          RELEASE_ASSETS=(
+            "$RELEASE_ZIP#$RELEASE_ASSET_NAME"
+          )
+
+          # Publish README and LICENSE next to the ZIP as separate release assets.
+          # They were already copied into IMPORTED_MODULE_ROOT before packaging.
+          for FILE in \
+            "$IMPORTED_MODULE_ROOT/README.md" \
+            "$IMPORTED_MODULE_ROOT/README.txt" \
+            "$IMPORTED_MODULE_ROOT/README.rst" \
+            "$IMPORTED_MODULE_ROOT/README" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.md" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.txt" \
+            "$IMPORTED_MODULE_ROOT/LICENSE.rst" \
+            "$IMPORTED_MODULE_ROOT/LICENSE"
+          do
+            if [[ -f "$FILE" ]]; then
+              RELEASE_ASSETS+=("$FILE#$(basename "$FILE")")
+            fi
+          done
+
+          echo "Release assets:"
+          printf '  %s\n' "${RELEASE_ASSETS[@]}"
+
+          gh release create "$RELEASE_TAG" \
+            "${RELEASE_ASSETS[@]}" \
+            --repo "$MODULE_STORE_REPO" \
+            --title "$MODULE_NAME" \
+            --notes-file "$RUNNER_TEMP/release/RELEASE_NOTES.md"
+
+      - name: Update website modules.json
+        shell: bash
+        env:
+          MODULE_NAME: ${{ inputs.module_name }}
+        run: |
+          set -euo pipefail
+
+          DOWNLOAD_URL="https://github.com/$MODULE_STORE_REPO/releases/download/$RELEASE_TAG/$RELEASE_ASSET_NAME"
+
+          echo "Registering module:"
+          echo "  name: $MODULE_NAME"
+          echo "  url:  $DOWNLOAD_URL"
+
+          python source/scripts/update_modules_json.py \
+            --file site/modules.json \
+            --name "$MODULE_NAME" \
+            --url "$DOWNLOAD_URL"
+
+      - name: Verify modules.json
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python -m json.tool \
+            site/modules.json \
+            >/dev/null
+
+          echo "modules.json is valid JSON."
+
+      - name: Commit registry update to website branch
+        working-directory: site
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config \
+            user.name \
+            "github-actions[bot]"
+
+          git config \
+            user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add modules.json
+
+          if git diff --cached --quiet; then
+            echo "No registry change required."
+          else
+            git commit \
+              -m "Register generated module: ${{ inputs.module_name }}"
+
+            git push \
+              origin \
+              HEAD:website
+          fi

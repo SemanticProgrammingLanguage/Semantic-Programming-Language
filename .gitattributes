@@ -3,3 +3,4 @@ semantic-examples/*.se filter=lfs diff=lfs merge=lfs -text
 semantic-examples/*.zip filter=lfs diff=lfs merge=lfs -text
 compiler-migration/go/selfhost-current2/semantic/semantic-se.zip filter=lfs diff=lfs merge=lfs -text
 SPLC/** filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
