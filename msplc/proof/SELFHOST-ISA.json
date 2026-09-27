@@ -1,0 +1,635 @@
+{
+  "schema": "selfhost.x64.fixed-slot.v1",
+  "text_offset": 4096,
+  "text_va": 4198400,
+  "data_offset": 131072,
+  "data_va": 4325376,
+  "file_size": 262144,
+  "code_slot": 16,
+  "data_slot": 256,
+  "operations": [
+    {
+      "id": 1,
+      "name": "add_r10_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4981c244332211"
+    },
+    {
+      "id": 2,
+      "name": "add_r15_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4981c744332211"
+    },
+    {
+      "id": 3,
+      "name": "add_r8_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4981c044332211"
+    },
+    {
+      "id": 4,
+      "name": "add_r9_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4901c1"
+    },
+    {
+      "id": 5,
+      "name": "add_rax_imm",
+      "patch": 2,
+      "patch_offset": 2,
+      "template": "480544332211"
+    },
+    {
+      "id": 6,
+      "name": "add_rcx_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4801c1"
+    },
+    {
+      "id": 7,
+      "name": "add_rdi_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4881c744332211"
+    },
+    {
+      "id": 8,
+      "name": "add_rdi_rdx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4801d7"
+    },
+    {
+      "id": 9,
+      "name": "add_rdx_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4881c244332211"
+    },
+    {
+      "id": 10,
+      "name": "add_rsi_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4881c644332211"
+    },
+    {
+      "id": 11,
+      "name": "add_rsi_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4801c6"
+    },
+    {
+      "id": 12,
+      "name": "and_rax_rcx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4821c8"
+    },
+    {
+      "id": 13,
+      "name": "call",
+      "patch": 3,
+      "patch_offset": 1,
+      "template": "e800000000"
+    },
+    {
+      "id": 14,
+      "name": "cmp_r13_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4981fd44332211"
+    },
+    {
+      "id": 15,
+      "name": "cmp_r15_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4939c7"
+    },
+    {
+      "id": 16,
+      "name": "cmp_r8_r9",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4d39c8"
+    },
+    {
+      "id": 17,
+      "name": "cmp_rax_imm",
+      "patch": 2,
+      "patch_offset": 2,
+      "template": "483d44332211"
+    },
+    {
+      "id": 18,
+      "name": "cmp_rax_rdx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4839d0"
+    },
+    {
+      "id": 19,
+      "name": "cmp_rcx_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4881f944332211"
+    },
+    {
+      "id": 20,
+      "name": "je",
+      "patch": 3,
+      "patch_offset": 2,
+      "template": "0f8400000000"
+    },
+    {
+      "id": 21,
+      "name": "jge",
+      "patch": 3,
+      "patch_offset": 2,
+      "template": "0f8d00000000"
+    },
+    {
+      "id": 22,
+      "name": "jl",
+      "patch": 3,
+      "patch_offset": 2,
+      "template": "0f8c00000000"
+    },
+    {
+      "id": 23,
+      "name": "jle",
+      "patch": 3,
+      "patch_offset": 2,
+      "template": "0f8e00000000"
+    },
+    {
+      "id": 24,
+      "name": "jmp",
+      "patch": 3,
+      "patch_offset": 1,
+      "template": "e900000000"
+    },
+    {
+      "id": 25,
+      "name": "jne",
+      "patch": 3,
+      "patch_offset": 2,
+      "template": "0f8500000000"
+    },
+    {
+      "id": 26,
+      "name": "mov_m_rdi_cl",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "880f"
+    },
+    {
+      "id": 27,
+      "name": "mov_m_rdi_eax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "8907"
+    },
+    {
+      "id": 28,
+      "name": "mov_m_rdi_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "488907"
+    },
+    {
+      "id": 29,
+      "name": "mov_m_scratch32_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889042500e04300"
+    },
+    {
+      "id": 30,
+      "name": "mov_m_scratch40_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889042508e04300"
+    },
+    {
+      "id": 31,
+      "name": "mov_m_scratch8_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889042508f04300"
+    },
+    {
+      "id": 32,
+      "name": "mov_m_scratch_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889042500f04300"
+    },
+    {
+      "id": 33,
+      "name": "mov_r10_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "49ba8877665544332211"
+    },
+    {
+      "id": 34,
+      "name": "mov_r10_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4989c2"
+    },
+    {
+      "id": 35,
+      "name": "mov_r11_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4989c3"
+    },
+    {
+      "id": 36,
+      "name": "mov_r12_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4989c4"
+    },
+    {
+      "id": 37,
+      "name": "mov_r13_m_rsp",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c8b2c24"
+    },
+    {
+      "id": 38,
+      "name": "mov_r14_rsp",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4989e6"
+    },
+    {
+      "id": 39,
+      "name": "mov_r15_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "49bf8877665544332211"
+    },
+    {
+      "id": 40,
+      "name": "mov_r8_data",
+      "patch": 4,
+      "patch_offset": 2,
+      "template": "49b88877665544332211"
+    },
+    {
+      "id": 41,
+      "name": "mov_r9_data",
+      "patch": 4,
+      "patch_offset": 2,
+      "template": "49b98877665544332211"
+    },
+    {
+      "id": 42,
+      "name": "mov_rax_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "48b88877665544332211"
+    },
+    {
+      "id": 43,
+      "name": "mov_rax_m_r11_16",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "498b4310"
+    },
+    {
+      "id": 44,
+      "name": "mov_rax_m_r11_24",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "498b4318"
+    },
+    {
+      "id": 45,
+      "name": "mov_rax_m_r8",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "498b00"
+    },
+    {
+      "id": 46,
+      "name": "mov_rax_m_scratch32",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "488b042500e04300"
+    },
+    {
+      "id": 47,
+      "name": "mov_rax_m_scratch40",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "488b042508e04300"
+    },
+    {
+      "id": 48,
+      "name": "mov_rax_r13",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c89e8"
+    },
+    {
+      "id": 49,
+      "name": "mov_rax_r15",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c89f8"
+    },
+    {
+      "id": 50,
+      "name": "mov_rax_rcx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889c8"
+    },
+    {
+      "id": 51,
+      "name": "mov_rbp_data",
+      "patch": 4,
+      "patch_offset": 2,
+      "template": "48bd8877665544332211"
+    },
+    {
+      "id": 52,
+      "name": "mov_rbx_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889c3"
+    },
+    {
+      "id": 53,
+      "name": "mov_rcx_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "48b98877665544332211"
+    },
+    {
+      "id": 54,
+      "name": "mov_rcx_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889c1"
+    },
+    {
+      "id": 55,
+      "name": "mov_rdi_data",
+      "patch": 4,
+      "patch_offset": 2,
+      "template": "48bf8877665544332211"
+    },
+    {
+      "id": 56,
+      "name": "mov_rdi_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "48bf8877665544332211"
+    },
+    {
+      "id": 57,
+      "name": "mov_rdi_r12",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c89e7"
+    },
+    {
+      "id": 58,
+      "name": "mov_rdi_rbx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4889df"
+    },
+    {
+      "id": 59,
+      "name": "mov_rdx_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "48ba8877665544332211"
+    },
+    {
+      "id": 60,
+      "name": "mov_rdx_m_scratch32",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "488b142500e04300"
+    },
+    {
+      "id": 61,
+      "name": "mov_rsi_data",
+      "patch": 4,
+      "patch_offset": 2,
+      "template": "48be8877665544332211"
+    },
+    {
+      "id": 62,
+      "name": "mov_rsi_imm",
+      "patch": 1,
+      "patch_offset": 2,
+      "template": "48be8877665544332211"
+    },
+    {
+      "id": 63,
+      "name": "mov_rsi_m_rsi",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "488b36"
+    },
+    {
+      "id": 64,
+      "name": "mov_rsi_r14",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c89f6"
+    },
+    {
+      "id": 65,
+      "name": "mov_rsi_r8",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4c89c6"
+    },
+    {
+      "id": 66,
+      "name": "movzx_eax_m_r8_10",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb6400a"
+    },
+    {
+      "id": 67,
+      "name": "movzx_eax_m_r8_6",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb64006"
+    },
+    {
+      "id": 68,
+      "name": "movzx_eax_m_r8_7",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb64007"
+    },
+    {
+      "id": 69,
+      "name": "movzx_eax_m_r8_8",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb64008"
+    },
+    {
+      "id": 70,
+      "name": "movzx_eax_m_r8_9",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb64009"
+    },
+    {
+      "id": 71,
+      "name": "movzx_eax_m_rbp_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "0fb6440500"
+    },
+    {
+      "id": 72,
+      "name": "movzx_eax_m_rsi",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "0fb606"
+    },
+    {
+      "id": 73,
+      "name": "movzx_eax_m_rsi1",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "0fb64601"
+    },
+    {
+      "id": 74,
+      "name": "movzx_ecx_m_r11",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb60b"
+    },
+    {
+      "id": 75,
+      "name": "movzx_edx_m_r11_1",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "410fb65301"
+    },
+    {
+      "id": 76,
+      "name": "ret",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "c3"
+    },
+    {
+      "id": 77,
+      "name": "shl_r10_4",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "49c1e204"
+    },
+    {
+      "id": 78,
+      "name": "shl_r10_8",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "49c1e208"
+    },
+    {
+      "id": 79,
+      "name": "shl_rax_3",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "48c1e003"
+    },
+    {
+      "id": 80,
+      "name": "shl_rax_4",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "48c1e004"
+    },
+    {
+      "id": 81,
+      "name": "shl_rax_8",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "48c1e008"
+    },
+    {
+      "id": 82,
+      "name": "shl_rcx_4",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "48c1e104"
+    },
+    {
+      "id": 83,
+      "name": "sub_r10_imm",
+      "patch": 2,
+      "patch_offset": 3,
+      "template": "4981ea44332211"
+    },
+    {
+      "id": 84,
+      "name": "sub_rax_imm",
+      "patch": 2,
+      "patch_offset": 2,
+      "template": "482d44332211"
+    },
+    {
+      "id": 85,
+      "name": "sub_rax_rdx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4829d0"
+    },
+    {
+      "id": 86,
+      "name": "syscall",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "0f05"
+    },
+    {
+      "id": 87,
+      "name": "xor_r10_r10",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4d31d2"
+    },
+    {
+      "id": 88,
+      "name": "xor_rax_rax",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4831c0"
+    },
+    {
+      "id": 89,
+      "name": "xor_rcx_rcx",
+      "patch": 0,
+      "patch_offset": 0,
+      "template": "4831c9"
+    }
+  ]
+}

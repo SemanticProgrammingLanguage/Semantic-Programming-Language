@@ -1,0 +1,16 @@
+# Semantic Programming Language
+# MSPLC - Minimal Semantic Programming Language Compiler
+se 1
+program {
+schema=1
+projection="semantic_document.v1"
+origin={"source_language":"semantic","modules":[]}
+evaluation="eager_left_to_right"
+index_base=0
+value_model="explicit"
+extensions={"selfhost.x64.v2":{"schema":"selfhost.x64.v2","unit":"039_elf_header","role":"elf_header","native_target":{"arch":"x86_64","os":"linux","abi":"sysv64"},"code_slot_bytes":16,"data_slot_bytes":256,"whole_graph_required":false,"unit_local":true}}
+nodes=[{"id":0,"structural_kind":"Scope","fields":{"kind":"block","scope_id":0}},{"id":1,"structural_kind":"ClosureExpr","fields":{"kind":"function","name":"039_elf_header","scope_id":0,"operation":{"function_binding":"039_elf_header"}}},{"id":2,"structural_kind":"Scope","fields":{"kind":"block","scope_id":0}},{"id":3,"structural_kind":"ReturnStmt","fields":{"kind":"return","scope_id":0}},{"id":4,"structural_kind":"LiteralExpr","fields":{"kind":"literal","scope_id":0,"type_ref":{"kind":"integer","bits":64,"signed":true,"type_origin":"explicit"},"operation":{"literal_kind":"integer","text":"0"}}}]
+relations=[{"kind":"syntax.child","from":0,"to":{"domain":"node","id":"1"},"attributes":{"role":"statement","ordinal":0}},{"kind":"syntax.child","from":1,"to":{"domain":"node","id":"2"},"attributes":{"role":"body","ordinal":0}},{"kind":"syntax.child","from":2,"to":{"domain":"node","id":"3"},"attributes":{"role":"statement","ordinal":0}},{"kind":"syntax.child","from":3,"to":{"domain":"node","id":"4"},"attributes":{"role":"expression","ordinal":0}}]
+metadata={"selfhost.unit":"039_elf_header","selfhost.version":"1.0.0","selfhost.graph":"canonical-uast-v1","selfhost.compiler":"msplc-x64-fixed-slot-v1"}
+field.d0064="7f454c4602010100000000000000000002003e000100000000104000000000004000000000000000000000000000000000000000400038000100000000000000010000000700000000000000000000000000400000000000000040000000000000000400000000000000040000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}

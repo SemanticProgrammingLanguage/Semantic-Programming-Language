@@ -1,0 +1,19 @@
+Semantic Selfhost Minimal — proof
+
+STATUS: SELFHOST_CLOSED
+Target: Linux x86-64 / SysV
+Semantic units: 48
+Micro-instructions: 243
+Encoder forms: 89
+Module package hash: 80cb55c7f66b257ff83b3aacfd850a3bbc70d4a9a98492b3aae9b8d69065ec97
+Stage 1 SHA-256: a5e3567b9c0ec8dcf7a8e639996e1c3bbad9b1305916f1fb9a8c2f42aa4d9197
+Stage 2 SHA-256: a5e3567b9c0ec8dcf7a8e639996e1c3bbad9b1305916f1fb9a8c2f42aa4d9197
+Stage 3 SHA-256: a5e3567b9c0ec8dcf7a8e639996e1c3bbad9b1305916f1fb9a8c2f42aa4d9197
+Stage 0 reproducible: PASS
+Stage 1 -> Stage 2 byte identical: PASS
+Stage 2 -> Stage 3 byte identical: PASS
+External compiler/assembler/linker in Stage 1 -> Stage 2: NONE
+External compiler/assembler/linker in Stage 2 -> Stage 3: NONE
+
+Scope: deliberately finite self-only compiler, not the full universal Semantic compiler.
+Windows PE selfhost: not claimed in this artifact.
