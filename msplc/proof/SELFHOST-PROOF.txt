@@ -2,7 +2,7 @@ Semantic Selfhost Minimal — proof
 
 STATUS: SELFHOST_CLOSED
 Target: Linux x86-64 / SysV
-Semantic units: 48
+Semantic units: 50
 Micro-instructions: 243
 Encoder forms: 89
 Module package hash: 80cb55c7f66b257ff83b3aacfd850a3bbc70d4a9a98492b3aae9b8d69065ec97
@@ -15,5 +15,5 @@ Stage 2 -> Stage 3 byte identical: PASS
 External compiler/assembler/linker in Stage 1 -> Stage 2: NONE
 External compiler/assembler/linker in Stage 2 -> Stage 3: NONE
 
-Scope: deliberately finite self-only compiler, not the full universal Semantic compiler.
+Scope: deliberately finite self-only compiler with explicit canonical-UAST frontend/lowering contracts; not the full universal Semantic compiler.
 Windows PE selfhost: not claimed in this artifact.

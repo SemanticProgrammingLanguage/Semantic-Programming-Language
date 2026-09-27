@@ -5,7 +5,7 @@
   "status": "SELFHOST_CLOSED",
   "scope": "self-only minimal compiler",
   "host_target": "linux-x86_64-sysv",
-  "semantic_units": 48,
+  "semantic_units": 50,
   "micro_instructions": 243,
   "encoder_forms": 89,
   "code_slot_bytes": 16,
@@ -21,5 +21,5 @@
   "external_tools_stage1_to_stage2": [],
   "external_tools_stage2_to_stage3": [],
   "windows_pe_selfhost_closed": false,
-  "note": "Closed minimal Semantic selfhost on Linux x86-64. Stage 0 is bootstrap-only; proved selfhost transitions use only the native Semantic compiler plus .se source units."
+  "note": "Closed minimal Semantic selfhost on Linux x86-64. The package now declares explicit canonical-UAST frontend and lowering contracts; the proven execution backend remains the finite selfhost.x64 fixed-slot subset. Stage 0 is bootstrap-only; proved selfhost transitions use only the native Semantic compiler plus .se source units."
 }

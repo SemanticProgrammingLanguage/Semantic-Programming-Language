@@ -3,8 +3,16 @@
   "name": "msplc",
   "module_path": "semantic/msplc",
   "source": "direct-semantic-selfhost",
+  "semantic_model": "canonical-uast-v1",
+  "uast_projection": "semantic_document.v1",
+  "contracts": ["canonical-uast-v1", "selfhost.x64.fixed-slot.v1"],
+  "entrypoints": {
+    "frontend": "048_uast_frontend",
+    "lowering": "049_uast_lowering",
+    "backend": "selfhost.x64.fixed-slot.v1"
+  },
   "root": ".",
-  "package_hash": "171a9888ddb267ca38b3c54c4807df3b705f69dc65910c338a7d2d87f693bf7c",
+  "package_hash": "f286ffea8320c4ac60bb0e669d99ccc50fb5f32656d6a667f3d3421e442669c6",
   "files": [
     {
       "path": "src/000_module_contract.se",
@@ -580,6 +588,30 @@
       "status": "SEMANTIC_READY",
       "symbols": [
         "047_version"
+      ]
+    },
+    {
+      "path": "src/048_uast_frontend.se",
+      "kind": "semantic",
+      "language": "se",
+      "semantic_path": "src/048_uast_frontend.se",
+      "readable_semantic_path": "src/048_uast_frontend.se",
+      "source_hash": "1d70a021c2ba4615d5819388f8f55b78774d11d754f8763dd30e7b3b7e9822e5",
+      "status": "SEMANTIC_READY",
+      "symbols": [
+        "048_uast_frontend"
+      ]
+    },
+    {
+      "path": "src/049_uast_lowering.se",
+      "kind": "semantic",
+      "language": "se",
+      "semantic_path": "src/049_uast_lowering.se",
+      "readable_semantic_path": "src/049_uast_lowering.se",
+      "source_hash": "c2a12576b7e28bde8a93f7c684411ba5719b393beaa68395042929ec6ebc85fc",
+      "status": "SEMANTIC_READY",
+      "symbols": [
+        "049_uast_lowering"
       ]
     }
   ],

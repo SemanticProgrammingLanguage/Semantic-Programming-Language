@@ -1,0 +1,15 @@
+# Semantic Programming Language
+# MSPLC - Canonical UAST frontend contract
+se 1
+program {
+schema=1
+projection="semantic_document.v1"
+origin={"source_language":"semantic","modules":["semantic/uast"]}
+evaluation="eager_left_to_right"
+index_base=0
+value_model="explicit"
+extensions={"selfhost.x64.v2":{"schema":"selfhost.x64.v2","unit":"048_uast_frontend","role":"uast_frontend","native_target":{"arch":"x86_64","os":"linux","abi":"sysv64"},"input_projection":"semantic_document.v1","required_sections":["nodes","relations","scopes","types"],"fail_closed":true,"unit_local":true}}
+nodes=[{"id":0,"structural_kind":"Scope","fields":{"kind":"block","scope_id":0}},{"id":1,"structural_kind":"ClosureExpr","fields":{"kind":"function","name":"048_uast_frontend","scope_id":0,"operation":{"function_binding":"048_uast_frontend"}}},{"id":2,"structural_kind":"Scope","fields":{"kind":"block","scope_id":0}},{"id":3,"structural_kind":"Parameter","fields":{"kind":"parameter","name":"document","type_ref":{"kind":"aggregate","name":"UniversalASTDocument","type_origin":"contract"}}},{"id":4,"structural_kind":"ReturnStmt","fields":{"kind":"return","scope_id":0}},{"id":5,"structural_kind":"SymbolRef","fields":{"kind":"symbol_ref","name":"document","binding":"document"}}]
+relations=[{"kind":"syntax.child","from":0,"to":{"domain":"node","id":"1"},"attributes":{"role":"statement","ordinal":0}},{"kind":"syntax.child","from":1,"to":{"domain":"node","id":"2"},"attributes":{"role":"body","ordinal":0}},{"kind":"syntax.child","from":2,"to":{"domain":"node","id":"3"},"attributes":{"role":"statement","ordinal":0}},{"kind":"syntax.child","from":2,"to":{"domain":"node","id":"4"},"attributes":{"role":"statement","ordinal":1}},{"kind":"syntax.child","from":4,"to":{"domain":"node","id":"5"},"attributes":{"role":"expression","ordinal":0}},{"kind":"binding.refers","from":5,"to":{"domain":"node","id":"3"},"attributes":{"role":"parameter"}}]
+metadata={"selfhost.unit":"048_uast_frontend","selfhost.version":"1.0.0","selfhost.graph":"canonical-uast-v1","selfhost.compiler":"msplc-uast-contract-v1"}
+}
