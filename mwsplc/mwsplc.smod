@@ -1,0 +1,132 @@
+{
+  "dependencies": [],
+  "files": [
+    {
+      "kind": "license",
+      "path": "LICENSE",
+      "source_hash": "87dd322c74f6e2934c737ddb1be2de51a01594dd1dc9054ecb13a2cd17d0d072",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "README.md",
+      "source_hash": "4621489faeafcbddf8a499fc5afda487875596ab8eba0eb771aee0e457b5d9ca",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "assets/mwsplc-icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "docs/UAST-SUBSET.md",
+      "source_hash": "8e5f83672863e132fb2a411dfebbbdca7f8b5383e93ae834081e229b642005c9",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "executable",
+      "language": "pe32plus-x86_64",
+      "path": "mwsplc.exe",
+      "source_hash": "28934be04fdb9b30239b7bbcdab657d39cf5c1f78942dd361c493a565d08547c",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "proof/PORT-STATUS.txt",
+      "source_hash": "d3e71992e911b631a6a23b71fbcc3a9b3ae7c48c2d658991b61e17094e89f8fa",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/mwsplc-selfhost-windows.se",
+      "readable_semantic_path": "src/mwsplc-selfhost-windows.se",
+      "semantic_path": "src/mwsplc-selfhost-windows.se",
+      "source_hash": "612aee5fee1835f5bb8192877b3e8296a2bdc6acc5c69d97974b5cfbb7d75a75",
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/control.se",
+      "source_hash": "a0a1d09f4fb4599fd971b0123fdb6f6ef6055f50523017564a355a8a79659ee9",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/count-input.txt",
+      "source_hash": "064bf87e8a36ae59f17e540d1e467eb86ae355c2639c10cdf6f8d557ba1c6a69",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/countbytes.se",
+      "source_hash": "f0982ce967c848da163b5a77d2be4b3151243476bf5e416cabfba46451cffa48",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/input.txt",
+      "source_hash": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/params.se",
+      "source_hash": "c01ec59bb563931c6bfccbda7c719ab7818632461231d09dcd3f9b1acd51fc91",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/readbyte.se",
+      "source_hash": "91f90ff22eb28a184a0429d01a323b64c5670f4ae637c96fa1a2f59d4842aca4",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/return42.se",
+      "source_hash": "134329dad859a2518ba7bb6bb11cddb6db90439297ac049d275a03ee25123960",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "script",
+      "language": "cmd",
+      "path": "verify-selfhost.cmd",
+      "source_hash": "1a57124decabc357260a57d6cdd8feedc8a78a33ac0008b357573491c045b55d",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "script",
+      "language": "cmd",
+      "path": "smoke-test.cmd",
+      "source_hash": "bed05bb040c56019bd39bda24d07cf9ecbf8b5fe16b3ca4dc607e84062f2cee3",
+      "status": "SOURCE_ONLY"
+    }
+  ],
+  "licenses": [
+    "LICENSE"
+  ],
+  "module_path": "semantic/mwsplc",
+  "name": "mwsplc",
+  "package_hash": "a8560c2376d1eb863a75b8334f17e9284bea7ddaf0df06c0e3bb3d0d1bba1eaf",
+  "root": ".",
+  "schema_version": 1,
+  "source": "semantic-uast-selfhost-v2.3.2-windows-x64"
+}

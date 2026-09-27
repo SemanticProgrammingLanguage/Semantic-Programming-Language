@@ -1,0 +1,10 @@
+/mnt/data/MWSPLC-v2.3.2-Windows-x64/mwsplc.exe:     file format pei-x86-64
+AddressOfEntryPoint	0000000000001800
+	DLL Name: msvcrt.dll
+	00001068  <none>  0000  __getmainargs
+	00001070  <none>  0000  _open
+	00001078  <none>  0000  _read
+	00001080  <none>  0000  _write
+	00001088  <none>  0000  _close
+	00001090  <none>  0000  calloc
+	00001098  <none>  0000  exit

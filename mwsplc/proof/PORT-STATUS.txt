@@ -1,0 +1,16 @@
+MWSPLC v2.3.2 Windows x64 port
+
+Static validation completed:
+- PE32+ x86-64 console executable
+- deterministic PE timestamp = 0
+- msvcrt import table present
+- normal Semantic UAST source
+- no field.i records
+- no selfhost.x64 records
+
+v2.3.2 fix:
+- __getmainargs fifth stack argument remains at [rsp+0x20] at call time.
+- entry stub does not apply a second shadow-space subtraction.
+- Semantic selfhost source uses a separate emit_win_entry_call operation.
+
+Runtime self-host closure must be verified on native Windows with verify-selfhost.cmd.
