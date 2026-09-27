@@ -1,0 +1,9 @@
+masplc v2.2.0 self-host contract
+
+1. ./masplc compile src/msplc-selfhost.se -o stage-next
+2. stage-next compile src/msplc-selfhost.se -o stage-next2
+3. masplc == stage-next == stage-next2 byte-for-byte
+4. ./masplc compile masplc.smod -o from-smod
+5. masplc == from-smod byte-for-byte
+
+The shipped Module Store package does not require or contain the Stage-0 bootstrap.

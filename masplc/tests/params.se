@@ -1,0 +1,46 @@
+# Semantic Programming Language
+se 1
+program {
+schema=1
+projection="semantic_document.v1"
+origin={"source_language":"semantic","modules":[],"entry_point":"main"}
+evaluation="eager_left_to_right"
+index_base=0
+value_model="explicit"
+nodes=[
+{"id":0,"structural_kind":"Scope","fields":{"kind":"block","scope_id":0}},
+{"id":1,"structural_kind":"ClosureExpr","fields":{"kind":"function","name":"main","scope_id":0,"operation":{"function_binding":"main"}}},
+{"id":2,"structural_kind":"Scope","fields":{"kind":"block","scope_id":1}},
+{"id":3,"structural_kind":"ReturnStmt","fields":{"kind":"return","scope_id":1}},
+{"id":4,"structural_kind":"CallExpr","fields":{"kind":"call","scope_id":1}},
+{"id":5,"structural_kind":"SymbolRef","fields":{"kind":"identifier","name":"add2","scope_id":1}},
+{"id":6,"structural_kind":"LiteralExpr","fields":{"kind":"literal","operation":{"literal_kind":"integer","text":"20"}}},
+{"id":7,"structural_kind":"LiteralExpr","fields":{"kind":"literal","operation":{"literal_kind":"integer","text":"22"}}},
+{"id":8,"structural_kind":"ClosureExpr","fields":{"kind":"function","name":"add2","scope_id":0,"operation":{"function_binding":"add2"}}},
+{"id":9,"structural_kind":"ParameterDecl","fields":{"kind":"parameter","name":"a","scope_id":2}},
+{"id":10,"structural_kind":"ParameterDecl","fields":{"kind":"parameter","name":"b","scope_id":2}},
+{"id":11,"structural_kind":"Scope","fields":{"kind":"block","scope_id":2}},
+{"id":12,"structural_kind":"ReturnStmt","fields":{"kind":"return","scope_id":2}},
+{"id":13,"structural_kind":"OperationExpr","fields":{"kind":"binary","operation":{"semantic_id":"add","semantics":{"operation":"add"}}}},
+{"id":14,"structural_kind":"SymbolRef","fields":{"kind":"identifier","name":"a"}},
+{"id":15,"structural_kind":"SymbolRef","fields":{"kind":"identifier","name":"b"}}
+]
+relations=[
+{"kind":"syntax.child","from":0,"to":{"domain":"node","id":"1"},"attributes":{"role":"statement","ordinal":0}},
+{"kind":"syntax.child","from":1,"to":{"domain":"node","id":"2"},"attributes":{"role":"body","ordinal":0}},
+{"kind":"syntax.child","from":2,"to":{"domain":"node","id":"3"},"attributes":{"role":"statement","ordinal":0}},
+{"kind":"syntax.child","from":3,"to":{"domain":"node","id":"4"},"attributes":{"role":"expression","ordinal":0}},
+{"kind":"syntax.child","from":4,"to":{"domain":"node","id":"5"},"attributes":{"role":"callee","ordinal":0}},
+{"kind":"syntax.child","from":4,"to":{"domain":"node","id":"6"},"attributes":{"role":"argument","ordinal":0}},
+{"kind":"syntax.child","from":4,"to":{"domain":"node","id":"7"},"attributes":{"role":"argument","ordinal":1}},
+{"kind":"syntax.child","from":0,"to":{"domain":"node","id":"8"},"attributes":{"role":"statement","ordinal":1}},
+{"kind":"syntax.child","from":8,"to":{"domain":"node","id":"9"},"attributes":{"role":"parameter","ordinal":0}},
+{"kind":"syntax.child","from":8,"to":{"domain":"node","id":"10"},"attributes":{"role":"parameter","ordinal":1}},
+{"kind":"syntax.child","from":8,"to":{"domain":"node","id":"11"},"attributes":{"role":"body","ordinal":0}},
+{"kind":"syntax.child","from":11,"to":{"domain":"node","id":"12"},"attributes":{"role":"statement","ordinal":0}},
+{"kind":"syntax.child","from":12,"to":{"domain":"node","id":"13"},"attributes":{"role":"expression","ordinal":0}},
+{"kind":"syntax.child","from":13,"to":{"domain":"node","id":"14"},"attributes":{"role":"left","ordinal":0}},
+{"kind":"syntax.child","from":13,"to":{"domain":"node","id":"15"},"attributes":{"role":"right","ordinal":1}}
+]
+metadata={"msplc.test":"uast-v2.1"}
+}

@@ -1,0 +1,125 @@
+{
+  "dependencies": [],
+  "files": [
+    {
+      "kind": "license",
+      "path": "LICENSE",
+      "source_hash": "87dd322c74f6e2934c737ddb1be2de51a01594dd1dc9054ecb13a2cd17d0d072",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "README.md",
+      "source_hash": "de73cdcea953b56e9750d1f955069ae9d723561d403597279264891bb0d1db49",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "assets/msplc-icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "docs/UAST-SUBSET.md",
+      "source_hash": "77804e29a55709fa0dd2d5e0cfbc2409ed66b96e61c818bab1aa6ed50045341e",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "executable",
+      "language": "elf64-x86_64",
+      "path": "masplc",
+      "source_hash": "67da98512c4f204f95a1c05646f35af49277f2504e3a86075896bcc7296332f6",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "proof/SELFHOST-PROOF.txt",
+      "source_hash": "814c33ef156e3c0dff0308c04db0ebbf1304e4b34f35bc6dd43e3c14870f6c52",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/msplc-selfhost.se",
+      "readable_semantic_path": "src/msplc-selfhost.se",
+      "semantic_path": "src/msplc-selfhost.se",
+      "source_hash": "b22fa6b0227e013bf40966bb1edeb64963bca14b82b05e6dee26ab3c3047043d",
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/control.se",
+      "source_hash": "5aff128b41d80244316a5910e33cadbe272f0404c6e2a00b98cf49ff07262709",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/count-input.txt",
+      "source_hash": "064bf87e8a36ae59f17e540d1e467eb86ae355c2639c10cdf6f8d557ba1c6a69",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/countbytes.se",
+      "source_hash": "fe85e5abeb69a892df13bd134f2ac062963c6cc53d4b53d80138c1faf98c0b1a",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/input.txt",
+      "source_hash": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/params.se",
+      "source_hash": "e6ef31cc618ac189707cc83cfbe72991d36f4c7fe47c50f85995cf093a1f9590",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/readbyte.se",
+      "source_hash": "4e2d44c37a3058917a7d7da097d464c22d5a758d09009f7b904c6863392d7548",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/return42.se",
+      "source_hash": "e7d39599a9e35a96648d54d37b031abf9ddd085d02f485ebe318a055c0f39ebc",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "script",
+      "language": "shell",
+      "path": "verify-selfhost.sh",
+      "source_hash": "2bda352b6d8df3c0183b6b105c390df3aa36b515405f3135b27acce50ab8ee25",
+      "status": "SOURCE_ONLY"
+    }
+  ],
+  "licenses": [
+    "LICENSE"
+  ],
+  "module_path": "semantic/masplc",
+  "name": "masplc",
+  "package_hash": "d50dd44e4e5f54b7ae3658a79b1ccb77834543b1368cf905fd6e0e8f9338b1f7",
+  "root": ".",
+  "schema_version": 1,
+  "source": "semantic-uast-selfhost-v2.2"
+}
