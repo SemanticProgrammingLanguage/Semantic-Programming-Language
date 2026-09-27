@@ -38,6 +38,13 @@
 
 # <p align="center"> https://www.semantic-programming-language.com/ </p>
 
+# MWSPLC
+ Mini Windows Semantic Compiler — native Windows x64 / PE32+ compiler for the minimal Semantic UAST subset.
+ 
+<a href="https://www.semantic-programming-language.com/module.html?name=mwsplc&url=https%3A%2F%2Fgithub.com%2FSemanticProgrammingLanguage%2Fmwsplc%2Freleases%2Fdownload%2Fv2.3.2%2Fmwsplc.zip&official=1&source=archive"><img alt="mwsplc — Semantic v2.3.2" src="https://img.shields.io/endpoint?url=https://www.semantic-programming-language.com/assets/badges/semantic-badge.json" /></a>
+
+https://github.com/SemanticProgrammingLanguage/mwsplc/releases/download/v2.3.2/mwsplc.zip
+
 # MSPLC
 [![msplc — Semantic v1.0.0](https://img.shields.io/endpoint?url=https://www.semantic-programming-language.com/assets/badges/semantic-badge.json)](https://www.semantic-programming-language.com/module.html?name=msplc&url=https%3A%2F%2Fgithub.com%2FSemanticProgrammingLanguage%2FMinimal-Sematic-Programming-Language-Compiler-Linux-Module%2Freleases%2Fdownload%2Fv1.0.0%2FMSPLC-1.0.0-Linux.zip&official=1&source=archive)
 
