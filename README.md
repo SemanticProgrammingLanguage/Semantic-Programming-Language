@@ -38,7 +38,12 @@
 
 # <p align="center"> https://www.semantic-programming-language.com/ </p>
 
+# MSPLC
+[![msplc — Semantic v1.0.0](https://img.shields.io/endpoint?url=https://www.semantic-programming-language.com/assets/badges/semantic-badge.json)](https://www.semantic-programming-language.com/module.html?name=msplc&url=https%3A%2F%2Fgithub.com%2FSemanticProgrammingLanguage%2FMinimal-Sematic-Programming-Language-Compiler-Linux-Module%2Freleases%2Fdownload%2Fv1.0.0%2FMSPLC-1.0.0-Linux.zip&official=1&source=archive)
 
+MSPLC is a minimal self-hosted Semantic compiler for Linux x86-64. It compiles Semantic source units directly into ELF executables and is available as an official Semantic module. This repository contains the project's first Linux-only self-hosting compiler implementation: msplc. It can be loaded as a module or downlaoded from here: 
+
+https://github.com/SemanticProgrammingLanguage/Minimal-Sematic-Programming-Language-Compiler-Linux-Module/releases/download/v1.0.0/MSPLC-1.0.0-Linux.zip
 
 # Download
 
