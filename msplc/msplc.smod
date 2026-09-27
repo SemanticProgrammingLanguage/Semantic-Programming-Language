@@ -1,622 +1,125 @@
 {
-  "schema_version": 1,
-  "name": "msplc",
-  "module_path": "semantic/msplc",
-  "source": "direct-semantic-selfhost",
-  "semantic_model": "canonical-uast-v1",
-  "uast_projection": "semantic_document.v1",
-  "contracts": ["canonical-uast-v1", "selfhost.x64.fixed-slot.v1"],
-  "entrypoints": {
-    "frontend": "048_uast_frontend",
-    "lowering": "049_uast_lowering",
-    "backend": "selfhost.x64.fixed-slot.v1"
-  },
-  "root": ".",
-  "package_hash": "f286ffea8320c4ac60bb0e669d99ccc50fb5f32656d6a667f3d3421e442669c6",
+  "dependencies": [],
   "files": [
     {
-      "path": "src/000_module_contract.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/000_module_contract.se",
-      "readable_semantic_path": "src/000_module_contract.se",
-      "source_hash": "69a3b5f29403ca79136b447b761d504e423dcc64a6763e5571507243f55acc55",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "000_module_contract"
-      ]
+      "kind": "license",
+      "path": "LICENSE",
+      "source_hash": "87dd322c74f6e2934c737ddb1be2de51a01594dd1dc9054ecb13a2cd17d0d072",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/001_entry.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/001_entry.se",
-      "readable_semantic_path": "src/001_entry.se",
-      "source_hash": "8ffe17a8c3c6a202f09512c55a8c12be29bb68fa44bbdb0d99c813ba2f8b0903",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "001_entry"
-      ]
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "README.md",
+      "source_hash": "9bfbd2abc60dcf3663c240a70bc2e79ff3353d0cb728293e3f38c998b02b9491",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/002_output_path.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/002_output_path.se",
-      "readable_semantic_path": "src/002_output_path.se",
-      "source_hash": "b4ee7d19cee9c11a1ef04d1e9a2cda951103a4a0be0d3d7a35395dfc190e6afe",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "002_output_path"
-      ]
+      "kind": "asset",
+      "path": "assets/msplc-icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/003_output_open.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/003_output_open.se",
-      "readable_semantic_path": "src/003_output_open.se",
-      "source_hash": "f4e12b95c6021436ec0b2f0e1853070d3f4beecd153fa03ae43b1cc76fa08ef4",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "003_output_open"
-      ]
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "docs/UAST-SUBSET.md",
+      "source_hash": "77804e29a55709fa0dd2d5e0cfbc2409ed66b96e61c818bab1aa6ed50045341e",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/004_output_resize.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/004_output_resize.se",
-      "readable_semantic_path": "src/004_output_resize.se",
-      "source_hash": "0d3058a5fb408194c2388bf9e9c7acdde5469f41eeb8735c893d97efc4318cff",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "004_output_resize"
-      ]
+      "kind": "asset",
+      "path": "icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/005_source_loop_setup.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/005_source_loop_setup.se",
-      "readable_semantic_path": "src/005_source_loop_setup.se",
-      "source_hash": "9f3c8e345533d54d318820a1bcf8faf33c84c1e3b003671984d77c530b6a1c1b",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "005_source_loop_setup"
-      ]
+      "kind": "executable",
+      "language": "elf64-x86_64",
+      "path": "msplc",
+      "source_hash": "cd3d7fb958455c89e36ee8e92e2c85b8cd1a3c9976e1052b8186dd9076b284e1",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/006_source_path.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/006_source_path.se",
-      "readable_semantic_path": "src/006_source_path.se",
-      "source_hash": "6aed6fd40b679cc8c80f45988e7e288ca1b895f70cfe0fb5a1112f1e15184bf1",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "006_source_path"
-      ]
+      "kind": "documentation",
+      "language": "text",
+      "path": "proof/SELFHOST-PROOF.txt",
+      "source_hash": "b8a162d6fb530444541f7877ab65d87df2d2ad5e87dfbb9ae68c462d847b8bfe",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/007_source_open.se",
       "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/007_source_open.se",
-      "readable_semantic_path": "src/007_source_open.se",
-      "source_hash": "efa643b3afb3b3bbe57f2b961ad6a0e98047a4e591b238a061b3d02492a510c0",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "007_source_open"
-      ]
+      "language": "semantic",
+      "path": "src/msplc-selfhost.se",
+      "readable_semantic_path": "src/msplc-selfhost.se",
+      "semantic_path": "src/msplc-selfhost.se",
+      "source_hash": "b22fa6b0227e013bf40966bb1edeb64963bca14b82b05e6dee26ab3c3047043d",
+      "status": "SEMANTIC_READY"
     },
     {
-      "path": "src/008_source_read.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/008_source_read.se",
-      "readable_semantic_path": "src/008_source_read.se",
-      "source_hash": "b07bd39e336811f6fd448bee442a69dcbb784854dba15eca1c1564653d966409",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "008_source_read"
-      ]
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/control.se",
+      "source_hash": "5aff128b41d80244316a5910e33cadbe272f0404c6e2a00b98cf49ff07262709",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/009_source_buffer.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/009_source_buffer.se",
-      "readable_semantic_path": "src/009_source_buffer.se",
-      "source_hash": "20effa4c5b2dcbaecfdaebed9bbb7ac4aac6cc75cafd2ac5b7e4a8b0a942a4e3",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "009_source_buffer"
-      ]
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/count-input.txt",
+      "source_hash": "064bf87e8a36ae59f17e540d1e467eb86ae355c2639c10cdf6f8d557ba1c6a69",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/010_record_scan.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/010_record_scan.se",
-      "readable_semantic_path": "src/010_record_scan.se",
-      "source_hash": "4eb0bad069605d94fcfabf5bf94281b42dcda0f59da80b0a44e012023161ca48",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "010_record_scan"
-      ]
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/countbytes.se",
+      "source_hash": "fe85e5abeb69a892df13bd134f2ac062963c6cc53d4b53d80138c1faf98c0b1a",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/011_parse_index.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/011_parse_index.se",
-      "readable_semantic_path": "src/011_parse_index.se",
-      "source_hash": "f7222c320405f3e516f69eaa995b2c07e38d9237cc68b1619c84b933c42db70c",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "011_parse_index"
-      ]
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/input.txt",
+      "source_hash": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/012_parse_hex2.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/012_parse_hex2.se",
-      "readable_semantic_path": "src/012_parse_hex2.se",
-      "source_hash": "810d4e397273d2420494b60ab2b0ccac435ebe3dea493e47a959e7b931d96cfb",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "012_parse_hex2"
-      ]
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/params.se",
+      "source_hash": "e6ef31cc618ac189707cc83cfbe72991d36f4c7fe47c50f85995cf093a1f9590",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/013_parse_hex16.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/013_parse_hex16.se",
-      "readable_semantic_path": "src/013_parse_hex16.se",
-      "source_hash": "af651e059839845613538c2b5142428ab9631dd396ec478b348492848f0ced7a",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "013_parse_hex16"
-      ]
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/readbyte.se",
+      "source_hash": "4e2d44c37a3058917a7d7da097d464c22d5a758d09009f7b904c6863392d7548",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/014_instruction_record.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/014_instruction_record.se",
-      "readable_semantic_path": "src/014_instruction_record.se",
-      "source_hash": "ea329373741cd33442c7405aed8831d40d55e83c88156e873849229daed67412",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "014_instruction_record"
-      ]
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/return42.se",
+      "source_hash": "e7d39599a9e35a96648d54d37b031abf9ddd085d02f485ebe318a055c0f39ebc",
+      "status": "SOURCE_ONLY"
     },
     {
-      "path": "src/015_descriptor_lookup.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/015_descriptor_lookup.se",
-      "readable_semantic_path": "src/015_descriptor_lookup.se",
-      "source_hash": "49c6546b2b7b4e29acd5a579618450d2da289ae2074e09954f3c01cc76ea2dc8",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "015_descriptor_lookup"
-      ]
-    },
-    {
-      "path": "src/016_template_copy.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/016_template_copy.se",
-      "readable_semantic_path": "src/016_template_copy.se",
-      "source_hash": "c83a273d635f2843f5bdcd30a8f48a043e845a22909169140d20e50ebb82db39",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "016_template_copy"
-      ]
-    },
-    {
-      "path": "src/017_operand_parse.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/017_operand_parse.se",
-      "readable_semantic_path": "src/017_operand_parse.se",
-      "source_hash": "c0d2f3c3a8a4e146690f194878f09f9bd343af3ad668a461b75eaf29108be2a0",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "017_operand_parse"
-      ]
-    },
-    {
-      "path": "src/018_patch_dispatch.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/018_patch_dispatch.se",
-      "readable_semantic_path": "src/018_patch_dispatch.se",
-      "source_hash": "6af322ccd5fecc7e5e435258f1242fccbdf71333f0b51f5025f12dc3f34f9094",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "018_patch_dispatch"
-      ]
-    },
-    {
-      "path": "src/019_patch_imm64.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/019_patch_imm64.se",
-      "readable_semantic_path": "src/019_patch_imm64.se",
-      "source_hash": "5457cdf1c2db1c8a623ae5b7b3dfb5652ebbceed9d8006e29cbd194ad7265c89",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "019_patch_imm64"
-      ]
-    },
-    {
-      "path": "src/020_patch_imm32.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/020_patch_imm32.se",
-      "readable_semantic_path": "src/020_patch_imm32.se",
-      "source_hash": "50bf0e507ae0ba4af0b5b8210295bd122231cfaa116eeb8d0cd3f270756076ef",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "020_patch_imm32"
-      ]
-    },
-    {
-      "path": "src/021_patch_rel32.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/021_patch_rel32.se",
-      "readable_semantic_path": "src/021_patch_rel32.se",
-      "source_hash": "640c318272ef137ac9ca4a253d6b2d411fd4ce43d5a9c54b0bb683e549d43388",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "021_patch_rel32"
-      ]
-    },
-    {
-      "path": "src/022_patch_data_addr.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/022_patch_data_addr.se",
-      "readable_semantic_path": "src/022_patch_data_addr.se",
-      "source_hash": "ef330a78ebb8c6a1cdbe24dec601359ace50dfed78a4b28946628c6c5eb909f7",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "022_patch_data_addr"
-      ]
-    },
-    {
-      "path": "src/023_instruction_offset.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/023_instruction_offset.se",
-      "readable_semantic_path": "src/023_instruction_offset.se",
-      "source_hash": "1f333df8ccc622f03c9df62f4689df8c8a4a4a60583b58691223256aba41ff4e",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "023_instruction_offset"
-      ]
-    },
-    {
-      "path": "src/024_instruction_write.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/024_instruction_write.se",
-      "readable_semantic_path": "src/024_instruction_write.se",
-      "source_hash": "e65757dec93f2b151be094f30f98db76d352f52428074136dcdf7923c49a2492",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "024_instruction_write"
-      ]
-    },
-    {
-      "path": "src/025_data_record.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/025_data_record.se",
-      "readable_semantic_path": "src/025_data_record.se",
-      "source_hash": "0d98776447dfd5058495af951236cbb3c3eef4e061909040e1225ac7621af35d",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "025_data_record"
-      ]
-    },
-    {
-      "path": "src/026_data_decode.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/026_data_decode.se",
-      "readable_semantic_path": "src/026_data_decode.se",
-      "source_hash": "0996e9b8a400c8032805a81f7c3e669e3bb57c2e4e3c842802bb70d2a15c851d",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "026_data_decode"
-      ]
-    },
-    {
-      "path": "src/027_data_offset.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/027_data_offset.se",
-      "readable_semantic_path": "src/027_data_offset.se",
-      "source_hash": "16de37f9c168801c1a140543b003eb95db2d362d91c965f114b972d23e4a0137",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "027_data_offset"
-      ]
-    },
-    {
-      "path": "src/028_data_write.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/028_data_write.se",
-      "readable_semantic_path": "src/028_data_write.se",
-      "source_hash": "94afdd82510e5d095481ac829a5db15cbb778e189f2a0b4561e50d9f8d4fd3de",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "028_data_write"
-      ]
-    },
-    {
-      "path": "src/029_header_write.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/029_header_write.se",
-      "readable_semantic_path": "src/029_header_write.se",
-      "source_hash": "de5d427c3396cad78b4746ac19a338ecae79f17554a8c1d012d03f26ab609a0b",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "029_header_write"
-      ]
-    },
-    {
-      "path": "src/030_scan_advance.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/030_scan_advance.se",
-      "readable_semantic_path": "src/030_scan_advance.se",
-      "source_hash": "525d96d5a51df8627d21361b0575606cb5d6b44da4298cbb73c6435b36715ca2",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "030_scan_advance"
-      ]
-    },
-    {
-      "path": "src/031_source_close.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/031_source_close.se",
-      "readable_semantic_path": "src/031_source_close.se",
-      "source_hash": "01b111991b8d41ad47890571aecb186a39049e254dc27716cb3e534e096d5790",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "031_source_close"
-      ]
-    },
-    {
-      "path": "src/032_finish_output.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/032_finish_output.se",
-      "readable_semantic_path": "src/032_finish_output.se",
-      "source_hash": "21d904214010a39113e46c0d90614418f0d450e0a84e44f2311cd5c4fa12ef12",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "032_finish_output"
-      ]
-    },
-    {
-      "path": "src/033_diagnostics.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/033_diagnostics.se",
-      "readable_semantic_path": "src/033_diagnostics.se",
-      "source_hash": "16816680a72beafcbfb6af0f4e6b766b327daf5660c9c44a3a80f51900d80caa",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "033_diagnostics"
-      ]
-    },
-    {
-      "path": "src/034_encoder_table_a.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/034_encoder_table_a.se",
-      "readable_semantic_path": "src/034_encoder_table_a.se",
-      "source_hash": "548c92815194e3456f88025f712fe1a4ce4ae1813a15558d986a97ef126ba3b6",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "034_encoder_table_a"
-      ]
-    },
-    {
-      "path": "src/035_encoder_table_b.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/035_encoder_table_b.se",
-      "readable_semantic_path": "src/035_encoder_table_b.se",
-      "source_hash": "3b2fe43535e8e4048dbbf258361811586959eefe6dd7efd96d2545a599117d7f",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "035_encoder_table_b"
-      ]
-    },
-    {
-      "path": "src/036_encoder_table_c.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/036_encoder_table_c.se",
-      "readable_semantic_path": "src/036_encoder_table_c.se",
-      "source_hash": "1b5c759d7f7c891762f8a51aed6c35b5537f993f83061b027b3251c711246049",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "036_encoder_table_c"
-      ]
-    },
-    {
-      "path": "src/037_encoder_table_d.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/037_encoder_table_d.se",
-      "readable_semantic_path": "src/037_encoder_table_d.se",
-      "source_hash": "767a8f93b3162d28eb171df1d2cbec39ce14a5aa2eecfd7c245bb9398ceb0a7e",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "037_encoder_table_d"
-      ]
-    },
-    {
-      "path": "src/038_encoder_table_e.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/038_encoder_table_e.se",
-      "readable_semantic_path": "src/038_encoder_table_e.se",
-      "source_hash": "4f5d848d7a3158b90a56a20bf0b59be3d80476ed523139ad9983102af86da1c3",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "038_encoder_table_e"
-      ]
-    },
-    {
-      "path": "src/039_elf_header.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/039_elf_header.se",
-      "readable_semantic_path": "src/039_elf_header.se",
-      "source_hash": "6c90c0eccd66818e9be7fa857cf2e3de3a365a09511ffc23caa1a4610cc18fd3",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "039_elf_header"
-      ]
-    },
-    {
-      "path": "src/040_hex_table.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/040_hex_table.se",
-      "readable_semantic_path": "src/040_hex_table.se",
-      "source_hash": "2e8cf90021d55b2ee02365519278e847d8359c845780b1eb54880a54055096a2",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "040_hex_table"
-      ]
-    },
-    {
-      "path": "src/041_fixed_slot_layout.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/041_fixed_slot_layout.se",
-      "readable_semantic_path": "src/041_fixed_slot_layout.se",
-      "source_hash": "7844b4592472d8e6ec73d803297a3b2ac07d0f0ca251a06329d14f1e452d7ac1",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "041_fixed_slot_layout"
-      ]
-    },
-    {
-      "path": "src/042_uast_contract.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/042_uast_contract.se",
-      "readable_semantic_path": "src/042_uast_contract.se",
-      "source_hash": "bc0d451fb804bca6cf56d19f9249500fbc48c94ac4cbe8d59924dc36232ad0b7",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "042_uast_contract"
-      ]
-    },
-    {
-      "path": "src/043_streaming_contract.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/043_streaming_contract.se",
-      "readable_semantic_path": "src/043_streaming_contract.se",
-      "source_hash": "ab213c9071fafedb293a76c6f021b64a385036cbdb0699d4d7fc2ab03b90105b",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "043_streaming_contract"
-      ]
-    },
-    {
-      "path": "src/044_determinism.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/044_determinism.se",
-      "readable_semantic_path": "src/044_determinism.se",
-      "source_hash": "598db8d115990fadd282610b866631694e01ae65fc87dae938b85f3aab47f686",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "044_determinism"
-      ]
-    },
-    {
-      "path": "src/045_selfhost_gate.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/045_selfhost_gate.se",
-      "readable_semantic_path": "src/045_selfhost_gate.se",
-      "source_hash": "8b7efed0e845c2e67695c9093df0815514eeb5cd7948f40c9527cc8617237d1f",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "045_selfhost_gate"
-      ]
-    },
-    {
-      "path": "src/046_main.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/046_main.se",
-      "readable_semantic_path": "src/046_main.se",
-      "source_hash": "d2477102b38bdb65ad0f5b4e763218bd7fa4dec8eb4bdfb3b79e9d974bf0dcc7",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "046_main"
-      ]
-    },
-    {
-      "path": "src/047_version.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/047_version.se",
-      "readable_semantic_path": "src/047_version.se",
-      "source_hash": "e4a5911c5b64c050f8930a78950969656d8cecea9ac123a66ba47da44dc307b7",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "047_version"
-      ]
-    },
-    {
-      "path": "src/048_uast_frontend.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/048_uast_frontend.se",
-      "readable_semantic_path": "src/048_uast_frontend.se",
-      "source_hash": "1d70a021c2ba4615d5819388f8f55b78774d11d754f8763dd30e7b3b7e9822e5",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "048_uast_frontend"
-      ]
-    },
-    {
-      "path": "src/049_uast_lowering.se",
-      "kind": "semantic",
-      "language": "se",
-      "semantic_path": "src/049_uast_lowering.se",
-      "readable_semantic_path": "src/049_uast_lowering.se",
-      "source_hash": "c2a12576b7e28bde8a93f7c684411ba5719b393beaa68395042929ec6ebc85fc",
-      "status": "SEMANTIC_READY",
-      "symbols": [
-        "049_uast_lowering"
-      ]
+      "kind": "script",
+      "language": "shell",
+      "path": "verify-selfhost.sh",
+      "source_hash": "1142cb665b04718387792bc18c3ee938a2168d738d41b1aa4885c4f53d16aeef",
+      "status": "SOURCE_ONLY"
     }
   ],
   "licenses": [
     "LICENSE"
   ],
-  "dependencies": []
+  "module_path": "semantic/msplc",
+  "name": "msplc",
+  "package_hash": "d50dd44e4e5f54b7ae3658a79b1ccb77834543b1368cf905fd6e0e8f9338b1f7",
+  "root": ".",
+  "schema_version": 1,
+  "source": "semantic-uast-selfhost-v2.2"
 }
