@@ -43,7 +43,7 @@
 
 MSPLC is a minimal self-hosted Semantic compiler for Linux x86-64. It compiles Semantic source units directly into ELF executables and is available as an official Semantic module. This repository contains the project's first Linux-only self-hosting compiler implementation: msplc. It can be loaded as a module or downlaoded from here: 
 
-https://github.com/SemanticProgrammingLanguage/Minimal-Sematic-Programming-Language-Compiler-Linux-Module/releases/download/v1.0.0/MSPLC-1.0.0-Linux.zip
+[https://github.com/SemanticProgrammingLanguage/Minimal-Sematic-Programming-Language-Compiler-Linux-Module/releases/download/v1.0.0/MSPLC-1.0.0-Linux.zip](https://github.com/SemanticProgrammingLanguage/Minimal-Sematic-Programming-Language-Compiler-Linux-Module/releases/download/v2.0.0/MSPLC-v2.2.0-Linux.zip)
 
 # Download
 
