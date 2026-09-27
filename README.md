@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center"> 
   <img width="640" alt="Semantic Programming Language Logo" src="https://github.com/user-attachments/assets/ec1d4462-c5b0-4aa0-841a-435bf0868b1d">
 </p>
 <p>
