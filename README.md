@@ -33,7 +33,7 @@
 <h1 align="center">Semantic Programming Language</h1>
 
 <p align="center">
-  A universal, matrix-driven programming language and compiler architecture based on canonical Semantic/UAST representations.
+  A universal, matrix-driven, self-hosted programming language and compiler architecture based on canonical Semantic/UAST representations. It is selfhosted on Linux x86.
 </p>
 
 # <p align="center"> https://www.semantic-programming-language.com/ </p>
