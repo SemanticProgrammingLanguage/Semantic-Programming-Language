@@ -349,7 +349,29 @@ Available routes and individual language features are capability-gated. Route av
 - preservation of evaluation order and effects
 - reproducible Semantic identity
 - gradual compiler self-hosting
+- 
+## Install Semantic from the Plugin Marketplace for ChatGPT
 
+1. Open ChatGPT and go to **Plugins**.
+2. Select **Add marketplace**.
+3. Enter this repository:
+
+https://github.com/SemanticProgrammingLanguage/Semantic-ChatGPT-Plugin
+
+4. For **Branch / tag / commit**, enter:
+
+marketplace
+
+5. Leave **Path** empty.
+6. Add/import the marketplace.
+7. Open the newly added marketplace.
+8. Find **Semantic** or **Semantic Test** and click **Install**.
+
+Alternatively, if you are using Codex or the ChatGPT desktop plugin workflow, you can add the marketplace with:
+
+codex plugin marketplace add SemanticProgrammingLanguage/Semantic-ChatGPT-Plugin --ref marketplace
+
+After the marketplace has been added, install the Semantic plugin from the marketplace list.
 ## Related repository
 
 The Go bootstrap compiler, GUI, CLI and importable package are maintained in:
