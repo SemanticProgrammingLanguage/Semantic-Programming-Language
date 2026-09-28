@@ -358,10 +358,7 @@ Available routes and individual language features are capability-gated. Route av
 
 https://github.com/SemanticProgrammingLanguage/Semantic-ChatGPT-Plugin
 
-4. For **Branch / tag / commit**, enter:
-
-marketplace
-
+4. For **Branch / tag / commit**, enter: marketplace
 5. Leave **Path** empty.
 6. Add/import the marketplace.
 7. Open the newly added marketplace.
