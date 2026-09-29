@@ -38,6 +38,16 @@
 
 # <p align="center"> https://www.semantic-programming-language.com/ </p>
 
+# Semantic Windows Compiler (SWC)
+SWC is a native Windows x64 compiler for Semantic source and Universal AST documents. This repository package contains the current compiler executable, its Semantic source, the integrated reader/lowering/transpiler work, tests, and development tools.
+
+This package intentionally contains no legacy source corpus.
+
+Quick start
+.\swc.exe version
+.\swc.exe help
+.\swc.exe compile .\program.se -o .\program.exe --no-modules
+Accepted input extensions are .se, .sp, .spz, .json, and .smod.
 # MWSPLC
  Mini Windows Semantic Compiler — native Windows x64 / PE32+ compiler for the minimal Semantic UAST subset.
  
