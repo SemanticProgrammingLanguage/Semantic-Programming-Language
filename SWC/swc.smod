@@ -1,0 +1,671 @@
+{
+  "dependencies": [],
+  "files": [
+    {
+      "kind": "license",
+      "path": "LICENSE",
+      "source_hash": "87dd322c74f6e2934c737ddb1be2de51a01594dd1dc9054ecb13a2cd17d0d072",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "README.md",
+      "source_hash": "aaf23631020a9d547c1064657e5b171cdf2cd1d969271aed1c191c4780dc37de",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "assets/swc-icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "assets/swc-icon.ico",
+      "source_hash": "73a1f6263a5b376be56240f8782fc3e9bce119887f2d4cc9ce2851e8870cbee8",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "docs/UAST-SUBSET.md",
+      "source_hash": "3a7fdc0004bf80c90df8b60d0f52f9ab162f4e79349ce5b65ab2c81b353267e8",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "asset",
+      "path": "icon.png",
+      "source_hash": "18fa84a77872d4d9b8284aebd2e6886ab1f1b210302cb66fe967bffb39cabdb7",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "executable",
+      "language": "pe32plus-x86_64",
+      "path": "swc.exe",
+      "source_hash": "aeb297f533bba0773474c00073e3f211737e6f573ecb744e347ed3333c46e277",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "proof/PORT-STATUS.txt",
+      "source_hash": "d3e71992e911b631a6a23b71fbcc3a9b3ae7c48c2d658991b61e17094e89f8fa",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/swc-selfhost-windows.se",
+      "readable_semantic_path": "src/swc-selfhost-windows.se",
+      "semantic_path": "src/swc-selfhost-windows.se",
+      "source_hash": "21ec65c9ed90c2b75fbcce385f53cf7e0d85396f426c27419b0e977b9ad60ba9",
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-se-port-matrix.se",
+      "readable_semantic_path": "src/units/legacy-se-port-matrix.se",
+      "semantic_path": "src/units/legacy-se-port-matrix.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "0ed684adec8957ad1ec4cc0afd5f7a05fbe2d663619f3a57cb48f684284eed01"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-se-source-manifest.se",
+      "readable_semantic_path": "src/units/legacy-se-source-manifest.se",
+      "semantic_path": "src/units/legacy-se-source-manifest.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "e6928a4ead7d9c0ae811e56318a8d70dc094f0aeb66988e689c219bf791b412a"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/semantic-input-dispatch.se",
+      "readable_semantic_path": "src/units/semantic-input-dispatch.se",
+      "semantic_path": "src/units/semantic-input-dispatch.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "545874db183977e44dd415c7ee191fb366eefe0e9573badc7f9c37e6c40c3e69"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/semantic-reader-pipeline.se",
+      "readable_semantic_path": "src/units/semantic-reader-pipeline.se",
+      "semantic_path": "src/units/semantic-reader-pipeline.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "055e7e47137e777abc0ebb90433848f6c40540ef863ad22e4a07a9a067fbe76b"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/cli-command-route.se",
+      "readable_semantic_path": "src/units/cli-command-route.se",
+      "semantic_path": "src/units/cli-command-route.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "97191373a5735dab26ca4614d19153aa015c6288574f8ea71416fe047571a3ff"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-command-kind.se",
+      "readable_semantic_path": "src/units/module-command-kind.se",
+      "semantic_path": "src/units/module-command-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "d2c2415f944a3eb357031c45c4bd8958196059db9d2739112fce99ccde281cf7"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-embed-mode.se",
+      "readable_semantic_path": "src/units/module-embed-mode.se",
+      "semantic_path": "src/units/module-embed-mode.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "010f188edf4ea8c5747f86434d3b982346370f4ddf68006e6b3e354936b7f71d"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-resolve-route.se",
+      "readable_semantic_path": "src/units/module-resolve-route.se",
+      "semantic_path": "src/units/module-resolve-route.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "b1740d108a4b9e12a14e72162a8a8f03c1a4a6cdc117c47d520c65125ccb0e76"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-spec-kind.se",
+      "readable_semantic_path": "src/units/module-spec-kind.se",
+      "semantic_path": "src/units/module-spec-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "37e712b38c68686e4c3a76fad181b1a8258487dd1eccab7436e1ba85664b04ed"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-store-default-path.se",
+      "readable_semantic_path": "src/units/module-store-default-path.se",
+      "semantic_path": "src/units/module-store-default-path.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "60c5aa5698a3e8c6be4c900303b45f8828c622711b59c705d67bab220fcd6d42"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-store-path.se",
+      "readable_semantic_path": "src/units/module-store-path.se",
+      "semantic_path": "src/units/module-store-path.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "3242e37ef62897f41077cbc0c5e667a2bd16a55c90b0a2320a90e35d9a1048b4"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-store-resolver.se",
+      "readable_semantic_path": "src/units/module-store-resolver.se",
+      "semantic_path": "src/units/module-store-resolver.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "8ca95fc863fd53e1866d96f9d43c46a0b51d1a27e60753d94e3a0acf42ce8e97"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/module-store-select-path.se",
+      "readable_semantic_path": "src/units/module-store-select-path.se",
+      "semantic_path": "src/units/module-store-select-path.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "02f1e073c27c5f3a73a0b69a29617a4e169e44392e9f3f18e47a7ec103261991"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-contract-reader.se",
+      "readable_semantic_path": "src/units/se-contract-reader.se",
+      "semantic_path": "src/units/se-contract-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "705217461b823a7279a61f1272dd7ad1291577a5b1ce66007485af28ac39cac6"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-document-reader.se",
+      "readable_semantic_path": "src/units/se-document-reader.se",
+      "semantic_path": "src/units/se-document-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "c9cf6b62d4b1385e3e4a4ffc7545d215dafdfeffe37d67d512242b5a51efc05e"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-format-kind.se",
+      "readable_semantic_path": "src/units/se-format-kind.se",
+      "semantic_path": "src/units/se-format-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "76cf08167bb1f9936e044a4935495d077a1c9b97337a785c7ee0bddddcbd2561"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-list-reader.se",
+      "readable_semantic_path": "src/units/se-list-reader.se",
+      "semantic_path": "src/units/se-list-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "21546dc509a80d28fc1157f06964373e0531bf7b1d44ab0c980aaf6462baa46d"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-node-transfer.se",
+      "readable_semantic_path": "src/units/se-node-transfer.se",
+      "semantic_path": "src/units/se-node-transfer.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "c1ea96a5ad7fbe8a2ef76751e69dc5cec866d0029e24694a6fc5207a5f845686"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-normalize-document.se",
+      "readable_semantic_path": "src/units/se-normalize-document.se",
+      "semantic_path": "src/units/se-normalize-document.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "2017ce1480faec1f2e1d00b3ea87f1c9064dad5dd7a6825801204563a367add4"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-object-reader.se",
+      "readable_semantic_path": "src/units/se-object-reader.se",
+      "semantic_path": "src/units/se-object-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "c8c6c507556544037709703fb179b938a5a2ec5545ac45ee133a2f687743b9fc"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-relation-reader.se",
+      "readable_semantic_path": "src/units/se-relation-reader.se",
+      "semantic_path": "src/units/se-relation-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "6d1f54018e78679e84c2b730e0890284773dbd75e7a693e492494955d31c0722"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-scalar-reader.se",
+      "readable_semantic_path": "src/units/se-scalar-reader.se",
+      "semantic_path": "src/units/se-scalar-reader.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "27ab4fb4d95fc3bb83c6f00bd8d4eee6abcc3d42ad714d9fae58cdeb1a931778"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/se-token-kind.se",
+      "readable_semantic_path": "src/units/se-token-kind.se",
+      "semantic_path": "src/units/se-token-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "131e8c2139ae05bd27b17d111cc94a15e96242ad8ed8744890695a558c4517b0"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/transpiler-matrix-header.se",
+      "readable_semantic_path": "src/units/transpiler-matrix-header.se",
+      "semantic_path": "src/units/transpiler-matrix-header.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "e0049664a95fe92be041ba095994d0119c00b4905e98aae0c6e0455252a7f229"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/transpile-matrix-route.se",
+      "readable_semantic_path": "src/units/transpile-matrix-route.se",
+      "semantic_path": "src/units/transpile-matrix-route.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "02318795331d393e48b53e1aaf602ee3fd04df21674d82c551c96050589446b8"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/transpile-core-route.se",
+      "readable_semantic_path": "src/units/transpile-core-route.se",
+      "semantic_path": "src/units/transpile-core-route.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "21aa79d6cc4493e495958aec96244532c2a50faa187f9c0d62400d5e01e45b44"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-container-kind.se",
+      "readable_semantic_path": "src/units/rich-container-kind.se",
+      "semantic_path": "src/units/rich-container-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "eb514c78796bbc3999bcaf8dd6853c7267a4e57c4076b164710d7682c7971695"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-lexeme-kind.se",
+      "readable_semantic_path": "src/units/rich-lexeme-kind.se",
+      "semantic_path": "src/units/rich-lexeme-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "630160fd2e3929ba8d9d7d9fe353a1516a7590d20a84a2d21a4d7f10e2315dd4"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-cardinality.se",
+      "readable_semantic_path": "src/units/rich-matrix-cardinality.se",
+      "semantic_path": "src/units/rich-matrix-cardinality.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "51f973b56801968a1685354b3b449a1fa11e0d58e3eb8b4c7946af109c096eea"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-kind-catalog.se",
+      "readable_semantic_path": "src/units/rich-matrix-kind-catalog.se",
+      "semantic_path": "src/units/rich-matrix-kind-catalog.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "77c56592a4d80238e12d8d121fa8a0f65b4bc71a615e66f4544edd8ac0a78313"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-presence-code.se",
+      "readable_semantic_path": "src/units/rich-matrix-presence-code.se",
+      "semantic_path": "src/units/rich-matrix-presence-code.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "c515d0f3cadf3e917fea67ca4e4c8dbb879e7750085dfa249d6b5e9162a39fa0"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-schema-kind.se",
+      "readable_semantic_path": "src/units/rich-matrix-schema-kind.se",
+      "semantic_path": "src/units/rich-matrix-schema-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "933ecf09ade7188a6f3b21cfa5dd499195d4362f9980193ff8b792bb06043e32"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-uast-kind-code.se",
+      "readable_semantic_path": "src/units/rich-matrix-uast-kind-code.se",
+      "semantic_path": "src/units/rich-matrix-uast-kind-code.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "1eb8deffc05197428fbaea32827585f693d0c6594a38eb986abe62ac8a70bb2d"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-matrix-uast-kind-lookup.se",
+      "readable_semantic_path": "src/units/rich-matrix-uast-kind-lookup.se",
+      "semantic_path": "src/units/rich-matrix-uast-kind-lookup.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "646a884736feaf69c19943fad499c1e235b044e5f8b08bad6cc1f48dceed278c"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-relation-role-code.se",
+      "readable_semantic_path": "src/units/rich-relation-role-code.se",
+      "semantic_path": "src/units/rich-relation-role-code.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "3b55324dea8bd64f28c6a4de2314d7a8d35a88867dc6560fa1e43e5415972c3f"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-scalar-kind.se",
+      "readable_semantic_path": "src/units/rich-scalar-kind.se",
+      "semantic_path": "src/units/rich-scalar-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "a85689adb5182ab70fab23dbcee7868d6419c8a0a5404049c7e408095ca514b2"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-section-kind.se",
+      "readable_semantic_path": "src/units/rich-section-kind.se",
+      "semantic_path": "src/units/rich-section-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "bff4f95c81d76a3d4b4405283bd2b3083f6ac2a5f6814e719e98931f40e68caa"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-aggregate-contract.se",
+      "readable_semantic_path": "src/units/uast-aggregate-contract.se",
+      "semantic_path": "src/units/uast-aggregate-contract.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "f17b40af4ffaab884fb518f0beda26d5adfd3ce5a4a24e80548659ee3cd1a614"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-aggregate-element-address.se",
+      "readable_semantic_path": "src/units/uast-aggregate-element-address.se",
+      "semantic_path": "src/units/uast-aggregate-element-address.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "bd6bc92f4970caef5615eca96d7d929905b3e0be9727f9d19dab39d2e3c2f8e3"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-break.se",
+      "readable_semantic_path": "src/units/uast-break.se",
+      "semantic_path": "src/units/uast-break.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "35d8907919eea59a027311311efe6c428784536d6e411a38aaf883ba1a3e7675"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-continue.se",
+      "readable_semantic_path": "src/units/uast-continue.se",
+      "semantic_path": "src/units/uast-continue.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "4c4d8dd77cda0752596e7883da935846ab103750d803d0ab7889fa457f312339"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-foreach-bound-check.se",
+      "readable_semantic_path": "src/units/uast-foreach-bound-check.se",
+      "semantic_path": "src/units/uast-foreach-bound-check.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "fcdc08505ccbe6cd81eca566d7f6913d377817272814eb64c4f909c995c715a3"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-foreach-contract.se",
+      "readable_semantic_path": "src/units/uast-foreach-contract.se",
+      "semantic_path": "src/units/uast-foreach-contract.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "a33cf40f6503680593ee648a238b3b0fe711e4924d0791fedce92460c715efab"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-foreach-iteration-state.se",
+      "readable_semantic_path": "src/units/uast-foreach-iteration-state.se",
+      "semantic_path": "src/units/uast-foreach-iteration-state.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "9c8c97d423e684521c4824625b956044e80856b74c739502529bb6496665cede"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-foreach-next.se",
+      "readable_semantic_path": "src/units/uast-foreach-next.se",
+      "semantic_path": "src/units/uast-foreach-next.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "3763c8a56e91872d6d17a59bdeb809956dde2c6f9e0aebfb01ba452e3577b64d"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-index-address.se",
+      "readable_semantic_path": "src/units/uast-index-address.se",
+      "semantic_path": "src/units/uast-index-address.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-index-call-abi.se",
+      "readable_semantic_path": "src/units/uast-index-call-abi.se",
+      "semantic_path": "src/units/uast-index-call-abi.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "c00dccd01dc51cd33a37273428677542db702f2b71695be381e9ffe00b203d58"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-loop-label-stack.se",
+      "readable_semantic_path": "src/units/uast-loop-label-stack.se",
+      "semantic_path": "src/units/uast-loop-label-stack.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "4d65bceefdd7a6af92066f5a58b2865cd016c35a2d464375c0b9b9849ff1acb2"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-member-address.se",
+      "readable_semantic_path": "src/units/uast-member-address.se",
+      "semantic_path": "src/units/uast-member-address.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "d8eedd44aacb0b3ca175142d9e2f44fd7b026f7c4d17c9c2b1272dfca1e89d98"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-missing-lowering-matrix.se",
+      "readable_semantic_path": "src/units/uast-missing-lowering-matrix.se",
+      "semantic_path": "src/units/uast-missing-lowering-matrix.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "8e16356f3b7b92672827cd1de7769fcbcde4d508c5eebd82c79011275296b113"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-nil-literal.se",
+      "readable_semantic_path": "src/units/uast-nil-literal.se",
+      "semantic_path": "src/units/uast-nil-literal.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "e4110366260a66e159c8a496df84402edc56efae8fe85351b3c49bbae5a8f644"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-slice-span.se",
+      "readable_semantic_path": "src/units/uast-slice-span.se",
+      "semantic_path": "src/units/uast-slice-span.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "3fd6f792f8c0edc7b031f928edd55c89f15903b0c03db19ed53e5cb67c579b96"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/uast-structural-kind.se",
+      "readable_semantic_path": "src/units/uast-structural-kind.se",
+      "semantic_path": "src/units/uast-structural-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "92170765da059ba8fe1c8502f5f86ec2704e07a4a55cbd28f1a11d8b9f771f3e"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-aggregate-lowering-role.se",
+      "readable_semantic_path": "src/units/legacy-aggregate-lowering-role.se",
+      "semantic_path": "src/units/legacy-aggregate-lowering-role.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "d175329a315c5ed4a61fc7da5cd2255fc5ae0977f20fdf6212c27aa9d3eb7675"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-foreach-lowering-role.se",
+      "readable_semantic_path": "src/units/legacy-foreach-lowering-role.se",
+      "semantic_path": "src/units/legacy-foreach-lowering-role.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "a1b80072d4ac6572d7cbe74cad493c64ecc6d05035e4b91e42a43c5b1bbf1558"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-index-call-contract.se",
+      "readable_semantic_path": "src/units/legacy-index-call-contract.se",
+      "semantic_path": "src/units/legacy-index-call-contract.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "5b6b13b81d9018c9483e4127d2a8eeea3a131e3eb614d4e58a5bda0523b86f3f"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-index-lowering-kind.se",
+      "readable_semantic_path": "src/units/legacy-index-lowering-kind.se",
+      "semantic_path": "src/units/legacy-index-lowering-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "dbfbe056d4fb7cd80886fbd83fc1cd13c6d3ca807136444f6f9d4ea7723d3697"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-member-lowering-kind.se",
+      "readable_semantic_path": "src/units/legacy-member-lowering-kind.se",
+      "semantic_path": "src/units/legacy-member-lowering-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "ffe2f320d0043fca94429656e3106a24e5b4595dc7ac8d0fb337eb378d4b4e54"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/legacy-slice-bound-kind.se",
+      "readable_semantic_path": "src/units/legacy-slice-bound-kind.se",
+      "semantic_path": "src/units/legacy-slice-bound-kind.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "76d930170a1a54baa419438860c69dd66c5279f5cfb53f400bbd17cc4900a5b0"
+    },
+    {
+      "kind": "documentation",
+      "language": "markdown",
+      "path": "docs/LEGACY-SE-PORT.md",
+      "status": "SOURCE_ONLY",
+      "source_hash": "7fa0fe54c74a7e22dbc8245c85f697cfbb582406d942604732d5ac5fad4429cd"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/control.se",
+      "source_hash": "a0a1d09f4fb4599fd971b0123fdb6f6ef6055f50523017564a355a8a79659ee9",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/count-input.txt",
+      "source_hash": "064bf87e8a36ae59f17e540d1e467eb86ae355c2639c10cdf6f8d557ba1c6a69",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/countbytes.se",
+      "source_hash": "f0982ce967c848da163b5a77d2be4b3151243476bf5e416cabfba46451cffa48",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "documentation",
+      "language": "text",
+      "path": "tests/input.txt",
+      "source_hash": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/params.se",
+      "source_hash": "c01ec59bb563931c6bfccbda7c719ab7818632461231d09dcd3f9b1acd51fc91",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/readbyte.se",
+      "source_hash": "91f90ff22eb28a184a0429d01a323b64c5670f4ae637c96fa1a2f59d4842aca4",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "test",
+      "language": "semantic",
+      "path": "tests/return42.se",
+      "source_hash": "134329dad859a2518ba7bb6bb11cddb6db90439297ac049d275a03ee25123960",
+      "status": "SOURCE_ONLY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "src/units/rich-envelope-marker.se",
+      "readable_semantic_path": "src/units/rich-envelope-marker.se",
+      "semantic_path": "src/units/rich-envelope-marker.se",
+      "status": "SEMANTIC_READY",
+      "source_hash": "ef3d3f9de331d2bcf4de890c191b511fe3139c8cbdcdb94f4d0d3eed7031d1cb"
+    }
+  ],
+  "licenses": [
+    "LICENSE"
+  ],
+  "module_path": "semantic/swc",
+  "name": "swc",
+  "package_hash": "a8560c2376d1eb863a75b8334f17e9284bea7ddaf0df06c0e3bb3d0d1bba1eaf",
+  "root": ".",
+  "schema_version": 1,
+  "source": "semantic-uast-selfhost-v2.3.2-windows-x64"
+}
