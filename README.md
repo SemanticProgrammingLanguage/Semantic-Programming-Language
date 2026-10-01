@@ -43,6 +43,8 @@ SWC is a native Windows x64 compiler for Semantic source and Universal AST docum
 
 This package intentionally contains no legacy source corpus.
 
+https://github.com/tarekwasfy01/Semantic-Programming-Language/blob/main/SWC/swc.exe
+
 Quick start
 .\swc.exe version
 .\swc.exe help
