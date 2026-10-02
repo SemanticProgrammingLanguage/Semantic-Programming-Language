@@ -62,7 +62,7 @@ crosscompiler/bin/swc.exe
 crosscompiler/bin/swc-linux.elf
 crosscompiler/bin/swc-windows-to-elf.exe
 crosscompiler/bin/swc-linux-selfhost-pe.exe
-
+````
 # Download
 
 [https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.0.0/Semantic.Programming.Language.zip](https://github.com/tarekwasfy01/Semantic-Programming-Language/releases/download/v1.4.0/codetranspiler.zip)
