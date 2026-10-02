@@ -38,31 +38,30 @@
 
 # <p align="center"> https://www.semantic-programming-language.com/ </p>
 
-# Semantic Windows Compiler (SWC)
-SWC is a native Windows x64 compiler for Semantic source and Universal AST documents. This repository package contains the current compiler executable, its Semantic source, the integrated reader/lowering/transpiler work, tests, and development tools.
+## Crosscompiler
 
-This package intentionally contains no legacy source corpus.
+The repository contains the native Semantic crosscompiler in [`crosscompiler/`](./crosscompiler).
 
-https://github.com/tarekwasfy01/Semantic-Programming-Language/blob/main/SWC/swc.exe
+The crosscompiler is built from Semantic source units and contains the complete compiler structure required for frontend processing, UAST handling, module resolution, lowering, backend code generation, and target-specific executable emission.
 
-Quick start
-.\swc.exe version
-.\swc.exe help
-.\swc.exe compile .\program.se -o .\program.exe --no-modules
-Accepted input extensions are .se, .sp, .spz, .json, and .smod.
-# MWSPLC
- Mini Windows Semantic Compiler — native Windows x64 / PE32+ compiler for the minimal Semantic UAST subset.
- 
-<a href="https://www.semantic-programming-language.com/module.html?name=mwsplc&url=https%3A%2F%2Fgithub.com%2FSemanticProgrammingLanguage%2Fmwsplc%2Freleases%2Fdownload%2Fv2.3.2%2Fmwsplc.zip&official=1&source=archive"><img alt="mwsplc — Semantic v2.3.2" src="https://img.shields.io/endpoint?url=https://www.semantic-programming-language.com/assets/badges/semantic-badge.json" /></a>
+### Supported compiler roots
 
-https://github.com/SemanticProgrammingLanguage/mwsplc/releases/download/v2.3.2/mwsplc.zip
+The crosscompiler provides native compiler roots for both Windows and Linux:
 
-# MSPLC
-[![msplc — Semantic v1.0.0](https://img.shields.io/endpoint?url=https://www.semantic-programming-language.com/assets/badges/semantic-badge.json)](https://www.semantic-programming-language.com/module.html?name=msplc&url=https%3A%2F%2Fgithub.com%2FSemanticProgrammingLanguage%2FMinimal-Sematic-Programming-Language-Compiler-Linux-Module%2Freleases%2Fdownload%2Fv1.0.0%2FMSPLC-1.0.0-Linux.zip&official=1&source=archive)
+- Windows x86-64 → Windows PE/EXE
+- Linux x86-64 → Linux ELF
+- Windows x86-64 → Linux ELF
+- Linux x86-64 → Windows PE/EXE
 
-MSPLC is a minimal self-hosted Semantic compiler for Linux x86-64. It compiles Semantic source units directly into ELF executables and is available as an official Semantic module. This repository contains the project's first Linux-only self-hosting compiler implementation: msplc. It can be loaded as a module or downlaoded from here: 
+The target-specific compiler paths are preserved as separate native Semantic roots. This makes it possible to validate each platform independently and to continue extending the shared target-dispatch layer without mixing platform runtimes.
 
-https://github.com/SemanticProgrammingLanguage/Minimal-Sematic-Programming-Language-Compiler-Linux-Module/releases/download/v2.0.0/MSPLC-v2.2.0-Linux.zip
+### Included binaries
+
+```text
+crosscompiler/bin/swc.exe
+crosscompiler/bin/swc-linux.elf
+crosscompiler/bin/swc-windows-to-elf.exe
+crosscompiler/bin/swc-linux-selfhost-pe.exe
 
 # Download
 
