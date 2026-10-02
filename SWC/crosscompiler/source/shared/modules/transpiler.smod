@@ -1,0 +1,18 @@
+{
+  "schema": "slc.semantic-module.v1",
+  "name": "code-transpiler-semantic-closure",
+  "version": "1",
+  "language": "semantic",
+  "entry_point": "__transpiler_bundle_probe_main",
+  "status": "SEMANTIC_READY",
+  "dependencies": [],
+  "files": [
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../units/transpiler/transpiler77.se",
+      "semantic_path": "../units/transpiler/transpiler77.se",
+      "status": "SEMANTIC_READY"
+    }
+  ]
+}
