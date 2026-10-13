@@ -1,0 +1,89 @@
+{
+  "schema": "swc.current-state-build.v1",
+  "compiler": "C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-candidate-20261013.exe",
+  "source": "C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-candidate-20261013.se",
+  "probe": "C:\\Users\\tarek\\Desktop\\mwsplc\\tests\\return42.se",
+  "version": {
+    "arguments": "version",
+    "exit_code": 0,
+    "seconds": 0.047,
+    "output": "swc 2.3.2 windows-x64"
+  },
+  "help": {
+    "arguments": "help",
+    "exit_code": 0,
+    "seconds": 0.024,
+    "output": "swc compile <input.se|input.sp|input.spz|input.json|input.smod> -o <output.exe> [--embed-all|--embed-needed|--no-modules]\r\nswc help\r\nswc version\r\nPending: show-modules, list-modules, setpath, setmodulestore, transpile"
+  },
+  "stage2": {
+    "command": {
+      "arguments": "compile C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-candidate-20261013.se -o C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-gate-20261013\\stage2.exe --embed-all",
+      "exit_code": 0,
+      "seconds": 10.411,
+      "output": ""
+    },
+    "artifact": {
+      "exists": true,
+      "bytes": 122368,
+      "sha256": "ACECF0D7F030E21CBF45439D387CB87F94E2B58EB1BF3600363FD1982AED62DE"
+    },
+    "pe": {
+      "valid": true,
+      "x64": true,
+      "entry_in_text": true,
+      "trivial_entry_stub": false
+    },
+    "runtime": {
+      "started": true,
+      "timed_out": false,
+      "exit_code": 0
+    },
+    "passed": true
+  },
+  "stage3": {
+    "command": {
+      "arguments": "compile C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-candidate-20261013.se -o C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-gate-20261013\\stage3.exe --embed-all",
+      "exit_code": 0,
+      "seconds": 9.523,
+      "output": ""
+    },
+    "artifact": {
+      "exists": true,
+      "bytes": 122368,
+      "sha256": "ACECF0D7F030E21CBF45439D387CB87F94E2B58EB1BF3600363FD1982AED62DE"
+    },
+    "pe": {
+      "valid": true,
+      "x64": true,
+      "entry_in_text": true,
+      "trivial_entry_stub": false
+    },
+    "runtime": {
+      "started": true,
+      "timed_out": false,
+      "exit_code": 0
+    },
+    "passed": true
+  },
+  "byte_stable": true,
+  "runtime_probe": {
+    "command": {
+      "arguments": "compile C:\\Users\\tarek\\Desktop\\mwsplc\\tests\\return42.se -o C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\switch-body-fallback-gate-20261013\\return42.exe --no-modules",
+      "exit_code": 0,
+      "seconds": 0.072,
+      "output": ""
+    },
+    "artifact": {
+      "exists": true,
+      "bytes": 3072,
+      "sha256": "25A954126DCB4AA97DE78EBC70E6657670C85BF72DCC0F75DFF85D04ABB86B58"
+    },
+    "runtime": {
+      "started": true,
+      "timed_out": false,
+      "exit_code": 42
+    },
+    "passed": true
+  },
+  "overall": true
+}
