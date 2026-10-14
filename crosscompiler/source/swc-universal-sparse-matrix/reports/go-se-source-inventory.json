@@ -1,0 +1,72 @@
+{
+  "schema": "swc.go-se-source-inventory.v1",
+  "status": "EVIDENCE_ONLY",
+  "files": [
+    {
+      "file": "semantic_all_entry.se",
+      "bytes": 486430,
+      "closures": 0,
+      "sample_closures": [],
+      "uast_kinds": 0
+    },
+    {
+      "file": "semantic_backend.se",
+      "bytes": 46096668,
+      "closures": 0,
+      "sample_closures": [],
+      "uast_kinds": 0
+    },
+    {
+      "file": "semantic_frontend.se",
+      "bytes": 17270998,
+      "closures": 0,
+      "sample_closures": [],
+      "uast_kinds": 0
+    },
+    {
+      "file": "semantic_transpiler_cli_current.se",
+      "bytes": 3149216,
+      "closures": 362,
+      "sample_closures": [
+        "Backends",
+        "DefaultRuntimeTaintFixtures",
+        "DependencyGap",
+        "Ensure",
+        "EnterExpression",
+        "EnterStatement",
+        "Error",
+        "FrontendInputUsesSemanticLift",
+        "Frontends",
+        "GetEffects",
+        "LeaveExpression",
+        "LeaveStatement",
+        "LinkEmbeddedSemanticModules",
+        "LinkSemanticDependencies",
+        "LowerNativeGo",
+        "LowerNativeGoWithDiagnostics",
+        "LowerPython",
+        "MarshalSemanticSE",
+        "MarshalSemanticSECompact",
+        "MarshalSemanticSESemanticOnly",
+        "MatrixFrontendLanguages",
+        "NativeDeclarationEmitter",
+        "NativeExpressionEmitter",
+        "NativeStatementEmitter",
+        "NativeWindowsX64TargetProfile",
+        "OpenModule",
+        "ParseSemantic",
+        "ParseSemanticSE",
+        "ParseSemanticSP",
+        "PhaseGap"
+      ],
+      "uast_kinds": 18
+    },
+    {
+      "file": "semantic_uast.se",
+      "bytes": 23428874,
+      "closures": 0,
+      "sample_closures": [],
+      "uast_kinds": 0
+    }
+  ]
+}

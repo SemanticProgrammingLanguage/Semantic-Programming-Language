@@ -1,0 +1,14 @@
+{
+  "schema": "swc.native-integration-attempt.v1",
+  "input": "tmp/combined-matrix-merged-canonical.se",
+  "compiler": "swc.exe",
+  "command": "swc compile combined-matrix-merged-canonical.se -o swc-matrix-native-candidate.exe --embed-all",
+  "compile_exit": 0,
+  "candidate": "tmp/swc-matrix-native-candidate.exe",
+  "candidate_bytes": 10240,
+  "candidate_run_exit": 19,
+  "status": "REJECTED",
+  "reason": "The current native entry path produced a 10 KiB bootstrap candidate rather than compiling the merged graph closure. It was not promoted and the active swc.exe remains unchanged.",
+  "baseline_bytes": 132608,
+  "baseline_sha256": "F843F7AA6A30B5C5FF667E83E8B7515A90BEE874DAEF3B3B97C0BE262A6D0ECB"
+}

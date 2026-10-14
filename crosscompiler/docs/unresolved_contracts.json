@@ -1,0 +1,11 @@
+{
+  "schema": "swc.universal-sparse-matrix.unresolved.v1",
+  "policy": "do not activate without type, relation, effect, runtime, and native execution evidence",
+  "conflicts": [{"kind":"SwitchMatchStmt","reason":"legacy switch code reservation requires dedicated contract"}],
+  "priority_shared_primitives": [
+    {"primitive":"EXTRACT","needed_by":["BindingPattern","TupleExpr"],"missing":"general aggregate layout and relation proof"},
+    {"primitive":"BOUNDS","needed_by":["IndexExpr","SliceExpr","ForEachStmt"],"missing":"policy-specific native tests"},
+    {"primitive":"CALL","needed_by":["CallExpr","ForeignDeclCall"],"missing":"complete ABI/IAT contract for all signatures"},
+    {"primitive":"BRANCH","needed_by":["SwitchMatchStmt","TryStmt","AwaitExpr"],"missing":"control/effect semantics"}
+  ]
+}

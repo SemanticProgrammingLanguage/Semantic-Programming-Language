@@ -1,0 +1,8 @@
+{
+  "schema": "swc.selfhost-validation.v1",
+  "status": "PASS",
+  "active_bytes": 132608,
+  "active_sha256": "F45FE5B14DBAEC416C66311059E908C0C9A71A19BFDABC66A6CC720672D56F0C",
+  "stage2_sha256": "F45FE5B14DBAEC416C66311059E908C0C9A71A19BFDABC66A6CC720672D56F0C",
+  "byte_identical": true
+}

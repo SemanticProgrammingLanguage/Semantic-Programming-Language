@@ -1,0 +1,14 @@
+{
+  "schema": "swc.reachable-closures-before-after.v1",
+  "before": {
+    "root": "matrix-family-bundle.main",
+    "closures": 66
+  },
+  "after": {
+    "root": "swc-selfhost-windows.compile_file",
+    "closures": "compiler root plus matrix closures",
+    "graph_nodes": 21158,
+    "graph_relations": 20977
+  },
+  "status": "ROOT_REPAIRED"
+}

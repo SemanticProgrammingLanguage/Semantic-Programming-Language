@@ -1,0 +1,28 @@
+{
+  "schema": "swc.native-matrix-fixtures.v1",
+  "status": "PASS",
+  "results": [
+    {
+      "fixture": "return42.se",
+      "exit": 42
+    },
+    {
+      "fixture": "params.se",
+      "exit": 42
+    },
+    {
+      "fixture": "control.se",
+      "exit": 17
+    },
+    {
+      "fixture": "matrix-nested-tuple-index-value.se",
+      "exit": 35
+    },
+    {
+      "fixture": "matrix-tuple-effects-once.se",
+      "exit": 24
+    }
+  ],
+  "candidate_bytes": 132608,
+  "candidate_sha256": "F45FE5B14DBAEC416C66311059E908C0C9A71A19BFDABC66A6CC720672D56F0C"
+}

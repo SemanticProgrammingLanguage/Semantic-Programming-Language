@@ -1,0 +1,43 @@
+{
+  "schema": "swc.final-regression.v1",
+  "status": "PASS",
+  "stage2_sha256": "47B3BB78910189F8E6BEB85C1EF5D2C7EB74624775D481EB9FD0ED1425A29D75",
+  "stage3_sha256": "47B3BB78910189F8E6BEB85C1EF5D2C7EB74624775D481EB9FD0ED1425A29D75",
+  "fixtures": [
+    {
+      "fixture": "tests/return42.se",
+      "compile_exit": 0,
+      "run_exit": 42,
+      "expected": 42,
+      "pass": true
+    },
+    {
+      "fixture": "tests/params.se",
+      "compile_exit": 0,
+      "run_exit": 42,
+      "expected": 42,
+      "pass": true
+    },
+    {
+      "fixture": "tests/control.se",
+      "compile_exit": 0,
+      "run_exit": 17,
+      "expected": 17,
+      "pass": true
+    },
+    {
+      "fixture": "tests/matrix-nested-tuple-index-value.se",
+      "compile_exit": 0,
+      "run_exit": 35,
+      "expected": 35,
+      "pass": true
+    },
+    {
+      "fixture": "tests/matrix-tuple-effects-once.se",
+      "compile_exit": 0,
+      "run_exit": 24,
+      "expected": 24,
+      "pass": true
+    }
+  ]
+}

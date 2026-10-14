@@ -1,0 +1,826 @@
+{
+  "schema": "swc.native-rule-inventory.v1",
+  "rules": [
+    {
+      "kind": "ABIContract",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "0",
+        "kind": "ABIContract",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "AggregateExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "1",
+        "kind": "AggregateExpr",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "Annotation",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "2",
+        "kind": "Annotation",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ArraySliceType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "3",
+        "kind": "ArraySliceType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "4",
+        "kind": "AssignStmt",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "AtomicOp",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "5",
+        "kind": "AtomicOp",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "AwaitExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "6",
+        "kind": "AwaitExpr",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "Binding",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "7",
+        "kind": "Binding",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "BindingPattern",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "8",
+        "kind": "BindingPattern",
+        "status": "LOWERABLE",
+        "reason": "existing contract; relation/layout proof still required"
+      }
+    },
+    {
+      "kind": "BindingResolution",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "9",
+        "kind": "BindingResolution",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "BoolType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "10",
+        "kind": "BoolType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "BreakStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "11",
+        "kind": "BreakStmt",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "CallExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "12",
+        "kind": "CallExpr",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "CaptureRelation",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "13",
+        "kind": "CaptureRelation",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ChannelTypeOp",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "14",
+        "kind": "ChannelTypeOp",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ClosureExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "15",
+        "kind": "ClosureExpr",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "CompileTimeEval",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "16",
+        "kind": "CompileTimeEval",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ComprehensionExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "17",
+        "kind": "ComprehensionExpr",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ConcurrencyOp",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "18",
+        "kind": "ConcurrencyOp",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ConstantDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "19",
+        "kind": "ConstantDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ContinueStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "20",
+        "kind": "ContinueStmt",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "ConvertExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "21",
+        "kind": "ConvertExpr",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "DeferCleanupStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "22",
+        "kind": "DeferCleanupStmt",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "DispatchResolution",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "23",
+        "kind": "DispatchResolution",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "DispatchSemantics",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "24",
+        "kind": "DispatchSemantics",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "Effect",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "25",
+        "kind": "Effect",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ExecutionModel",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "26",
+        "kind": "ExecutionModel",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "FloatType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "27",
+        "kind": "FloatType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ForEachStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "28",
+        "kind": "ForEachStmt",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "ForeignDeclCall",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "29",
+        "kind": "ForeignDeclCall",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "FunctionDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "30",
+        "kind": "FunctionDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "FunctionType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "31",
+        "kind": "FunctionType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "GenericParamDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "32",
+        "kind": "GenericParamDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "GotoLabelStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "33",
+        "kind": "GotoLabelStmt",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "IRFact",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "34",
+        "kind": "IRFact",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "IfStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "35",
+        "kind": "IfStmt",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "ImportDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "36",
+        "kind": "ImportDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "IndexExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "37",
+        "kind": "IndexExpr",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "IntegerType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "38",
+        "kind": "IntegerType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "InterfaceTypeDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "39",
+        "kind": "InterfaceTypeDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "LayoutContract",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "40",
+        "kind": "LayoutContract",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "LifetimeRegion",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "41",
+        "kind": "LifetimeRegion",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "LiteralExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "42",
+        "kind": "LiteralExpr",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "LoopStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "43",
+        "kind": "LoopStmt",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "LoweringFact",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "44",
+        "kind": "LoweringFact",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "MacroCompileTime",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "45",
+        "kind": "MacroCompileTime",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "MapType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "46",
+        "kind": "MapType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "MemberAccessExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "47",
+        "kind": "MemberAccessExpr",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "MemoryManagement",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "48",
+        "kind": "MemoryManagement",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "MemoryModelContract",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "49",
+        "kind": "MemoryModelContract",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ModuleDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "50",
+        "kind": "ModuleDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "NominalTypeDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "51",
+        "kind": "NominalTypeDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "OperationExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "52",
+        "kind": "OperationExpr",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "OptimizationFact",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "53",
+        "kind": "OptimizationFact",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "OptionalType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "54",
+        "kind": "OptionalType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "OwnershipSemantics",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "55",
+        "kind": "OwnershipSemantics",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ParameterDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "56",
+        "kind": "ParameterDecl",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "PointerType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "57",
+        "kind": "PointerType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "RaisePanicStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "58",
+        "kind": "RaisePanicStmt",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "RecordTypeDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "59",
+        "kind": "RecordTypeDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ReferenceType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "60",
+        "kind": "ReferenceType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ReflectionOp",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "61",
+        "kind": "ReflectionOp",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "ReturnStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "62",
+        "kind": "ReturnStmt",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "SafetyRegion",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "63",
+        "kind": "SafetyRegion",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "Scope",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "64",
+        "kind": "Scope",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "ShadowingRelation",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "65",
+        "kind": "ShadowingRelation",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "SliceExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "66",
+        "kind": "SliceExpr",
+        "status": "NATIVE_PROVEN",
+        "reason": "existing compile_expr/core/x64 path is proven"
+      }
+    },
+    {
+      "kind": "StringType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "67",
+        "kind": "StringType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "SwitchMatchStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "68",
+        "kind": "SwitchMatchStmt",
+        "status": "CONFLICT",
+        "reason": "legacy switch code reservation requires dedicated contract"
+      }
+    },
+    {
+      "kind": "SymbolRef",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "69",
+        "kind": "SymbolRef",
+        "status": "DIRECT",
+        "reason": "direct canonical core path"
+      }
+    },
+    {
+      "kind": "SynchronizationOp",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "70",
+        "kind": "SynchronizationOp",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "TryStmt",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "71",
+        "kind": "TryStmt",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "TupleExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "72",
+        "kind": "TupleExpr",
+        "status": "LOWERABLE",
+        "reason": "existing contract; relation/layout proof still required"
+      }
+    },
+    {
+      "kind": "TupleType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "73",
+        "kind": "TupleType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "TypeConstraint",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "74",
+        "kind": "TypeConstraint",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "TypeInferenceFact",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "75",
+        "kind": "TypeInferenceFact",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "TypeRelation",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "76",
+        "kind": "TypeRelation",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "UnionVariantType",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "77",
+        "kind": "UnionVariantType",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "VariableDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "78",
+        "kind": "VariableDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "VariantTypeDecl",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "79",
+        "kind": "VariantTypeDecl",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "Visibility",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "80",
+        "kind": "Visibility",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    },
+    {
+      "kind": "YieldExpr",
+      "status": "CATALOGUED",
+      "evidence": {
+        "canonical_id": "81",
+        "kind": "YieldExpr",
+        "status": "UNSUPPORTED",
+        "reason": "no complete native lowering contract in current SWC graph"
+      }
+    }
+  ],
+  "native_execution_requires": "existing SWC emitter and validated contract"
+}

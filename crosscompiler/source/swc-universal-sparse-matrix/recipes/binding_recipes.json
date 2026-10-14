@@ -1,0 +1,12 @@
+{
+  "example": "(a,b)=get_pair()",
+  "sequence": [
+    "TEMP = EVAL(get_pair) exactly once",
+    "A = EXTRACT(TEMP,0)",
+    "B = EXTRACT(TEMP,1)",
+    "BIND(a,A)",
+    "BIND(b,B)"
+  ],
+  "status": "ABSTRACT_RECIPE_UNPROVEN",
+  "nested_patterns": "OPEN"
+}

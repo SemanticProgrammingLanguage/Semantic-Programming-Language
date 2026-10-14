@@ -1,0 +1,8 @@
+{
+  "schema": "swc.canonical-semantic-graph.v1",
+  "nodes": 1211,
+  "relations": 1277,
+  "closures": 66,
+  "source": "C:\\Users\\tarek\\Desktop\\mwsplc\\tmp\\combined-matrix-merged.json",
+  "status": "VALID"
+}

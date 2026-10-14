@@ -1,0 +1,20 @@
+{
+  "schema": "swc.native-matrix-integration-final.v1",
+  "status": "PASS",
+  "active_bytes": 132096,
+  "active_sha256": "47B3BB78910189F8E6BEB85C1EF5D2C7EB74624775D481EB9FD0ED1425A29D75",
+  "entry_root": "compile_file",
+  "matrix_calls": [
+    "legacy_primitive_route",
+    "matrixUASTKind",
+    "matrixOperationSemantics"
+  ],
+  "selfhost_byte_identical": true,
+  "native_regressions": [
+    42,
+    42,
+    17,
+    35,
+    24
+  ]
+}

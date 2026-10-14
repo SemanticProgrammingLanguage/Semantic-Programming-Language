@@ -1,0 +1,9 @@
+{
+  "archive": "se.zip",
+  "semantic_units": 204,
+  "symbols_requested": 12,
+  "symbols_with_references": 0,
+  "source_symbol_matches": 0,
+  "native_proven": 0,
+  "limitation": "Textual references do not establish executable graph reachability or native correctness. Canonical 82-kind catalog and 23 relations have not been verified."
+}

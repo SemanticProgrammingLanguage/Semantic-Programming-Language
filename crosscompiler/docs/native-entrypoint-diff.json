@@ -1,0 +1,14 @@
+{
+  "schema": "swc.native-entrypoint-diff.v1",
+  "baseline_root": "src/swc-selfhost-windows.se",
+  "repaired_root": "src/swc-selfhost-windows.se",
+  "matrix_units_added": [
+    "PrimitiveRoute",
+    "matrixUASTKind",
+    "matrixOperationSemantics"
+  ],
+  "baseline_sha256": "F843F7AA6A30B5C5FF667E83E8B7515A90BEE874DAEF3B3B97C0BE262A6D0ECB",
+  "repaired_sha256": "F45FE5B14DBAEC416C66311059E908C0C9A71A19BFDABC66A6CC720672D56F0C",
+  "repaired_bytes": 132608,
+  "status": "VALIDATED"
+}

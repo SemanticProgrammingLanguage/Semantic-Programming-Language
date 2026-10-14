@@ -1,0 +1,58 @@
+{
+  "schema": "swc.matrix-fixedpoint.v1",
+  "rounds": [
+    {
+      "round": 1,
+      "activated": [
+        "INDEX_READ",
+        "INDEX_WRITE",
+        "MEMBER_READ",
+        "MEMBER_WRITE",
+        "SWITCH_MATCH",
+        "TUPLE_EXTRACT"
+      ]
+    },
+    {
+      "round": 2,
+      "activated": []
+    }
+  ],
+  "primitive_count": 17,
+  "activated_primitives": [
+    "ADDR",
+    "ALU",
+    "BRANCH",
+    "CALL",
+    "CMP",
+    "CONST",
+    "EVAL",
+    "INDEX_READ",
+    "INDEX_WRITE",
+    "JUMP",
+    "LOAD",
+    "MEMBER_READ",
+    "MEMBER_WRITE",
+    "RETURN",
+    "STORE",
+    "SWITCH_MATCH",
+    "TUPLE_EXTRACT"
+  ],
+  "blocked": {
+    "AGGREGATE_BUILD": [
+      "ALLOC"
+    ],
+    "TUPLE_BUILD": [
+      "AGGREGATE_BUILD"
+    ],
+    "BINDING_PATTERN": [
+      "BIND"
+    ],
+    "FOREACH": [
+      "BIND"
+    ],
+    "SLICE": [
+      "AGGREGATE",
+      "BOUNDS"
+    ]
+  }
+}

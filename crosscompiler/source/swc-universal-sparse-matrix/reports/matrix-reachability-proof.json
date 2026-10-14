@@ -1,0 +1,29 @@
+{
+  "schema": "swc.matrix-reachability-proof.v1",
+  "root": "compile_file",
+  "reachable_closure_count": 111,
+  "matrix_functions": {
+    "legacy_primitive_route": {
+      "reachable": true,
+      "status": "REACHABLE"
+    },
+    "matrixUASTKind": {
+      "reachable": true,
+      "status": "REACHABLE"
+    },
+    "matrixOperationSemantics": {
+      "reachable": true,
+      "status": "REACHABLE"
+    }
+  },
+  "existing_native_path": {
+    "compile_expr": true,
+    "compile_stmt": true,
+    "compile_uast_rich_support": true,
+    "rich_core_lowering_dispatch": true,
+    "rich_uast_kind_code": true,
+    "parse_source_rich_aware": true
+  },
+  "status": "PASS",
+  "note": "The existing rich/native dispatch is reachable, but the three imported matrix function names do not yet have direct call edges from compile_expr/compile_stmt."
+}

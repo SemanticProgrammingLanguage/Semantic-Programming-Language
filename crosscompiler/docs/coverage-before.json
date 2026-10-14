@@ -1,0 +1,1047 @@
+﻿{
+    "schema":  "swc.uast-bulk-coverage.v1",
+    "catalog":  {
+                    "node_kinds":  82,
+                    "relation_kinds":  23,
+                    "source":  "src/units/rich-matrix-kind-catalog.se",
+                    "matrix":  "src/transpiler-matrix/capability_matrix.se"
+                },
+    "fixpoint":  {
+                     "algorithm":  "least_fixpoint",
+                     "rounds":  1,
+                     "rule_groups":  [
+                                         "catalog",
+                                         "alias/type/binding/scope/layout/effect/control/runtime evidence",
+                                         "core-family projection",
+                                         "existing primitive and x64 emitter contracts"
+                                     ],
+                     "activated":  [
+                                       "AggregateExpr",
+                                       "AssignStmt",
+                                       "BreakStmt",
+                                       "CallExpr",
+                                       "ClosureExpr",
+                                       "ContinueStmt",
+                                       "ForEachStmt",
+                                       "IfStmt",
+                                       "IndexExpr",
+                                       "LiteralExpr",
+                                       "LoopStmt",
+                                       "MemberAccessExpr",
+                                       "OperationExpr",
+                                       "ParameterDecl",
+                                       "ReturnStmt",
+                                       "Scope",
+                                       "SliceExpr",
+                                       "SymbolRef"
+                                   ],
+                     "gated":  [
+                                   "ABIContract",
+                                   "Annotation",
+                                   "ArraySliceType",
+                                   "AtomicOp",
+                                   "AwaitExpr",
+                                   "Binding",
+                                   "BindingPattern",
+                                   "BindingResolution",
+                                   "BoolType",
+                                   "CaptureRelation",
+                                   "ChannelTypeOp",
+                                   "CompileTimeEval",
+                                   "ComprehensionExpr",
+                                   "ConcurrencyOp",
+                                   "ConstantDecl",
+                                   "ConvertExpr",
+                                   "DeferCleanupStmt",
+                                   "DispatchResolution",
+                                   "DispatchSemantics",
+                                   "Effect",
+                                   "ExecutionModel",
+                                   "FloatType",
+                                   "ForeignDeclCall",
+                                   "FunctionDecl",
+                                   "FunctionType",
+                                   "GenericParamDecl",
+                                   "GotoLabelStmt",
+                                   "IRFact",
+                                   "ImportDecl",
+                                   "IntegerType",
+                                   "InterfaceTypeDecl",
+                                   "LayoutContract",
+                                   "LifetimeRegion",
+                                   "LoweringFact",
+                                   "MacroCompileTime",
+                                   "MapType",
+                                   "MemoryManagement",
+                                   "MemoryModelContract",
+                                   "ModuleDecl",
+                                   "NominalTypeDecl",
+                                   "OptimizationFact",
+                                   "OptionalType",
+                                   "OwnershipSemantics",
+                                   "PointerType",
+                                   "RaisePanicStmt",
+                                   "RecordTypeDecl",
+                                   "ReferenceType",
+                                   "ReflectionOp",
+                                   "SafetyRegion",
+                                   "ShadowingRelation",
+                                   "StringType",
+                                   "SwitchMatchStmt",
+                                   "SynchronizationOp",
+                                   "TryStmt",
+                                   "TupleExpr",
+                                   "TupleType",
+                                   "TypeConstraint",
+                                   "TypeInferenceFact",
+                                   "TypeRelation",
+                                   "UnionVariantType",
+                                   "VariableDecl",
+                                   "VariantTypeDecl",
+                                   "Visibility",
+                                   "YieldExpr"
+                               ]
+                 },
+    "counts":  {
+                   "DIRECT":  11,
+                   "LOWERABLE":  2,
+                   "NATIVE_PROVEN":  7,
+                   "UNSUPPORTED":  61,
+                   "CONFLICT":  1
+               },
+    "kinds":  [
+                  {
+                      "structural_kind":  "ABIContract",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "AggregateExpr",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "Annotation",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ArraySliceType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "AssignStmt",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "AtomicOp",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "AwaitExpr",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "Binding",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "BindingPattern",
+                      "status":  "LOWERABLE",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing contract; relation/layout proof still required"
+                  },
+                  {
+                      "structural_kind":  "BindingResolution",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "BoolType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "BreakStmt",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "CallExpr",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "CaptureRelation",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ChannelTypeOp",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ClosureExpr",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "CompileTimeEval",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ComprehensionExpr",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ConcurrencyOp",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ConstantDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ContinueStmt",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "ConvertExpr",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "DeferCleanupStmt",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "DispatchResolution",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "DispatchSemantics",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "Effect",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ExecutionModel",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "FloatType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ForEachStmt",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "ForeignDeclCall",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "FunctionDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "FunctionType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "GenericParamDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "GotoLabelStmt",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "IRFact",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "IfStmt",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "ImportDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "IndexExpr",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "IntegerType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "InterfaceTypeDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "LayoutContract",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "LifetimeRegion",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "LiteralExpr",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "LoopStmt",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "LoweringFact",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "MacroCompileTime",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "MapType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "MemberAccessExpr",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "MemoryManagement",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "MemoryModelContract",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ModuleDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "NominalTypeDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "OperationExpr",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "OptimizationFact",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "OptionalType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "OwnershipSemantics",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ParameterDecl",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "PointerType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "RaisePanicStmt",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "RecordTypeDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ReferenceType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ReflectionOp",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "ReturnStmt",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "SafetyRegion",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "Scope",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "ShadowingRelation",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "SliceExpr",
+                      "status":  "NATIVE_PROVEN",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing compile_expr/core/x64 path is proven"
+                  },
+                  {
+                      "structural_kind":  "StringType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "SwitchMatchStmt",
+                      "status":  "CONFLICT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "legacy switch code reservation requires dedicated contract"
+                  },
+                  {
+                      "structural_kind":  "SymbolRef",
+                      "status":  "DIRECT",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "direct canonical core path"
+                  },
+                  {
+                      "structural_kind":  "SynchronizationOp",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "TryStmt",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "TupleExpr",
+                      "status":  "LOWERABLE",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "existing contract; relation/layout proof still required"
+                  },
+                  {
+                      "structural_kind":  "TupleType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "TypeConstraint",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "TypeInferenceFact",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "TypeRelation",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "UnionVariantType",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "VariableDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "VariantTypeDecl",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "Visibility",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  },
+                  {
+                      "structural_kind":  "YieldExpr",
+                      "status":  "UNSUPPORTED",
+                      "required_relations":  [
+
+                                             ],
+                      "dependencies":  [
+
+                                       ],
+                      "reason":  "no complete native lowering contract in current SWC graph"
+                  }
+              ],
+    "relations":  [
+                      "abi.graph",
+                      "annotation.graph",
+                      "binding.graph",
+                      "call.graph",
+                      "capture.graph",
+                      "compiletime.graph",
+                      "concurrency.graph",
+                      "constraint.graph",
+                      "contract.graph",
+                      "control.flow",
+                      "data.flow",
+                      "dialect.extension",
+                      "dispatch.graph",
+                      "effect.graph",
+                      "layout.graph",
+                      "lifetime.graph",
+                      "lowering.graph",
+                      "memory.graph",
+                      "ownership.graph",
+                      "runtime.graph",
+                      "scope.binding",
+                      "scope.graph",
+                      "types.graph"
+                  ],
+    "validation":  {
+                       "catalog_complete":  true,
+                       "no_unproven_activation":  true,
+                       "native_graph_audit":  "pending after candidate build",
+                       "stage2_stage3":  "pending after candidate build"
+                   }
+}

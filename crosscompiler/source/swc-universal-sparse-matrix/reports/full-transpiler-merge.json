@@ -1,0 +1,18 @@
+{
+  "schema": "swc.full-transpiler-merge.v1",
+  "status": "PASS",
+  "source": "semantic_transpiler_cli_current.se",
+  "merged_nodes": 21966,
+  "merged_relations": 21762,
+  "duplicate_functions_skipped": 416,
+  "active_bytes": 140288,
+  "active_sha256": "B01B59D1046E75C81E60E8D94DA103A979C4CB8C35721EC876035D4750C97287",
+  "stage2_byte_identical": true,
+  "native_regressions": [
+    42,
+    42,
+    17,
+    35,
+    24
+  ]
+}

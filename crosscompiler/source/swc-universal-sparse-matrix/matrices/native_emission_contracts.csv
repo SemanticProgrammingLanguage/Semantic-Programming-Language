@@ -1,0 +1,11 @@
+Primitive,MachineOperations,Requirements
+CONST,MOV_IMM,register_width
+ADDR,LEA|ADD|IMUL,addressing_contract
+LOAD,MOV|MOVZX|MOVSX,type|width
+STORE,MOV_MEM_REG,valid_target_address
+ALU,ADD|SUB|AND|OR,operation|overflow
+CMP,CMP|TEST,comparison_semantics
+BRANCH,JCC,flags|label
+JUMP,JMP,target_resolution
+CALL,CALL,abi|stack|iat
+RETURN,RET,return_convention

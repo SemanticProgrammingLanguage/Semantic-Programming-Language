@@ -1,0 +1,37 @@
+{
+  "schema": "swc.native-validation.v4",
+  "date": "2026-10-14",
+  "compiler_size": 132096,
+  "compiler_sha256": "D88F5573B4ADD28603076FC2F7512743EEE4BC160365CF753388E98215EE3AD0",
+  "compiler_modified": true,
+  "compiler_replaced": true,
+  "active_compiler_size": 132608,
+  "active_compiler_sha256": "8423BF8A1A3A98ECFDCAAB63A4556BE2A301EE4FD4A5CC7187FE1F239BE9DD22",
+  "stage2_stage3_baseline_byte_identical": true,
+  "smod_baseline_byte_identical": true,
+  "smod_command": "compile swc.smod -o tmp/matrix-v4-smod.exe --embed-all",
+  "smod_scope": "Current manifest lists only src/swc-selfhost-windows.se; this is not validation of the entire unit inventory",
+  "tests_using_stage3": [
+    {"source": "tests/return42.se", "expected_exit": 42, "actual_exit": 42, "build_exit": 0},
+    {"source": "tests/params.se", "expected_exit": 42, "actual_exit": 42, "build_exit": 0},
+    {"source": "tests/control.se", "expected_exit": 17, "actual_exit": 17, "build_exit": 0},
+    {"source": "tests/matrix-aggregate-index-value.se", "expected_exit": 35, "actual_exit": 35, "build_exit": 0},
+    {"source": "tests/matrix-tuple-index-value.se", "expected_exit": 35, "actual_exit": 35, "build_exit": 0},
+    {"source": "tests/matrix-nested-tuple-index-value.se", "expected_exit": 35, "actual_exit": 35, "build_exit": 0},
+    {"source": "tests/matrix-tuple-effects-once.se", "expected_exit": 24, "actual_exit": 24, "build_exit": 0}
+  ],
+  "new_evidence": "Two effectful tuple elements execute once each in ordinal order within the tested stack-local profile",
+  "new_compiler_kinds_implemented": 0,
+  "remaining": ["general BindingPattern lowering", "full V4 inventories", "complete native recipe integration", "negative native cases", "instruction and relocation audit"],
+  "cli_issue": "Placing -embed-all before -o returned zero but wrote an unintended file named -o; documented argument order succeeded. Compiler CLI defect not fixed in this round.",
+  "candidate": {
+    "path": "tmp/swc-cli-output-candidate.exe",
+    "size": 132608,
+    "sha256": "59F89F505148202D1CAC2CC509B76CF4E1844FA6912A73C4D6D38BBEF680A5AF",
+    "stage2_stage3_byte_identical": true,
+    "smod_embed_all": "FAIL_NATIVE_CRASH"
+  },
+  "complete_v4_assignment": false,
+  "cli_output_path_fix": "native inline main guard: if argv[4] == -o then use argv[5], otherwise retain argv[4]",
+  "active_backup": "tmp/swc-before-cli-inline.exe and tmp/swc-before-cli-inline.se"
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "swc.selfhost.validation.v1",
+  "compiler": "swc.exe",
+  "size_bytes": 132608,
+  "sha256": "8423BF8A1A3A98ECFDCAAB63A4556BE2A301EE4FD4A5CC7187FE1F239BE9DD22",
+  "stage2_stage3_byte_identical": true,
+  "smod_scope": "root manifest validation only; full unit closure remains open",
+  "active_replacement": "validated before activation"
+}

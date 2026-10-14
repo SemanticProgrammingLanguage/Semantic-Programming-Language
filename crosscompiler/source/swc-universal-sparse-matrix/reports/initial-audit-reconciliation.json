@@ -1,0 +1,12 @@
+{
+  "schema": "swc.sparse-matrix-audit-reconciliation.v1",
+  "input": "swc-sparse-matrix-initial-audit.zip",
+  "semantic_units_in_archive": 204,
+  "symbols_requested": 12,
+  "source_symbol_matches": 0,
+  "native_proven": 0,
+  "new_rules_imported": 0,
+  "status": "NO_ADDITIONAL_PROVEN_RULES",
+  "reason": "Textual references do not establish executable graph reachability or native correctness. Canonical 82-kind catalog and 23 relations have not been verified.",
+  "next_step": "retain current canonical graph and validate executable reachability against native SWC"
+}

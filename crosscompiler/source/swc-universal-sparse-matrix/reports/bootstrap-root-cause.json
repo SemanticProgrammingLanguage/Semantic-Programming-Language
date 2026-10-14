@@ -1,0 +1,11 @@
+{
+  "schema": "swc.bootstrap-root-cause.v1",
+  "root_cause": "candidate graph used matrix-family bundle main instead of SWC compiler root",
+  "observed_entry": "main",
+  "required_entry": "compile_file -> compile_program",
+  "old_candidate_bytes": 10240,
+  "repaired_candidate_bytes": 132608,
+  "old_run_exit": 19,
+  "repair": "preserve src/swc-selfhost-windows.se as root and append matrix closures",
+  "status": "FIXED"
+}

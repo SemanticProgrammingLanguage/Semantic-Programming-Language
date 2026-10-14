@@ -1,0 +1,38 @@
+{
+  "schema": "swc.ordered-native-recipes.v4",
+  "scope": "One recovered native profile, not the complete UAST inventory",
+  "seeds": ["frame_alloc", "compile_expr", "emit_mov_mem_rax", "legacy_member_address_emit"],
+  "recipes": [
+    {
+      "id": "tuple.stack-local.two-eight-byte-slots",
+      "source_kind": "TupleExpr",
+      "source_relation_family": "syntax.child:argument:ordinal",
+      "provides": "TUPLE_STACK_LOCAL_2",
+      "abi_profile": "windows-x64.rbp-stack.length-header.8byte-slots.one-based-index",
+      "inputs": ["element0", "element1", "context"],
+      "ordered_steps": [
+        {"id": "allocate", "primitive": "ALLOC", "inputs": ["context"], "outputs": ["frame_depth"], "implementation": "frame_alloc(context,3)"},
+        {"id": "header", "primitive": "STORE", "inputs": ["frame_depth"], "outputs": [], "implementation": "emit_mov_mem_rax(context,frame_depth)", "value": 2},
+        {"id": "eval0", "primitive": "EVAL", "source_expression": "element0", "inputs": ["element0"], "outputs": ["value0"], "implementation": "compile_expr"},
+        {"id": "store0", "primitive": "STORE", "inputs": ["frame_depth", "value0"], "outputs": [], "frame_depth_delta": -8, "implementation": "emit_mov_mem_rax"},
+        {"id": "eval1", "primitive": "EVAL", "source_expression": "element1", "inputs": ["element1"], "outputs": ["value1"], "implementation": "compile_expr"},
+        {"id": "store1", "primitive": "STORE", "inputs": ["frame_depth", "value1"], "outputs": [], "frame_depth_delta": -16, "implementation": "emit_mov_mem_rax"},
+        {"id": "result", "primitive": "ADDR", "inputs": ["frame_depth"], "outputs": ["product_address"], "implementation": "legacy_member_address_emit"}
+      ],
+      "result_binding": "product_address",
+      "ordering_edges": [["allocate", "header"], ["header", "eval0"], ["eval0", "store0"], ["store0", "eval1"], ["eval1", "store1"], ["store1", "result"]],
+      "evaluate_once": ["element0", "element1"],
+      "dependencies": ["frame_alloc", "compile_expr", "emit_mov_mem_rax", "legacy_member_address_emit"],
+      "required_contracts": ["layout", "lifetime", "evaluation_order"],
+      "contracts": {
+        "layout": {"status": "PROVEN", "source": "src/swc-selfhost-windows.se: compile_aggregate_expr, frame_alloc; tests/matrix-nested-tuple-index-value.se", "restriction": "length header plus two eight-byte cells; inner product represented by address"},
+        "lifetime": {"status": "PROVEN", "source": "tests/matrix-tuple-index-value.se; tests/matrix-nested-tuple-index-value.se", "restriction": "product consumed within allocating frame; no escaping ownership"},
+        "evaluation_order": {"status": "PROVEN", "source": "tests/matrix-tuple-effects-once.se", "restriction": "two argument ordinals evaluated once, left to right; trace 0->1->12"}
+      },
+      "evidence": ["integration/sparse-matrix-preparation/TUPLE-NATIVE-PASS.md", "tests/matrix-tuple-effects-once.se"],
+      "validation_status": "NATIVE_TESTED_PROFILE",
+      "compiler_integration": "Existing kind_code -> kind16 -> compile_aggregate_expr; this JSON describes the path and is not loaded by SWC",
+      "excluded": ["general BindingPattern", "wildcard/rest", "heterogeneous inline layouts", "escaping products", "source-language-specific conversions"]
+    }
+  ]
+}

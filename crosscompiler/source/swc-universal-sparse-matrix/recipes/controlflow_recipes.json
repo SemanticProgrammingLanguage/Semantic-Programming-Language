@@ -1,0 +1,16 @@
+{
+  "if": [
+    "EVAL condition",
+    "CMP condition",
+    "BRANCH then/else",
+    "PHI_OR_MERGE"
+  ],
+  "loop": [
+    "EVAL test",
+    "CMP",
+    "BRANCH",
+    "body",
+    "JUMP backedge"
+  ],
+  "status": "ABSTRACT_RECIPE_UNPROVEN"
+}

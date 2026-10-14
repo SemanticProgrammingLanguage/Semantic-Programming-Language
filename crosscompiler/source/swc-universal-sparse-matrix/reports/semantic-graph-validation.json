@@ -1,0 +1,8 @@
+{
+  "schema": "swc.semantic-graph-validation.v1",
+  "nodes": 1211,
+  "relations": 1277,
+  "duplicate_ids": false,
+  "dangling_relations": 0,
+  "status": "PASS"
+}

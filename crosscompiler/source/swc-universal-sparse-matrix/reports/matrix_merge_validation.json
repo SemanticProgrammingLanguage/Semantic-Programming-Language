@@ -1,0 +1,16 @@
+{
+  "schema": "swc.universal-sparse-matrix.merge-validation.v1",
+  "source": "integration/swc-universal-sparse-matrix/semantic",
+  "units_merged": 2,
+  "nodes_added": 18,
+  "candidate_source": "tmp/swc-matrix-integrated-candidate-2.se",
+  "candidate_exe": "tmp/swc-matrix-integrated-candidate.exe",
+  "candidate_size_bytes": 132608,
+  "candidate_sha256": "F843F7AA6A30B5C5FF667E83E8B7515A90BEE874DAEF3B3B97C0BE262A6D0ECB",
+  "stage2_size_bytes": 132608,
+  "stage3_size_bytes": 132608,
+  "stage2_stage3_byte_identical": true,
+  "graph_merge": "passed",
+  "native_entry_reachability": "pending",
+  "active_replacement": "not performed"
+}

@@ -1,0 +1,19 @@
+{
+  "address_formula": "base + index * stride + field_offset",
+  "kinds": [
+    "AggregateExpr",
+    "IndexExpr",
+    "MemberAccessExpr"
+  ],
+  "prerequisites": [
+    "base_valid",
+    "layout_known",
+    "bounds_checked",
+    "alignment_valid",
+    "stack_offsets_valid",
+    "register_allocation_valid",
+    "lifetime_valid",
+    "store_target_valid"
+  ],
+  "status": "OPEN_UNVERIFIED"
+}

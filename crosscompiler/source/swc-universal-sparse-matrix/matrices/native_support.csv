@@ -1,0 +1,83 @@
+kind,status,native_execution_proven,evidence
+ABIContract,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+AggregateExpr,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+Annotation,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ArraySliceType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+AssignStmt,DIRECT,0,direct canonical core path
+AtomicOp,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+AwaitExpr,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+Binding,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+BindingPattern,LOWERABLE,0,existing contract; relation/layout proof still required
+BindingResolution,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+BoolType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+BreakStmt,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+CallExpr,DIRECT,0,direct canonical core path
+CaptureRelation,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ChannelTypeOp,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ClosureExpr,DIRECT,0,direct canonical core path
+CompileTimeEval,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ComprehensionExpr,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ConcurrencyOp,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ConstantDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ContinueStmt,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+ConvertExpr,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+DeferCleanupStmt,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+DispatchResolution,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+DispatchSemantics,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+Effect,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ExecutionModel,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+FloatType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ForEachStmt,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+ForeignDeclCall,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+FunctionDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+FunctionType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+GenericParamDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+GotoLabelStmt,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+IRFact,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+IfStmt,DIRECT,0,direct canonical core path
+ImportDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+IndexExpr,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+IntegerType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+InterfaceTypeDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+LayoutContract,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+LifetimeRegion,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+LiteralExpr,DIRECT,0,direct canonical core path
+LoopStmt,DIRECT,0,direct canonical core path
+LoweringFact,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+MacroCompileTime,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+MapType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+MemberAccessExpr,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+MemoryManagement,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+MemoryModelContract,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ModuleDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+NominalTypeDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+OperationExpr,DIRECT,0,direct canonical core path
+OptimizationFact,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+OptionalType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+OwnershipSemantics,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ParameterDecl,DIRECT,0,direct canonical core path
+PointerType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+RaisePanicStmt,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+RecordTypeDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ReferenceType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ReflectionOp,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+ReturnStmt,DIRECT,0,direct canonical core path
+SafetyRegion,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+Scope,DIRECT,0,direct canonical core path
+ShadowingRelation,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+SliceExpr,NATIVE_PROVEN,1,existing compile_expr/core/x64 path is proven
+StringType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+SwitchMatchStmt,CONFLICT,0,legacy switch code reservation requires dedicated contract
+SymbolRef,DIRECT,0,direct canonical core path
+SynchronizationOp,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+TryStmt,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+TupleExpr,LOWERABLE,0,existing contract; relation/layout proof still required
+TupleType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+TypeConstraint,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+TypeInferenceFact,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+TypeRelation,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+UnionVariantType,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+VariableDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+VariantTypeDecl,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+Visibility,UNSUPPORTED,0,no complete native lowering contract in current SWC graph
+YieldExpr,UNSUPPORTED,0,no complete native lowering contract in current SWC graph

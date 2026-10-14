@@ -1,0 +1,12 @@
+Capability,Dependencies,AdditionalContract
+INDEX_READ,ADDR|LOAD,element_layout|bounds
+INDEX_WRITE,ADDR|STORE,element_layout|bounds|lvalue
+MEMBER_READ,ADDR|LOAD,member_offset|layout
+MEMBER_WRITE,ADDR|STORE,member_offset|layout|lvalue
+AGGREGATE_BUILD,ALLOC|EVAL|ADDR|STORE,element_order|layout|lifetime
+TUPLE_BUILD,AGGREGATE_BUILD,arity|element_types
+TUPLE_EXTRACT,ADDR|LOAD,arity|element_layout
+BINDING_PATTERN,EVAL|TUPLE_EXTRACT|BIND,scope|single_evaluation
+SWITCH_MATCH,EVAL|CMP|BRANCH|JUMP,case_order|guards|default
+FOREACH,EVAL|LOAD|CMP|BRANCH|BIND|JUMP,iterator_contract
+SLICE,EVAL|BOUNDS|ADDR|AGGREGATE,slice_layout|step|ownership
