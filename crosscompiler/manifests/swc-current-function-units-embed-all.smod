@@ -7,17 +7,17 @@
   "semantic_path": "C:\\Users\\tarek\\Desktop\\mwsplc\\crosscompiler-release-2026-10-02\\source\\shared\\se\\swc-current-2026-10-08\\swc-main-root.se",
   "status": "SEMANTIC_READY",
   "dependencies": [
-    "../source/shared/modules/backend-closure2.smod",
-    "../source/shared/modules/backend-closure3.smod",
-    "../source/shared/modules/backend-closure4.smod",
-    "../source/shared/modules/backend-closure5.smod",
-    "../source/shared/modules/backend-closure6.smod",
-    "../source/shared/modules/backend-closure7.smod",
-    "../source/shared/modules/cli-transpile.smod",
-    "../source/shared/modules/matrix.smod",
-    "../source/shared/modules/runtime-append.smod",
-    "../source/shared/modules/transpiler.smod",
-    "../source/shared/modules/windows-delta.smod"
+    "../old_compiler_artifacts/SWC/modules/backend-closure2.smod",
+    "../old_compiler_artifacts/SWC/modules/backend-closure3.smod",
+    "../old_compiler_artifacts/SWC/modules/backend-closure4.smod",
+    "../old_compiler_artifacts/SWC/modules/backend-closure5.smod",
+    "../old_compiler_artifacts/SWC/modules/backend-closure6.smod",
+    "../old_compiler_artifacts/SWC/modules/backend-closure7.smod",
+    "../old_compiler_artifacts/SWC/modules/cli-transpile.smod",
+    "../old_compiler_artifacts/SWC/modules/matrix.smod",
+    "../old_compiler_artifacts/SWC/modules/runtime-append.smod",
+    "../old_compiler_artifacts/SWC/modules/transpiler.smod",
+    "../old_compiler_artifacts/SWC/modules/windows-delta.smod"
   ],
   "files": [
     {
