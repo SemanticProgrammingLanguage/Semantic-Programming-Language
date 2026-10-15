@@ -1,0 +1,117 @@
+{
+  "schema": "swc.semantic-module.v1",
+  "name": "swc.legacy.primitives",
+  "version": "0.1.0-core",
+  "language": "semantic",
+  "source_format": "semantic_document.v1",
+  "dependencies": [],
+  "entry_points": [
+    "legacy_literal_family",
+    "legacy_primitive_route"
+  ],
+  "contracts": [
+    "genericAtomicKernels.LITERAL",
+    "genericAtomicKernels.BINARY",
+    "genericAtomicKernels.COMPARE",
+    "genericAtomicKernels.CONTROL",
+    "genericAtomicKernels.ITERATION"
+  ],
+  "proof": {
+    "isolated_core_compile": "legacy-literal-family.se",
+    "stage3_self_compile": "legacy-literal-family.se",
+    "active_swc_source_embedded": false,
+    "note": "Semantic source package only; activation requires reachable SWC lowering and link proof."
+  },
+  "files": [
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/legacy-literal-family.se",
+      "semantic_path": "../se/units/legacy-literal-family.se",
+      "source_hash": "fee5457bcf313013a1dd73742c384fe9860c5115b4e228f37b42108fe375d8ea",
+      "sha256": "fee5457bcf313013a1dd73742c384fe9860c5115b4e228f37b42108fe375d8ea",
+      "bytes": 4164,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/legacy-primitive-table.se",
+      "semantic_path": "../se/units/legacy-primitive-table.se",
+      "source_hash": "3603d636767d4a866bb285e97eae464f4e7023bc251dd760d1aaf225d763ecc5",
+      "sha256": "3603d636767d4a866bb285e97eae464f4e7023bc251dd760d1aaf225d763ecc5",
+      "bytes": 13475,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-cardinality.se",
+      "semantic_path": "../se/units/rich-matrix-cardinality.se",
+      "source_hash": "51f973b56801968a1685354b3b449a1fa11e0d58e3eb8b4c7946af109c096eea",
+      "sha256": "51f973b56801968a1685354b3b449a1fa11e0d58e3eb8b4c7946af109c096eea",
+      "bytes": 4319,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-kind-catalog.se",
+      "semantic_path": "../se/units/rich-matrix-kind-catalog.se",
+      "source_hash": "77c56592a4d80238e12d8d121fa8a0f65b4bc71a615e66f4544edd8ac0a78313",
+      "sha256": "77c56592a4d80238e12d8d121fa8a0f65b4bc71a615e66f4544edd8ac0a78313",
+      "bytes": 2856,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-presence-code.se",
+      "semantic_path": "../se/units/rich-matrix-presence-code.se",
+      "source_hash": "c515d0f3cadf3e917fea67ca4e4c8dbb879e7750085dfa249d6b5e9162a39fa0",
+      "sha256": "c515d0f3cadf3e917fea67ca4e4c8dbb879e7750085dfa249d6b5e9162a39fa0",
+      "bytes": 4481,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-schema-kind.se",
+      "semantic_path": "../se/units/rich-matrix-schema-kind.se",
+      "source_hash": "933ecf09ade7188a6f3b21cfa5dd499195d4362f9980193ff8b792bb06043e32",
+      "sha256": "933ecf09ade7188a6f3b21cfa5dd499195d4362f9980193ff8b792bb06043e32",
+      "bytes": 5121,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-uast-kind-code.se",
+      "semantic_path": "../se/units/rich-matrix-uast-kind-code.se",
+      "source_hash": "1eb8deffc05197428fbaea32827585f693d0c6594a38eb986abe62ac8a70bb2d",
+      "sha256": "1eb8deffc05197428fbaea32827585f693d0c6594a38eb986abe62ac8a70bb2d",
+      "bytes": 1627,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/rich-matrix-uast-kind-lookup.se",
+      "semantic_path": "../se/units/rich-matrix-uast-kind-lookup.se",
+      "source_hash": "646a884736feaf69c19943fad499c1e235b044e5f8b08bad6cc1f48dceed278c",
+      "sha256": "646a884736feaf69c19943fad499c1e235b044e5f8b08bad6cc1f48dceed278c",
+      "bytes": 39470,
+      "status": "SEMANTIC_READY"
+    },
+    {
+      "kind": "semantic",
+      "language": "semantic",
+      "path": "../se/units/project-deps/rich-matrix-primitive-family.se",
+      "semantic_path": "../se/units/project-deps/rich-matrix-primitive-family.se",
+      "source_hash": "8b7d40bba2df0bef6cd0282a6b50422b97c60c51bc214a0c5c1334dc5779f33e",
+      "sha256": "8b7d40bba2df0bef6cd0282a6b50422b97c60c51bc214a0c5c1334dc5779f33e",
+      "bytes": 7663,
+      "status": "SEMANTIC_READY"
+    }
+  ]
+}

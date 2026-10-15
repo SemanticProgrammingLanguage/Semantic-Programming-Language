@@ -21,11 +21,8 @@ python integration/swc-universal-sparse-matrix/tools/matrix_bulk_import.py --roo
 
 The validator checks catalog counts, dependencies, recipe structure, and
 fixpoint inputs. Native claims require executable evidence and remain in the
-reports. The checked-in Windows executable remains the previously published
-146,432-byte baseline (SHA256
-`39DAE62B08BDB1362C05BEF46C9315D121255E074C78ABDE883E8CF410AB4DD9`). The
-newer source has a 161,280-byte local self-host candidate (SHA256
-`CC213E4BFCB5F8E6FFAB2F6C2279BB7D91F4902FF41FAC16B6008B2EF2476BD5`), but
-that executable was not published in this update. `mem_store64` arity rejection
-is not yet proven: zero through three arguments were accepted by the negative
-fixtures, so this behavior remains outside `NATIVE_PROVEN`.
+reports. The checked-in Windows executable is 161,280 bytes (SHA256
+`CC213E4BFCB5F8E6FFAB2F6C2279BB7D91F4902FF41FAC16B6008B2EF2476BD5`), built
+from the current self-host source. `mem_store64` arity rejection is not yet
+proven: zero through three arguments were accepted by the negative fixtures,
+so this behavior remains outside `NATIVE_PROVEN`.
