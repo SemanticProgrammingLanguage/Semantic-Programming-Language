@@ -42,6 +42,11 @@
 
 The repository contains the native Semantic crosscompiler in [`crosscompiler/`](./crosscompiler).
 
+For the exact Windows source/manifest revision, the separately retained
+published executable, and current validation limitations, see the
+[crosscompiler status](./crosscompiler/README.md). Source updates do not imply
+that the checked-in executable was replaced.
+
 The crosscompiler is built from Semantic source units and contains the complete compiler structure required for frontend processing, UAST handling, module resolution, lowering, backend code generation, and target-specific executable emission.
 
 ### Supported compiler roots

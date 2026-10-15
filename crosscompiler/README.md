@@ -1,14 +1,23 @@
-# SWC crosscompiler sources and validated Windows compiler
+# SWC crosscompiler sources and Windows compiler status
 
-Current Windows update: 2026-10-15. `bin/swc.exe` and
-`bin/swc-windows-selfhost.exe` contain the validated native Windows compiler.
+Current Windows update: 2026-10-15. The checked-in binaries remain the
+previously published native Windows compiler; the source and manifest now
+track a newer self-host candidate.
 
-- Compiler: 146,432 bytes, SHA256
+- Published `bin/swc.exe`: 146,432 bytes, SHA256
   `39DAE62B08BDB1362C05BEF46C9315D121255E074C78ABDE883E8CF410AB4DD9`.
-- Matching source: `source/windows/se/swc-selfhost-windows.se`, SHA256
-  `1F8C8A04E000D653BCB0A60DA6DBA9673689529CFF7234C4FBB6EC573D8FE74B`.
-- Build entry: `manifests/swc.smod`; its paths are relative to the manifest.
-- Stage2, Stage3 and the native SMOD Embed-All build produce identical bytes.
+- Current source: `source/windows/se/swc-selfhost-windows.se`, 5,721,230 bytes,
+  SHA256 `64CEDDE1265ABD44F427E0B459A61AFE7834069AFAF17791E8951F14B089CFBC`.
+- Build entry: `manifests/swc.smod`; it points to that exact source hash and
+  uses paths relative to the manifest.
+- Latest local self-host candidate: 161,280 bytes, SHA256
+  `CC213E4BFCB5F8E6FFAB2F6C2279BB7D91F4902FF41FAC16B6008B2EF2476BD5`.
+  Stage2 and Stage3 were reported byte-identical. This candidate was not copied
+  over the checked-in executable in this source/docs update.
+
+The `mem_store64` fail-closed arity check is still unproven: calls with zero,
+one, two, and three arguments were accepted with exit code 0. The arity fixture
+is a regression probe, not evidence of a passing rejection path.
 
 Build from the `crosscompiler` directory on Windows:
 
