@@ -1,27 +1,50 @@
-# SWC Crosscompiler Working Tree
+# SWC crosscompiler sources and validated Windows compiler
 
-This directory is the reconstructed crosscompiler working tree.
+Current Windows update: 2026-10-15. `bin/swc.exe` and
+`bin/swc-windows-selfhost.exe` contain the validated native Windows compiler.
 
-## Validated compiler roots
+- Compiler: 146,432 bytes, SHA256
+  `39DAE62B08BDB1362C05BEF46C9315D121255E074C78ABDE883E8CF410AB4DD9`.
+- Matching source: `source/windows/se/swc-selfhost-windows.se`, SHA256
+  `1F8C8A04E000D653BCB0A60DA6DBA9673689529CFF7234C4FBB6EC573D8FE74B`.
+- Build entry: `manifests/swc.smod`; its paths are relative to the manifest.
+- Stage2, Stage3 and the native SMOD Embed-All build produce identical bytes.
 
-- `bin/swc.exe` — native Windows Semantic selfhost, PE/EXE output.
-- `bin/swc-windows-to-elf.exe` — Windows host with the recovered ELF backend.
-- `bin/swc-linux.elf` — native Linux Semantic selfhost, ELF output.
-- `bin/swc-linux-selfhost-pe.exe` — Linux host with the recovered PE backend.
+Build from the `crosscompiler` directory on Windows:
 
-All compiler inputs are Semantic/UAST sources. No Go host wrapper or external LLVM/linker is part of this tree.
+```powershell
+./bin/swc.exe compile ./manifests/swc.smod -o ./swc-rebuilt.exe --embed-all
+./bin/swc.exe compile ./source/windows/se/return42.se -o ./return42.exe
+.\return42.exe
+# Expected process exit: 42
+```
 
-## Reconstructed Windows to ELF proof
+Use forward slashes for the SMOD input path: the current native manifest
+resolver searches for `/` when resolving manifest-relative source paths.
 
-`bin/swc-windows-to-elf.exe` compiled `tests/return42.se` to `bin/return42-windows-to-elf.elf`.
-The output is a 4,210-byte x86-64 ELF and returns exit code `42` under WSL.
+The validated Windows graph supports the tested flat tuple destructuring,
+ordered single evaluation, boolean-not, integer negation/complement, numeric
+node-relation IDs, and ReturnStmt operands using `expression` or `value`.
+This is not a claim that every catalogued UAST kind is executable.
 
-## Source layout
+## Existing source layout
 
-- `source/windows/se/` — Windows/PE Semantic backend.
-- `source/linux/selfhost/` — Linux/ELF Semantic selfhost.
-- `source/shared/se/` — shared frontend, module, runtime, backend and transpiler units.
-- `source/shared/modules/` — SMOD manifests and module dependencies.
-- `manifests/` — target and cross-validation manifests.
+- `source/windows/se/`: Windows compiler graph and native SE regression fixtures.
+- `source/shared/se/units/`: individual Semantic implementation units.
+- `source/shared/se/transpiler-matrix/`: matrix source and existing matrix material.
+- `source/shared/modules/`: existing shared module manifests.
+- `source/linux/` and `source/mac/`: existing platform sources.
+- `manifests/`: compiler build and cross-validation manifests.
+- `docs/`: validation evidence and implementation status.
 
-The active repository `swc.exe` was not overwritten while reconstructing this tree.
+Shared units can be ahead of the activated compiler graph. The newer foreach,
+member/index and slice experiments are source material, not validated release
+features. The active manifest intentionally selects the validated graph rather
+than importing every experimental unit. See `docs/RELEASE-2026-10-13.md` for the
+current update and limitations; that existing filename is retained.
+
+The Linux, macOS and Windows-to-ELF executables are retained from their existing
+releases. They were not rebuilt or revalidated by this Windows update.
+
+No Go host wrapper, appended Semantic-source payload, LLVM or external linker
+is introduced by this update. Existing Git LFS rules are retained.
