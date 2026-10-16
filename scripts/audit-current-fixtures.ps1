@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$CompilerPath = (Join-Path (Get-Location) 'swc.exe'),
-    [string]$CompilerSource = (Join-Path (Get-Location) 'src\swc-selfhost-windows.se'),
-    [string]$FixtureDirectory = (Join-Path (Get-Location) 'tests'),
+    [string]$CompilerPath = (Join-Path $PSScriptRoot '../crosscompiler/bin/swc.exe'),
+    [string]$CompilerSource = (Join-Path $PSScriptRoot '../crosscompiler/source/windows/se/swc-selfhost-windows.se'),
+    [string]$FixtureDirectory = (Join-Path $PSScriptRoot '../crosscompiler/source/windows/se'),
     [string]$OutputDirectory = (Join-Path (Get-Location) 'tmp\current-fixture-audit')
 )
 

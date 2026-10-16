@@ -1,8 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$CompilerPath = (Join-Path (Get-Location) 'swc.exe'),
-    [string]$SourcePath = (Join-Path (Get-Location) 'src\swc-selfhost-windows.se'),
-    [string]$ProbePath = (Join-Path (Get-Location) 'tests\return42.se'),
+    [string]$CompilerPath = (Join-Path $PSScriptRoot '../crosscompiler/bin/swc.exe'),
+    [string]$SourcePath = (Join-Path $PSScriptRoot '../crosscompiler/manifests/swc.smod'),
+    [string]$ProbePath = (Join-Path $PSScriptRoot '../crosscompiler/source/windows/se/return42.se'),
     [string]$OutputDirectory = (Join-Path (Get-Location) 'tmp\current-state-build'),
     [ValidateSet('--embed-all','--embed-needed','--no-modules')]
     [string]$EmbedMode = '--embed-all',
@@ -136,8 +136,8 @@ if ($probeBuild.exit_code -eq 0 -and $probeArtifact.exists) {
 }
 
 $byteStable = $stage2Artifact.exists -and $stage3Artifact.exists -and ($stage2Artifact.sha256 -eq $stage3Artifact.sha256)
-$stage2Passed = $stage2.exit_code -eq 0 -and $stage2Artifact.exists -and -not $stage2Runtime.timed_out -and $stage2Pe.valid -and $stage2Pe.x64 -and $stage2Pe.entry_in_text -and -not $stage2Pe.trivial_entry_stub
-$stage3Passed = $stage3.exit_code -eq 0 -and $stage3Artifact.exists -and -not $stage3Runtime.timed_out -and $stage3Pe.valid -and $stage3Pe.x64 -and $stage3Pe.entry_in_text -and -not $stage3Pe.trivial_entry_stub
+$stage2Passed = $stage2.exit_code -eq 0 -and $stage2Artifact.exists -and $stage2Runtime.exit_code -eq 0 -and -not $stage2Runtime.timed_out -and $stage2Pe.valid -and $stage2Pe.x64 -and $stage2Pe.entry_in_text -and -not $stage2Pe.trivial_entry_stub
+$stage3Passed = $stage3.exit_code -eq 0 -and $stage3Artifact.exists -and $stage3Runtime.exit_code -eq 0 -and -not $stage3Runtime.timed_out -and $stage3Pe.valid -and $stage3Pe.x64 -and $stage3Pe.entry_in_text -and -not $stage3Pe.trivial_entry_stub
 $probePassed = $probeBuild.exit_code -eq 0 -and $probeArtifact.exists -and $probeRuntime.exit_code -eq 42
 
 $report = [ordered]@{

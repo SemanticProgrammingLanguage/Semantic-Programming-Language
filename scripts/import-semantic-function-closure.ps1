@@ -9,6 +9,8 @@ param(
     [switch]$ReplaceStubs,
     [switch]$AllocateAfterMax,
     [switch]$KeepLowIds,
+    [switch]$EnablePebIntrinsic,
+    [switch]$EnableWin64CallIntrinsics,
     [string[]]$ReplaceBinding = @(),
     [string]$ReportPath
 )
@@ -210,7 +212,14 @@ function Get-FunctionCalls([Collections.Generic.HashSet[string]]$Ids, [object]$I
     $calls = [Collections.Generic.HashSet[string]]::new()
     foreach ($id in $Ids) {
         $node = $Index.NodeById[$id]
-        if ($null -eq $node -or $node.structural_kind -ne 'CallExpr' -or !$Index.ChildEdges.ContainsKey($id)) { continue }
+        if ($null -eq $node -or $node.structural_kind -ne 'CallExpr') { continue }
+        if (!$Index.ChildEdges.ContainsKey($id)) {
+            throw "CallExpr $id has no child relations; refusing incomplete function import"
+        }
+        $targetEdges = @($Index.ChildEdges[$id] | Where-Object { $_.Role -in @('callee','function','target','value') })
+        if ($targetEdges.Count -eq 0) {
+            throw "CallExpr $id has arguments but no callee relation; refusing incomplete function import"
+        }
         foreach ($edge in @($Index.ChildEdges[$id] | Sort-Object Ordinal)) {
             # Canonical units use `callee`; the ISA-L execution projection
             # carries the direct call target in the same `value` slot used by
@@ -289,6 +298,20 @@ foreach ($source in $sources) {
 $bindingLookup = @{}
 foreach ($binding in $catalog.Keys) { $bindingLookup[[string]$binding] = [string]$binding }
 foreach ($binding in $coreIndex.Closures.Keys) { if (!$bindingLookup.ContainsKey([string]$binding)) { $bindingLookup[[string]$binding] = [string]$binding } }
+foreach ($source in $sources) {
+    $exports = $source.Graph.Extensions.function_entry_bindings
+    if ($null -eq $exports) { continue }
+    foreach ($export in $exports.PSObject.Properties) {
+        $publicName = [string]$export.Name
+        $internalName = [string]$export.Value
+        if ($catalog.ContainsKey($publicName) -and $catalog.ContainsKey($internalName) -and
+            $catalog[$publicName].Path -eq $source.Graph.Path -and
+            $catalog[$internalName].Path -eq $source.Graph.Path -and
+            $catalog[$publicName].Root -eq $catalog[$internalName].Root) {
+            $bindingLookup[$internalName] = $publicName
+        }
+    }
+}
 # The rich reader bundle uses the documented memory ABI spellings while the
 # Windows SWC core exposes the same four primitives under its native emitter
 # bindings.  Preserve the call graph by aliasing only when the target core
@@ -351,6 +374,20 @@ foreach ($binding in @($bindingLookup.Keys)) {
 if ($coreIndex.Closures.ContainsKey('parse') -and !$bindingLookup.ContainsKey('Parse')) {
     $bindingLookup['Parse'] = 'parse'
 }
+foreach ($intrinsicName in @('mem_load8','mem_load64','mem_store8','mem_store64','address_of','sys_mmap','sys_open','sys_read','sys_write','sys_close')) {
+    if (!$bindingLookup.ContainsKey($intrinsicName)) { $bindingLookup[$intrinsicName] = $intrinsicName }
+}
+if ($EnablePebIntrinsic -or $coreIndex.Closures.ContainsKey('emit_win64_peb_address')) {
+    # The unresolved source spelling is frontend qualification of the same
+    # intrinsic, not a new external runtime dependency. Availability is checked
+    # against compile_expr below before accepting the canonical call.
+    $bindingLookup['ifree_peb_address'] = 'ifree_peb_address'
+}
+if ($EnableWin64CallIntrinsics -or $coreIndex.Closures.ContainsKey('compile_ifree_win64_call')) {
+    foreach ($arity in 0..7) {
+        $bindingLookup['ifree_win64_call'+$arity] = 'ifree_win64_call'+$arity
+    }
+}
 
 $requested = [Collections.Generic.Queue[string]]::new()
 if ($ImportAll) {
@@ -395,6 +432,24 @@ $nativeRuntimeBindings = [Collections.Generic.HashSet[string]]::new([string[]]@(
     'sys_mmap','sys_open','sys_read','sys_write','sys_close',
     'mem_load8','mem_load64','mem_store8','mem_store64','address_of'
 ))
+if ($EnablePebIntrinsic) { [void]$nativeRuntimeBindings.Add('ifree_peb_address') }
+if ($EnableWin64CallIntrinsics) {
+    foreach ($arity in 0..7) { [void]$nativeRuntimeBindings.Add('ifree_win64_call'+$arity) }
+}
+if ($coreIndex.Closures.ContainsKey('compile_ifree_win64_call') -and $coreIndex.Closures.ContainsKey('compile_expr')) {
+    $compileIds = Get-SyntaxSubtree ([string]$coreIndex.Closures['compile_expr']) $coreIndex
+    $compileCalls = Get-FunctionCalls $compileIds $coreIndex $bindingLookup
+    if ($compileCalls.Contains('compile_ifree_win64_call')) {
+        foreach ($arity in 0..7) { [void]$nativeRuntimeBindings.Add('ifree_win64_call'+$arity) }
+    }
+}
+if ($coreIndex.Closures.ContainsKey('compile_expr') -and $coreIndex.Closures.ContainsKey('emit_win64_peb_address')) {
+    $compileIds = Get-SyntaxSubtree ([string]$coreIndex.Closures['compile_expr']) $coreIndex
+    $compileCalls = Get-FunctionCalls $compileIds $coreIndex $bindingLookup
+    if ($compileCalls.Contains('emit_win64_peb_address')) {
+        [void]$nativeRuntimeBindings.Add('ifree_peb_address')
+    }
+}
 foreach ($edge in $dependencyEdges) {
     if (!$catalog.ContainsKey([string]$edge.callee) -and
         !$coreIndex.Closures.ContainsKey([string]$edge.callee) -and
@@ -420,10 +475,25 @@ $usedIds = [Collections.Generic.HashSet[int]]::new()
 $maxId = 0
 $nextFreeId = 1
 $maxRootOrdinal = -1
+function Order-SymbolFields([object]$Fields) {
+    # The native reader scans identifier fields in transport order. Preserve
+    # all field values while putting kind before name, including retained core
+    # nodes. Otherwise a semantically lossless merge can produce a compiler
+    # that dereferences a null callee name during its next self-build.
+    if (!$Fields -or !$Fields.PSObject.Properties['kind']) { return $Fields }
+    $orderedFields = [ordered]@{ kind=$Fields.kind }
+    foreach ($property in $Fields.PSObject.Properties) {
+        if ($property.Name -ne 'kind') { $orderedFields[$property.Name]=$property.Value }
+    }
+    return [pscustomobject]$orderedFields
+}
 foreach ($node in $core.Nodes) {
     if ($removeIds.Contains([string]$node.id)) { continue }
     [void]$usedIds.Add([int]$node.id)
     $maxId = [Math]::Max($maxId, [int]$node.id)
+    if ($node.structural_kind -eq 'SymbolRef') {
+        $node.fields = Order-SymbolFields $node.fields
+    }
     $outputNodes.Add(($node | ConvertTo-Json -Depth 100 -Compress))
 }
 # Appending after the real graph maximum is the safe default.  The old
@@ -496,6 +566,10 @@ foreach ($binding in @($selected | Sort-Object)) {
             $fieldsObject.operation | Add-Member -NotePropertyName function_binding -NotePropertyValue $binding -Force
             $fields = $fieldsObject | ConvertTo-Json -Depth 100 -Compress
         }
+        # Imported closures and control nodes also need their discriminator
+        # before body/branches/operands in the current native reader. Unlike
+        # the retained core, imported units all use this canonical ordering.
+        $fields = (Order-SymbolFields ($fields | ConvertFrom-Json)) | ConvertTo-Json -Depth 100 -Compress
         $outputNodes.Add('{"id":' + $map[$oldId] + ',"structural_kind":' + ([string]$node.structural_kind | ConvertTo-Json -Compress) + ',"fields":' + $fields + '}')
     }
     $relationCount = 0

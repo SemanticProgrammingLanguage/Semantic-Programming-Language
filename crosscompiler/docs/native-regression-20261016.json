@@ -1,0 +1,379 @@
+[
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "version"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "help"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\return42.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\return42.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\return42.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-argc.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\argc.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\argc.exe",
+    "arguments": [
+      "one",
+      "two"
+    ],
+    "expected": 3,
+    "actual": 3,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-argv-first-byte.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\argv.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\argv.exe",
+    "arguments": [
+      "version"
+    ],
+    "expected": 118,
+    "actual": 118,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-native-io.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\native-io.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\native-io.exe",
+    "arguments": [],
+    "expected": 39,
+    "actual": 39,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-binding-pattern-swap.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-binding-pattern-swap.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-binding-pattern-swap.exe",
+    "arguments": [],
+    "expected": 37,
+    "actual": 37,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-binding-pattern-effects-once.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-binding-pattern-effects-once.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-binding-pattern-effects-once.exe",
+    "arguments": [],
+    "expected": 13,
+    "actual": 13,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-foreach-sum.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-sum.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-sum.exe",
+    "arguments": [],
+    "expected": 33,
+    "actual": 33,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-foreach-break.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-break.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-break.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-foreach-continue.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-continue.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-foreach-continue.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-slice-identity-index.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-slice-identity-index.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-slice-identity-index.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-tuple-effects-once.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-tuple-effects-once.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-tuple-effects-once.exe",
+    "arguments": [],
+    "expected": 24,
+    "actual": 24,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-nested-tuple-index-value.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-nested-tuple-index-value.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-nested-tuple-index-value.exe",
+    "arguments": [],
+    "expected": 35,
+    "actual": 35,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-peb-arity-rejected.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\importfree-peb-arity-rejected-rejected.exe"
+    ],
+    "expected": 3,
+    "actual": 3,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-intrinsic-arity-rejected.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-intrinsic-arity-rejected-rejected.exe"
+    ],
+    "expected": 3,
+    "actual": 3,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-binding-pattern-arity-invalid.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-binding-pattern-arity-invalid-rejected.exe"
+    ],
+    "expected": 3,
+    "actual": 3,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\matrix-slice-missing-contract-rejected.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\matrix-slice-missing-contract-rejected-rejected.exe"
+    ],
+    "expected": 3,
+    "actual": 3,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-return42.smod",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\smod-default.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\smod-default.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\source\\windows\\se\\importfree-return42.smod",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\smod-explicit.exe",
+      "--embed-all"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\smod-explicit.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\input with spaces.se",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\output with spaces.exe"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\output with spaces.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\crosscompiler\\bin\\swc.exe",
+    "arguments": [
+      "compile",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\absolute unit.smod",
+      "-o",
+      "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\absolute unit.exe",
+      "--embed-all"
+    ],
+    "expected": 0,
+    "actual": 0,
+    "passed": true
+  },
+  {
+    "file": "C:\\Users\\tarek\\Desktop\\Semantic-Programming-Language\\tmp\\release-validation-20261016\\paths with spaces\\absolute unit.exe",
+    "arguments": [],
+    "expected": 42,
+    "actual": 42,
+    "passed": true
+  }
+]

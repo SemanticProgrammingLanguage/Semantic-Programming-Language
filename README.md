@@ -45,6 +45,12 @@ The repository contains the native Semantic crosscompiler in [`crosscompiler/`](
 For the exact Windows source/manifest revision, active executable hash, and
 current validation limitations, see the [crosscompiler status](./crosscompiler/README.md).
 
+Windows update (2026-10-16): the active SWC is 228,352 bytes, has no static
+DLL/CRT imports or appended payload, and passes byte-identical Stage2/Stage3
+selfhosting plus 38 native regression checks. Windows APIs are resolved
+dynamically; Windows remains required. See the
+[release evidence](./crosscompiler/docs/RELEASE-2026-10-16.md).
+
 The crosscompiler is built from Semantic source units and contains the complete compiler structure required for frontend processing, UAST handling, module resolution, lowering, backend code generation, and target-specific executable emission.
 
 ### Supported compiler roots

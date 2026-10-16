@@ -1,0 +1,1 @@
+{"schema":"slc.semantic-module.v1","name":"importfree-return42","version":"1.0.0","language":"semantic","entry_point":"main","dependencies":[],"files":[{"kind":"semantic","language":"semantic","path":"return42.se","semantic_path":"return42.se","status":"SEMANTIC_READY"}]}

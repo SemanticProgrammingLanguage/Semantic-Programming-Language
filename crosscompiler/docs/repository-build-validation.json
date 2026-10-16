@@ -1,0 +1,48 @@
+{
+  "schema": "swc.repository-release-validation.v1",
+  "date": "2026-10-16",
+  "compiler": "crosscompiler/bin/swc.exe",
+  "compiler_bytes": 228352,
+  "compiler_sha256": "D2148E6C8B4EEB829B4F956AECD95F967E98DD2C4424C942211FE8082BD1D4F5",
+  "source": "crosscompiler/source/windows/se/swc-selfhost-windows.se",
+  "source_bytes": 7278749,
+  "source_sha256": "AF18A2A4DF71AD90E9F0BEB5A74E5C290AC63EF436379B2132DDA6605AFDDD45",
+  "manifest": "crosscompiler/manifests/swc.smod",
+  "manifest_paths": "relative-to-manifest-directory",
+  "manifest_hashes_valid": true,
+  "shared_manifest_files_checked": 9,
+  "repository_rebuild": {
+    "command": "./crosscompiler/bin/swc.exe compile ./crosscompiler/manifests/swc.smod -o <output.exe> --embed-all",
+    "exit_code": 0,
+    "bytes": 228352,
+    "sha256": "D2148E6C8B4EEB829B4F956AECD95F967E98DD2C4424C942211FE8082BD1D4F5",
+    "identical_to_shipped_compiler": true,
+    "version_exit_code": 0
+  },
+  "workspace_selfhost": {
+    "stage1_stage2_stage3_identical": true,
+    "stage2_exit_code": 0,
+    "stage3_exit_code": 0,
+    "embed_mode": "--embed-all"
+  },
+  "repository_native_regression": {
+    "checks": 38,
+    "passed": 38,
+    "failed": 0,
+    "report": "native-regression-20261016.json"
+  },
+  "pe": {
+    "machine": "x86_64",
+    "text_virtual_bytes": 227759,
+    "text_raw_bytes": 227840,
+    "import_directory": [0, 0],
+    "bound_import_directory": [0, 0],
+    "iat_directory": [0, 0],
+    "delay_import_directory": [0, 0],
+    "overlay_bytes": 0,
+    "windows_apis": "dynamically-resolved-through-PEB"
+  },
+  "other_platforms_revalidated": false,
+  "full_transpiler_parity_claimed": false,
+  "full_uast_coverage_claimed": false
+}
